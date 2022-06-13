@@ -4,6 +4,7 @@ import Feed from "../../pages/feed";
 import Login from "../../pages/login";
 import SignUp from "../../pages/singup";
 import Landing from "../../pages/landing";
+import ForgotPassword from "../../pages/forgotPassword";
 
 const BasicRoutes = () => (
   <Router>
@@ -11,6 +12,7 @@ const BasicRoutes = () => (
       <Route path="/" element={<Landing />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
+      <Route path="forgot" element={<ForgotPassword />} />
       <Route path="feed" element={<Feed />} />
     </Routes>
   </Router>

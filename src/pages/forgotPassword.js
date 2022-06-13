@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Check, User, Lock } from 'react-feather';
+import { Check, User, Lock } from "react-feather";
 
-export default class Login extends Component {
+export default class ForgotPassword extends Component {
   render() {
     return (
       <div className="login-wrapper columns is-gapless">
@@ -21,22 +21,17 @@ export default class Login extends Component {
           <div className="hero form-hero is-fullheight">
             <div className="logo-wrap">
               <div className="wrap-inner">
-                <img src="/img/logo/friendkit-white.svg" alt="" />
+              <img src="/img/logo/friendkit-white.svg" alt="" />
               </div>
             </div>
             <div className="hero-body">
               <div className="form-wrapper">
-                <div className="avatar">
-                  <div className="badge">
-                    <Check />
-                  </div>
-                  <img
-                    src="/img/avatars/profile_icon.png"
-                    data-demo-src="/img/avatars/profile_icon.png"
-                    alt=""
-                  />
-                </div>
                 <div className="login-form">
+                <div className="field">
+                    <div className="control">
+                      <h1>Forgot Password?</h1>
+                    </div>
+                  </div>
                   <div className="field">
                     <div className="control">
                       <input
@@ -51,27 +46,15 @@ export default class Login extends Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <input
-                        className="input password-input"
-                        type="password"
-                        placeholder="●●●●●●●"
-                      />
-                      <div className="input-icon">
-                        <Lock />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <div className="control">
                       <button className="button is-solid primary-button raised is-rounded is-fullwidth">
-                        Login
+                        Continue
                       </button>
                     </div>
                   </div>
                 </div>
                 <div className="section forgot-password">
                   <div className="has-text-centered">
-                    <Link to="/forgot">Forgot password?</Link>
+                    <Link to="/login">Back to Login</Link>
                   </div>
                 </div>
               </div>
