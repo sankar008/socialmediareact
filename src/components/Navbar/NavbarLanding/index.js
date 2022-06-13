@@ -49,7 +49,7 @@ const BasicNavbar = () => {
                             <Link to="#demos-section">Demos</Link>
                         </div>
                         <div className="navbar-item">
-                            <Link>Docs</Link>
+                            <Link to="/">Docs</Link>
                         </div>
                     </div>
                     <div className="navbar-end">
@@ -121,11 +121,11 @@ useLayoutEffect(() => {
 
                 {/* <!-- Mobile Dropdown --> */}
                 <div className="navbar-dropdown">
-                    <Link to="#" className="navbar-item">Buy</Link>
+                    <Link to="/" className="navbar-item">Buy</Link>
                     <Link to="#demos-section" className="navbar-item">Demos</Link>
                     <Link to="https://docs.friendkit.cssninja.io" className="navbar-item">Docs</Link>
-                    <Link to="login" className="navbar-item">Login</Link>
-                    <Link to="signup" className="button is-fullwidth is-solid accent-button">Sign Up</Link>
+                    <Link to="/login" className="navbar-item">Login</Link>
+                    <Link to="/signup" className="button is-fullwidth is-solid accent-button">Sign Up</Link>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@ export const Navbar = () => {
     const { width } = useViewport();
     const breakpoint = 620;
 
-    useEffect((width, breakpoint) => (width < breakpoint ? <NavbarMobile /> : <BasicNavbar />))
+    useEffect((width, breakpoint) => {(width < breakpoint ? <NavbarMobile /> : <BasicNavbar />)}, [])
 
     return width < breakpoint ? <NavbarMobile /> : <BasicNavbar />;
 

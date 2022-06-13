@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Check, Lock, User } from "react-feather";
 import { Link } from "react-router-dom";
-import { Check, User, Lock } from 'react-feather';
+import profile_icon from "../assets/img/avatars/profile_icon.png";
+import friendkit from "../assets/img/logo/friendkit-white.svg";
 
 export default class Login extends Component {
   render() {
@@ -21,7 +23,7 @@ export default class Login extends Component {
           <div className="hero form-hero is-fullheight">
             <div className="logo-wrap">
               <div className="wrap-inner">
-                <img src="/img/logo/friendkit-white.svg" alt="" />
+                <img src={friendkit} alt="" />
               </div>
             </div>
             <div className="hero-body">
@@ -30,11 +32,7 @@ export default class Login extends Component {
                   <div className="badge">
                     <Check />
                   </div>
-                  <img
-                    src="/img/avatars/profile_icon.png"
-                    data-demo-src="/img/avatars/profile_icon.png"
-                    alt=""
-                  />
+                  <img src={profile_icon} alt="" />
                 </div>
                 <div className="login-form">
                   <div className="field">
@@ -63,9 +61,11 @@ export default class Login extends Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <button className="button is-solid primary-button raised is-rounded is-fullwidth">
-                        Login
-                      </button>
+                      <Link to="/feed">
+                        <button className="button is-solid primary-button raised is-rounded is-fullwidth">
+                          Login
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

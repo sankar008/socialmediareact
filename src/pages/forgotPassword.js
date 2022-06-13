@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { User } from "react-feather";
 import { Link } from "react-router-dom";
-import { Check, User, Lock } from "react-feather";
+import friendkit from "../assets/img/logo/friendkit-white.svg";
 
 export default class ForgotPassword extends Component {
   render() {
@@ -21,13 +22,13 @@ export default class ForgotPassword extends Component {
           <div className="hero form-hero is-fullheight">
             <div className="logo-wrap">
               <div className="wrap-inner">
-              <img src="/img/logo/friendkit-white.svg" alt="" />
+                <img src={friendkit} alt="" />
               </div>
             </div>
             <div className="hero-body">
               <div className="form-wrapper">
                 <div className="login-form">
-                <div className="field">
+                  <div className="field">
                     <div className="control">
                       <h1>Forgot Password?</h1>
                     </div>
