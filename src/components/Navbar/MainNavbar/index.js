@@ -10,7 +10,7 @@ import { CartDropdown } from '../dropdowns/cart-dropdown';
 import { AccountDropdown } from '../dropdowns/account-dropdown';
 
 const BasicNavbar = (props) => (
-    <div id="main-navbar" class={`navbar is-inline-flex is-transparent is-hidden-mobile ${props.navScroll ? "" : `no-shadow`}`}>
+    <div id="main-navbar" class="navbar navbar-v1 is-inline-flex is-transparent no-shadow is-hidden-mobile">
         <div class="container is-fluid">
             <div class="navbar-brand">
                 <a href="/" class="navbar-item">

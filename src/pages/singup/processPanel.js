@@ -15,7 +15,7 @@ const FirstPanel = (props) => {
 
     return (
         <div id="signup-panel-1" className={props.stage === 0 ? isActive : isInactive}>
-            <div className="columns">
+            <div className="columns is-justify-content-center	">
                 <div className="column is-4">
                     <div className="account-type">
                         <img src={company} alt="" />
@@ -26,7 +26,7 @@ const FirstPanel = (props) => {
                         </button>
                     </div>
                 </div>
-                <div className="column is-4">
+                {/* <div className="column is-4">
                     <div className="account-type">
                         <img src={publi} alt="" />
                         <h3>Public Person</h3>
@@ -35,7 +35,7 @@ const FirstPanel = (props) => {
                             Continue
                         </button>
                     </div>
-                </div>
+                </div> */}
                 <div className="column is-4">
                     <div className="account-type">
                         <img src={personal} alt="" />

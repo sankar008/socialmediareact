@@ -79,7 +79,6 @@ export default function SignUp() {
       <FakeNav />
       <ProcessBar stage={stage} />
       <ProcessPanel stage={stage} setStage={setStage} />
-      <h1>SignUp</h1>
     </div>
   );
 }
