@@ -82,9 +82,9 @@ const SecondPanel = (props) => {
 
             <div className="buttons">
                 <button onClick={() => props.setStage(props.stage - 1)}
-                    className="button is-rounded process-button">Back</button>
+                    className="button is-rounded is-solid dark-grey-button ">Back</button>
                 <button onClick={() => props.setStage(props.stage + 1)}
-                    className="button is-rounded process-button is-next">Next</button>
+                    className="button is-rounded is-solid primary-button">Next</button>
             </div>
         </div>
     )
@@ -114,9 +114,9 @@ const ThirdPanel = (props) => {
 
                 <div className="buttons">
                     <button onClick={() => props.setStage(props.stage - 1)}
-                        className="button is-rounded process-button" >Back</button>
+                        className="button is-rounded is-solid dark-grey-button " >Back</button>
                     <button onClick={() => props.setStage(props.stage + 1)}
-                        className="button is-rounded process-button is-next" >Next</button>
+                        className="button is-rounded is-solid primary-button" >Next</button>
                 </div>
             </div>
     )
@@ -150,9 +150,9 @@ const FourthPanel = (props) => {
 
                 <div className="buttons">
                     <button onClick={() => props.setStage(props.stage - 1)}
-                        className="button is-rounded process-button" >Back</button>
+                        className="button is-rounded is-solid dark-grey-button " >Back</button>
                     <button onClick={() => props.setStage(props.stage + 1)}
-                        className="button is-rounded process-button is-next" >Next</button>
+                        className="button is-rounded is-solid primary-button" >Next</button>
                 </div>
             </div>
 

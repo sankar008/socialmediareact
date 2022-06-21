@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Feed from "../../pages/feed";
+import Feeds from "../../pages/feeds";
 import Login from "../../pages/login";
 import SignUp from "../../pages/singup";
 import Landing from "../../pages/landing";
@@ -13,7 +13,7 @@ const BasicRoutes = () => (
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="forgot" element={<ForgotPassword />} />
-      <Route path="feed" element={<Feed />} />
+      <Route path="feeds" element={<Feeds />} />
     </Routes>
   </Router>
 );

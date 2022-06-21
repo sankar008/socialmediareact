@@ -1,6 +1,6 @@
 import Login from "../../pages/login";
 import Landing from "../../pages/landing/index";
-import Feed from "../../pages/feed/index";
+import Feeds from "../../pages/feeds/index";
 import Signup from "../../pages/singup/index";
 
 export const routes = [
@@ -13,8 +13,8 @@ export const routes = [
     component: Login,
   },
   {
-    path: "/feed",
-    component: Feed,
+    path: "/feeds",
+    component: Feeds,
   },
   {
     path: "/signup",
