@@ -168,7 +168,7 @@ const FifthPanel = (props) => {
                     <div className="success-text">
                         <h3>Congratz, you successfully created your account.</h3>
                         <p> We just sent you a confirmation email. PLease confirm your account within 24 hours.</p>
-                        <Link id="signup-finish" to="/feed" className="button is-fullwidth is-rounded">Let Me In</Link>
+                        <Link id="signup-finish" to="/feeds" className="button is-fullwidth is-rounded">Let Me In</Link>
                     </div>
                 </div>
             </div>

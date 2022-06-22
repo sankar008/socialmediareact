@@ -61,7 +61,7 @@ export default class Login extends Component {
                   </div>
                   <div className="field">
                     <div className="control">
-                      <Link to="/feed">
+                      <Link to="/feeds">
                         <button className="button is-solid primary-button raised is-rounded is-fullwidth">
                           Login
                         </button>
