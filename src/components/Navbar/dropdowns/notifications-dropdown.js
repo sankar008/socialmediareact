@@ -52,7 +52,7 @@ export const NotificationsDropdown = () => {
                             </div>
                             <div class="media-right">
                                 <div class="added-icon">
-                                    <i data-feather="heart"></i>
+                                    <heart />
                                 </div>
                             </div>
                         </div>

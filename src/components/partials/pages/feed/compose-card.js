@@ -1,85 +1,134 @@
-export default function ComposeCard() {
+import { useState } from "react";
+import {
+  Bell,
+  Camera,
+  Edit3,
+  Globe,
+  Image,
+  Link2,
+  Lock,
+  MapPin,
+  MoreHorizontal,
+  MoreVertical,
+  Plus,
+  Search,
+  Smile,
+  Tag,
+  User,
+  Users,
+  Video,
+  X,
+} from "react-feather";
+
+export default function ComposeCard(props) {
+  const [isActive, setIsActive] = useState(false);
+  const [extended, setExtended] = useState(false);
+
+  const openModal = () => {
+    setIsActive(true);
+    props.setAppOverlay(true);
+  };
+
+  const closeModal = () => {
+    setIsActive(false);
+    setExtended(false);
+    props.setAppOverlay(false);
+  };
+
+  const openAlbumModal = () => {
+    props.setAlbumOverlay(true);
+  }
+
+  const openVideoModal = () => {
+    props.setVideoOverlay(true);
+  }
+
   return (
-    <div id="compose-card" class="card is-new-content">
+    <div
+      id="compose-card"
+      className={`card is-new-content ${isActive ? "is-highlighted" : ""}`}
+      style={{ overflow: "visible" }}
+    >
       {/* Top tabs */}
-      <div class="tabs-wrapper">
-        <div class="tabs is-boxed is-fullwidth">
+      <div className="tabs-wrapper">
+        <div className="tabs is-boxed is-fullwidth">
           <ul>
-            <li class="is-active">
+            <li className="is-active">
               <a>
-                <span class="icon is-small">
-                  <i data-feather="edit-3"></i>
+                <span className="icon is-small">
+                  <Edit3 />
                 </span>
                 <span>Publish</span>
               </a>
             </li>
-            <li>
-              <a class="modal-trigger" data-modal="albums-help-modal">
-                <span class="icon is-small">
-                  <i data-feather="image"></i>
+            <li onClick={openAlbumModal}>
+              <a className="modal-trigger" data-modal="albums-help-modal">
+                <span className="icon is-small">
+                  <Image />
                 </span>
                 <span>Albums</span>
               </a>
             </li>
-            <li>
-              <a class="modal-trigger" data-modal="videos-help-modal">
-                <span class="icon is-small">
-                  <i data-feather="video"></i>
+            <li onClick={openVideoModal}>
+              <a className="modal-trigger" data-modal="videos-help-modal">
+                <span className="icon is-small">
+                  <Video />
                 </span>
                 <span>Video</span>
               </a>
             </li>
             {/* Close X button */}
-            <li class="close-wrap">
-              <span class="close-publish">
-                <i data-feather="x"></i>
+            <li className="close-wrap">
+              <span className="close-publish" onClick={() => closeModal()}>
+                <X />
               </span>
             </li>
           </ul>
         </div>
 
         {/* Tab content */}
-        <div class="tab-content">
+        <div className="tab-content">
           {/* Compose form */}
-          <div class="compose">
-            <div class="compose-form">
+          <div className="compose">
+            <div className="compose-form">
               <img
-                src="https://via.placeholder.com/300x300"
+                src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
                 data-demo-src="assets/img/avatars/jenna.png"
                 alt=""
               />
-              <div class="control">
+              <div className="control">
                 <textarea
                   id="publish"
-                  class="textarea"
+                  className="textarea"
                   rows="3"
                   placeholder="Write something about you..."
+                  onFocus={openModal}
                 ></textarea>
               </div>
             </div>
 
-            <div id="feed-upload" class="feed-upload"></div>
+            <div id="feed-upload" className="feed-upload"></div>
 
-            <div id="options-summary" class="options-summary"></div>
+            <div id="options-summary" className="options-summary"></div>
 
             <div
               id="tag-suboption"
-              class="is-autocomplete is-suboption is-hidden"
+              className="is-autocomplete is-suboption is-hidden"
             >
               {/* Tag friends suboption */}
-              <div id="tag-list" class="tag-list"></div>
-              <div class="control">
+              <div id="tag-list" className="tag-list"></div>
+              <div className="control">
                 <input
                   id="users-autocpl"
                   type="text"
-                  class="input"
+                  className="input"
                   placeholder="Who are you with?"
                 />
-                <div class="icon">
-                  <i data-feather="search"></i>
+                <div className="icon">
+                  <Search />
                 </div>
-                <div class="close-icon is-main">
-                  <i data-feather="x"></i>
+                <div className="close-icon is-main">
+                  <X />
                 </div>
               </div>
             </div>
@@ -88,38 +137,38 @@ export default function ComposeCard() {
             {/* Activities suboption */}
             <div
               id="activities-suboption"
-              class="is-autocomplete is-suboption is-hidden"
+              className="is-autocomplete is-suboption is-hidden"
             >
-              <div id="activities-autocpl-wrapper" class="control has-margin">
+              <div id="activities-autocpl-wrapper" className="control has-margin">
                 <input
                   id="activities-autocpl"
                   type="text"
-                  class="input"
+                  className="input"
                   placeholder="What are you doing right now?"
                 />
-                <div class="icon">
-                  <i data-feather="search"></i>
+                <div className="icon">
+                  <Search />
                 </div>
-                <div class="close-icon is-main">
-                  <i data-feather="x"></i>
+                <div className="close-icon is-main">
+                  <X />
                 </div>
               </div>
 
               {/* Mood suboption */}
               <div
                 id="mood-autocpl-wrapper"
-                class="is-autocomplete is-activity is-hidden"
+                className="is-autocomplete is-activity is-hidden"
               >
-                <div class="control has-margin">
+                <div className="control has-margin">
                   <input
                     id="mood-autocpl"
                     type="text"
-                    class="input is-subactivity"
+                    className="input is-subactivity"
                     placeholder="How do you feel?"
                   />
-                  <div class="input-block">Feels</div>
-                  <div class="close-icon is-subactivity">
-                    <i data-feather="x"></i>
+                  <div className="input-block">Feels</div>
+                  <div className="close-icon is-subactivity">
+                    <X />
                   </div>
                 </div>
               </div>
@@ -127,18 +176,18 @@ export default function ComposeCard() {
               {/* Drinking suboption child */}
               <div
                 id="drinking-autocpl-wrapper"
-                class="is-autocomplete is-activity is-hidden"
+                className="is-autocomplete is-activity is-hidden"
               >
-                <div class="control has-margin">
+                <div className="control has-margin">
                   <input
                     id="drinking-autocpl"
                     type="text"
-                    class="input is-subactivity"
+                    className="input is-subactivity"
                     placeholder="What are you drinking?"
                   />
-                  <div class="input-block">Drinks</div>
-                  <div class="close-icon is-subactivity">
-                    <i data-feather="x"></i>
+                  <div className="input-block">Drinks</div>
+                  <div className="close-icon is-subactivity">
+                    <X />
                   </div>
                 </div>
               </div>
@@ -146,18 +195,18 @@ export default function ComposeCard() {
               {/* Eating suboption child */}
               <div
                 id="eating-autocpl-wrapper"
-                class="is-autocomplete is-activity is-hidden"
+                className="is-autocomplete is-activity is-hidden"
               >
-                <div class="control has-margin">
+                <div className="control has-margin">
                   <input
                     id="eating-autocpl"
                     type="text"
-                    class="input is-subactivity"
+                    className="input is-subactivity"
                     placeholder="What are you eating?"
                   />
-                  <div class="input-block">Eats</div>
-                  <div class="close-icon is-subactivity">
-                    <i data-feather="x"></i>
+                  <div className="input-block">Eats</div>
+                  <div className="close-icon is-subactivity">
+                    <X />
                   </div>
                 </div>
               </div>
@@ -165,18 +214,18 @@ export default function ComposeCard() {
               {/* Reading suboption child */}
               <div
                 id="reading-autocpl-wrapper"
-                class="is-autocomplete is-activity is-hidden"
+                className="is-autocomplete is-activity is-hidden"
               >
-                <div class="control has-margin">
+                <div className="control has-margin">
                   <input
                     id="reading-autocpl"
                     type="text"
-                    class="input is-subactivity"
+                    className="input is-subactivity"
                     placeholder="What are you reading?"
                   />
-                  <div class="input-block">Reads</div>
-                  <div class="close-icon is-subactivity">
-                    <i data-feather="x"></i>
+                  <div className="input-block">Reads</div>
+                  <div className="close-icon is-subactivity">
+                    <X />
                   </div>
                 </div>
               </div>
@@ -184,18 +233,18 @@ export default function ComposeCard() {
               {/* Watching suboption child */}
               <div
                 id="watching-autocpl-wrapper"
-                class="is-autocomplete is-activity is-hidden"
+                className="is-autocomplete is-activity is-hidden"
               >
-                <div class="control has-margin">
+                <div className="control has-margin">
                   <input
                     id="watching-autocpl"
                     type="text"
-                    class="input is-subactivity"
+                    className="input is-subactivity"
                     placeholder="What are you watching?"
                   />
-                  <div class="input-block">Watches</div>
-                  <div class="close-icon is-subactivity">
-                    <i data-feather="x"></i>
+                  <div className="input-block">Watches</div>
+                  <div className="close-icon is-subactivity">
+                    <X />
                   </div>
                 </div>
               </div>
@@ -203,18 +252,18 @@ export default function ComposeCard() {
               {/* Travel suboption child */}
               <div
                 id="travel-autocpl-wrapper"
-                class="is-autocomplete is-activity is-hidden"
+                className="is-autocomplete is-activity is-hidden"
               >
-                <div class="control has-margin">
+                <div className="control has-margin">
                   <input
                     id="travel-autocpl"
                     type="text"
-                    class="input is-subactivity"
+                    className="input is-subactivity"
                     placeholder="Where are you going?"
                   />
-                  <div class="input-block">Travels</div>
-                  <div class="close-icon is-subactivity">
-                    <i data-feather="x"></i>
+                  <div className="input-block">Travels</div>
+                  <div className="close-icon is-subactivity">
+                    <X />
                   </div>
                 </div>
               </div>
@@ -224,23 +273,23 @@ export default function ComposeCard() {
             {/* Location suboption */}
             <div
               id="location-suboption"
-              class="is-autocomplete is-suboption is-hidden"
+              className="is-autocomplete is-suboption is-hidden"
             >
               <div
                 id="location-autocpl-wrapper"
-                class="control is-location-wrapper has-margin"
+                className="control is-location-wrapper has-margin"
               >
                 <input
                   id="location-autocpl"
                   type="text"
-                  class="input"
+                  className="input"
                   placeholder="Where are you now?"
                 />
-                <div class="icon">
-                  <i data-feather="map-pin"></i>
+                <div className="icon">
+                  <MapPin />
                 </div>
-                <div class="close-icon is-main">
-                  <i data-feather="x"></i>
+                <div className="close-icon is-main">
+                  <X />
                 </div>
               </div>
             </div>
@@ -248,23 +297,23 @@ export default function ComposeCard() {
             {/* Link suboption */}
             <div
               id="link-suboption"
-              class="is-autocomplete is-suboption is-hidden"
+              className="is-autocomplete is-suboption is-hidden"
             >
               <div
                 id="link-autocpl-wrapper"
-                class="control is-location-wrapper has-margin"
+                className="control is-location-wrapper has-margin"
               >
                 <input
                   id="link-autocpl"
                   type="text"
-                  class="input"
+                  className="input"
                   placeholder="Enter the link URL"
                 />
-                <div class="icon">
-                  <i data-feather="link-2"></i>
+                <div className="icon">
+                  <Link2 />
                 </div>
-                <div class="close-icon is-main">
-                  <i data-feather="x"></i>
+                <div className="close-icon is-main">
+                  <X />
                 </div>
               </div>
             </div>
@@ -272,28 +321,28 @@ export default function ComposeCard() {
             {/* GIF suboption */}
             <div
               id="gif-suboption"
-              class="is-autocomplete is-suboption is-hidden"
+              className="is-autocomplete is-suboption is-hidden"
             >
               <div
                 id="gif-autocpl-wrapper"
-                class="control is-gif-wrapper has-margin"
+                className="control is-gif-wrapper has-margin"
               >
                 <input
                   id="gif-autocpl"
                   type="text"
-                  class="input"
+                  className="input"
                   placeholder="Search a GIF to add"
                   autoFocus
                 />
-                <div class="icon">
-                  <i data-feather="search"></i>
+                <div className="icon">
+                  <Search />
                 </div>
-                <div class="close-icon is-main">
-                  <i data-feather="x"></i>
+                <div className="close-icon is-main">
+                  <X />
                 </div>
-                <div class="gif-dropdown">
-                  <div class="inner">
-                    <div class="gif-block">
+                <div className="gif-dropdown">
+                  <div className="inner">
+                    <div className="gif-block">
                       <img
                         src="https://via.placeholder.com/478x344"
                         data-demo-src="assets/img/demo/gif/1.gif"
@@ -315,7 +364,7 @@ export default function ComposeCard() {
                         alt=""
                       />
                     </div>
-                    <div class="gif-block">
+                    <div className="gif-block">
                       <img
                         src="https://via.placeholder.com/478x344"
                         data-demo-src="assets/img/demo/gif/5.gif"
@@ -337,7 +386,7 @@ export default function ComposeCard() {
                         alt=""
                       />
                     </div>
-                    <div class="gif-block">
+                    <div className="gif-block">
                       <img
                         src="https://via.placeholder.com/478x344"
                         data-demo-src="assets/img/demo/gif/9.gif"
@@ -367,12 +416,12 @@ export default function ComposeCard() {
           {/* /Compose form */}
 
           {/* General extended options */}
-          <div id="extended-options" class="compose-options is-hidden">
-            <div class="columns is-multiline is-full">
+          <div id="extended-options" className={`compose-options ${extended ? '' : 'is-hidden'}`}>
+            <div className="columns is-multiline is-full">
               {/* Upload action */}
-              <div class="column is-6 is-narrower">
-                <div class="compose-option is-centered">
-                  <i data-feather="camera"></i>
+              <div className="column is-6 is-narrower">
+                <div className="compose-option is-centered">
+                  <Camera />
                   <span>Photo/Video</span>
                   <input
                     id="feed-upload-input-1"
@@ -383,46 +432,46 @@ export default function ComposeCard() {
                 </div>
               </div>
               {/* Mood action */}
-              <div class="column is-6 is-narrower">
+              <div className="column is-6 is-narrower">
                 <div
                   id="extended-show-activities"
-                  class="compose-option is-centered"
+                  className="compose-option is-centered"
                 >
-                  <img src="assets/img/icons/emoji/emoji-1.svg" alt="" />
+                  <Smile />
                   <span>Mood/Activity</span>
                 </div>
               </div>
               {/* Tag friends action */}
-              <div class="column is-6 is-narrower">
-                <div id="open-tag-suboption" class="compose-option is-centered">
-                  <i data-feather="tag"></i>
+              <div className="column is-6 is-narrower">
+                <div id="open-tag-suboption" className="compose-option is-centered">
+                  <Tag />
                   <span>Tag friends</span>
                 </div>
               </div>
               {/* Post location action */}
-              <div class="column is-6 is-narrower">
+              <div className="column is-6 is-narrower">
                 <div
                   id="open-location-suboption"
-                  class="compose-option is-centered"
+                  className="compose-option is-centered"
                 >
-                  <i data-feather="map-pin"></i>
+                  <MapPin />
                   <span>Post location</span>
                 </div>
               </div>
               {/* Share link action */}
-              <div class="column is-6 is-narrower">
+              <div className="column is-6 is-narrower">
                 <div
                   id="open-link-suboption"
-                  class="compose-option is-centered"
+                  className="compose-option is-centered"
                 >
-                  <i data-feather="link-2"></i>
+                  <Link2 />
                   <span>Share link</span>
                 </div>
               </div>
               {/* Post GIF action */}
-              <div class="column is-6 is-narrower">
-                <div id="open-gif-suboption" class="compose-option is-centered">
-                  <i data-feather="image"></i>
+              <div className="column is-6 is-narrower">
+                <div id="open-gif-suboption" className="compose-option is-centered">
+                  <Image />
                   <span>Post GIF</span>
                 </div>
               </div>
@@ -431,70 +480,69 @@ export default function ComposeCard() {
           {/* /General extended options */}
 
           {/* General basic options */}
-          <div id="basic-options" class="compose-options">
+          <div id="basic-options" className={`compose-options ${!extended ? '' : 'is-hidden'}`}>
             {/* Upload action */}
-            <div class="compose-option">
-              <i data-feather="camera"></i>
+            <div className="compose-option">
+              <Camera />
               <span>Media</span>
               <input
                 id="feed-upload-input-2"
-                type="file"
                 type="file"
                 accept=".png, .jpg, .jpeg"
                 onChange="readURL(this)"
               />
             </div>
             {/* Mood action */}
-            <div id="show-activities" class="compose-option">
-              <img src="assets/img/icons/emoji/emoji-1.svg" alt="" />
+            <div id="show-activities" className="compose-option">
+              <Smile />
               <span>Activity</span>
             </div>
             {/* Expand action */}
-            <div id="open-extended-options" class="compose-option">
-              <i data-feather="more-horizontal"></i>
+            <div id="open-extended-options" className="compose-option" onClick={setExtended} onFocus={openModal}>
+              <MoreHorizontal />
             </div>
           </div>
           {/* /General basic options */}
 
           {/* Hidden Options */}
-          <div class="hidden-options">
-            <div class="target-channels">
+          <div className="hidden-options">
+            <div className="target-channels">
               {/* Publication Channel */}
-              <div class="channel">
-                <div class="round-checkbox is-small">
+              <div className="channel">
+                <div className="round-checkbox is-small">
                   <div>
                     <input type="checkbox" id="checkbox-1" checked />
                     <label htmlFor="checkbox-1"></label>
                   </div>
                 </div>
-                <div class="channel-icon">
-                  <i data-feather="bell"></i>
+                <div className="channel-icon">
+                  <Bell />
                 </div>
-                <div class="channel-name">Activity Feed</div>
+                <div className="channel-name">Activity Feed</div>
                 {/* Dropdown menu */}
-                <div class="dropdown is-spaced is-modern is-right is-neutral dropdown-trigger">
+                <div className="dropdown is-spaced is-modern is-right is-neutral dropdown-trigger">
                   <div>
-                    <button class="button" aria-haspopup="true">
-                      <i class="main-icon" data-feather="smile"></i>
+                    <button className="button" aria-haspopup="true">
+                      <Smile />
                       <span>Friends</span>
-                      <i class="caret" data-feather="chevron-down"></i>
+                      <i className="caret" data-feather="chevron-down"></i>
                     </button>
                   </div>
-                  <div class="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-                      <a href="#" class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="globe"></i>
-                          <div class="media-content">
+                  <div className="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      <a href="#" className="dropdown-item">
+                        <div className="media">
+                          <Globe />
+                          <div className="media-content">
                             <h3>Public</h3>
                             <small>Anyone can see this publication.</small>
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="users"></i>
-                          <div class="media-content">
+                      <a className="dropdown-item">
+                        <div className="media">
+                          <Users />
+                          <div className="media-content">
                             <h3>Friends</h3>
                             <small>
                               only friends can see this publication.
@@ -502,20 +550,20 @@ export default function ComposeCard() {
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="user"></i>
-                          <div class="media-content">
+                      <a className="dropdown-item">
+                        <div className="media">
+                          <User />
+                          <div className="media-content">
                             <h3>Specific friends</h3>
                             <small>Don't show it to some friends.</small>
                           </div>
                         </div>
                       </a>
-                      <hr class="dropdown-divider" />
-                      <a class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="lock"></i>
-                          <div class="media-content">
+                      <hr className="dropdown-divider" />
+                      <a className="dropdown-item">
+                        <div className="media">
+                          <Lock />
+                          <div className="media-content">
                             <h3>Only me</h3>
                             <small>Only me can see this publication.</small>
                           </div>
@@ -526,44 +574,44 @@ export default function ComposeCard() {
                 </div>
               </div>
               {/* Publication Channel */}
-              <div class="channel">
-                <div class="round-checkbox is-small">
+              <div className="channel">
+                <div className="round-checkbox is-small">
                   <div>
                     <input type="checkbox" id="checkbox-2" />
                     <label htmlFor="checkbox-2"></label>
                   </div>
                 </div>
-                <div class="story-icon">
-                  <div class="plus-icon">
-                    <i data-feather="plus"></i>
+                <div className="story-icon">
+                  <div className="plus-icon">
+                    <Plus />
                   </div>
                 </div>
 
-                <div class="channel-name">My Story</div>
+                <div className="channel-name">My Story</div>
                 {/* Dropdown menu */}
-                <div class="dropdown is-spaced is-modern is-right is-neutral dropdown-trigger">
+                <div className="dropdown is-spaced is-modern is-right is-neutral dropdown-trigger">
                   <div>
-                    <button class="button" aria-haspopup="true">
-                      <i class="main-icon" data-feather="smile"></i>
+                    <button className="button" aria-haspopup="true">
+                      <Smile />
                       <span>Friends</span>
-                      <i class="caret" data-feather="chevron-down"></i>
+                      <i className="caret" data-feather="chevron-down"></i>
                     </button>
                   </div>
-                  <div class="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-                      <a href="#" class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="globe"></i>
-                          <div class="media-content">
+                  <div className="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      <a href="#" className="dropdown-item">
+                        <div className="media">
+                          <Globe />
+                          <div className="media-content">
                             <h3>Public</h3>
                             <small>Anyone can see this publication.</small>
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="users"></i>
-                          <div class="media-content">
+                      <a className="dropdown-item">
+                        <div className="media">
+                          <Users />
+                          <div className="media-content">
                             <h3>Friends</h3>
                             <small>
                               only friends can see this publication.
@@ -571,10 +619,10 @@ export default function ComposeCard() {
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
-                          <i data-feather="users"></i>
-                          <div class="media-content">
+                      <a className="dropdown-item">
+                        <div className="media">
+                          <Users />
+                          <div className="media-content">
                             <h3>Friends and contacts</h3>
                             <small>Your friends and contacts.</small>
                           </div>
@@ -587,32 +635,32 @@ export default function ComposeCard() {
             </div>
 
             {/* Friends list */}
-            <div class="friends-list is-hidden">
+            <div className="friends-list is-hidden">
               {/* Header */}
-              <div class="list-header">
+              <div className="list-header">
                 <span>Send in a message</span>
-                <div class="actions">
+                <div className="actions">
                   <a
                     id="open-compose-search"
                     href="javascript:void(0);"
-                    class="search-trigger"
+                    className="search-trigger"
                   >
-                    <i data-feather="search"></i>
+                    <Search />
                   </a>
                   {/* Hidden filter input */}
-                  <div id="compose-search" class="control is-hidden">
+                  <div id="compose-search" className="control is-hidden">
                     <input
                       type="text"
-                      class="input"
+                      className="input"
                       placeholder="Search People"
                     />
                     <span>
-                      <i data-feather="search"></i>
+                      <Search />
                     </span>
                   </div>
                   <a
                     href="javascript:void(0);"
-                    class="is-inverted modal-trigger"
+                    className="is-inverted modal-trigger"
                     data-modal="create-group-modal"
                   >
                     Create group
@@ -620,107 +668,107 @@ export default function ComposeCard() {
                 </div>
               </div>
               {/* List body */}
-              <div class="list-body">
+              <div className="list-body">
                 {/* Friend */}
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-3" />
                       <label htmlFor="checkbox-3"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
                     data-demo-src="assets/img/avatars/dan.jpg"
                     alt=""
                   />
-                  <div class="friend-name">Dan Walker</div>
+                  <div className="friend-name">Dan Walker</div>
                 </div>
                 {/* Friend */}
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-4" />
                       <label htmlFor="checkbox-4"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
                     data-demo-src="assets/img/avatars/daniel.jpg"
                     alt=""
                   />
-                  <div class="friend-name">Daniel Wellington</div>
+                  <div className="friend-name">Daniel Wellington</div>
                 </div>
                 {/* Friend */}
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-5" />
                       <label htmlFor="checkbox-5"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
                     data-demo-src="assets/img/avatars/stella.jpg"
                     alt=""
                   />
-                  <div class="friend-name">Stella Bergmann</div>
+                  <div className="friend-name">Stella Bergmann</div>
                 </div>
                 {/* Friend */}
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-6" />
                       <label htmlFor="checkbox-6"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
                     data-demo-src="assets/img/avatars/david.jpg"
                     alt=""
                   />
-                  <div class="friend-name">David Kim</div>
+                  <div className="friend-name">David Kim</div>
                 </div>
                 {/* Friend */}
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-7" />
                       <label htmlFor="checkbox-7"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
                     data-demo-src="assets/img/avatars/nelly.png"
                     alt=""
                   />
-                  <div class="friend-name">Nelly Schwartz</div>
+                  <div className="friend-name">Nelly Schwartz</div>
                 </div>
               </div>
             </div>
           </div>
           {/* Footer buttons */}
-          <div class="more-wrap">
+          <div className="more-wrap">
             {/* View more button */}
             <button
               id="show-compose-friends"
               type="button"
-              class="button is-more"
+              className="button is-more"
               aria-haspopup="true"
             >
-              <i data-feather="more-vertical"></i>
+              <MoreVertical />
               <span>View More</span>
             </button>
             {/* Publish button */}
             <button
               id="publish-button"
               type="button"
-              class="button is-solid accent-button is-fullwidth is-disabled"
+              className="button is-solid accent-button is-fullwidth is-disabled"
             >
               Publish
             </button>

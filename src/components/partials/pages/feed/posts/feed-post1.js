@@ -1,6 +1,7 @@
 import CommentDropdown from "../dropdowns/comment-dropdown";
 import FeedPostDropdown from "../dropdowns/feed-post-dropdown";
 import FeedPostActions from "../buttons/feed-post-actions";
+import { AtSign, Camera, Smile, ThumbsUp, X, MessageCircle, Link2 } from "react-feather";
 
 export default function FeedPost1() {
   return (
@@ -13,7 +14,7 @@ export default function FeedPost1() {
           <div className="user-block">
             <div className="image">
               <img
-                src="https://via.placeholder.com/300x300"
+                src="https://img.icons8.com/color/344/person-male.png"
                 data-demo-src="assets/img/avatars/dan.jpg"
                 data-user-popover="1"
                 alt=""
@@ -69,25 +70,25 @@ export default function FeedPost1() {
           {/* Followers avatars */}
           <div className="likers-group">
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://img.icons8.com/color/344/person-male.png"
               data-demo-src="assets/img/avatars/dan.jpg"
               data-user-popover="1"
               alt=""
             />
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://img.icons8.com/color/344/person-male.png"
               data-demo-src="assets/img/avatars/david.jpg"
               data-user-popover="4"
               alt=""
             />
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://img.icons8.com/color/344/person-male.png"
               data-demo-src="assets/img/avatars/edward.jpeg"
               data-user-popover="5"
               alt=""
             />
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://img.icons8.com/color/344/person-male.png"
               data-demo-src="assets/img/avatars/milly.jpg"
               data-user-popover="7"
               alt=""
@@ -103,15 +104,15 @@ export default function FeedPost1() {
           {/* Post statistics */}
           <div className="social-count">
             <div className="likes-count">
-              <i data-feather="heart"></i>
+              <heart />
               <span>27</span>
             </div>
             <div className="shares-count">
-              <i data-feather="link-2"></i>
+              <Link2 />
               <span>9</span>
             </div>
             <div className="comments-count">
-              <i data-feather="message-circle"></i>
+              <MessageCircle />
               <span>3</span>
             </div>
           </div>
@@ -129,7 +130,7 @@ export default function FeedPost1() {
             <small>(8)</small>
           </h4>
           <div className="close-comments">
-            <i data-feather="x"></i>
+            <X />
           </div>
         </div>
         {/* /Header */}
@@ -142,7 +143,7 @@ export default function FeedPost1() {
             <div className="media-left">
               <div className="image">
                 <img
-                  src="https://via.placeholder.com/300x300"
+                  src="https://img.icons8.com/color/344/person-male.png"
                   data-demo-src="assets/img/avatars/dan.jpg"
                   data-user-popover="1"
                   alt=""
@@ -162,7 +163,7 @@ export default function FeedPost1() {
               {/* Actions */}
               <div className="controls">
                 <div className="like-count">
-                  <i data-feather="thumbs-up"></i>
+                  <ThumbsUp />
                   <span>4</span>
                 </div>
                 <div className="reply">
@@ -179,7 +180,7 @@ export default function FeedPost1() {
                 <div className="media-left">
                   <div className="image">
                     <img
-                      src="https://via.placeholder.com/300x300"
+                      src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/david.jpg"
                       data-user-popover="4"
                       alt=""
@@ -198,7 +199,7 @@ export default function FeedPost1() {
                   {/* Actions */}
                   <div className="controls">
                     <div className="like-count">
-                      <i data-feather="thumbs-up"></i>
+                      <ThumbsUp />
                       <span>0</span>
                     </div>
                     <div className="reply">
@@ -227,7 +228,7 @@ export default function FeedPost1() {
             <div className="media-left">
               <div className="image">
                 <img
-                  src="https://via.placeholder.com/300x300"
+                  src="https://img.icons8.com/color/344/person-male.png"
                   data-demo-src="assets/img/avatars/rolf.jpg"
                   data-user-popover="13"
                   alt=""
@@ -246,7 +247,7 @@ export default function FeedPost1() {
               {/* Actions */}
               <div className="controls">
                 <div className="like-count">
-                  <i data-feather="thumbs-up"></i>
+                  <ThumbsUp />
                   <span>2</span>
                 </div>
                 <div className="reply">
@@ -260,7 +261,7 @@ export default function FeedPost1() {
                 <div className="media-left">
                   <div className="image">
                     <img
-                      src="https://via.placeholder.com/300x300"
+                      src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/elise.jpg"
                       data-user-popover="6"
                       alt=""
@@ -279,7 +280,7 @@ export default function FeedPost1() {
                   {/* Actions */}
                   <div className="controls">
                     <div className="like-count">
-                      <i data-feather="thumbs-up"></i>
+                      <ThumbsUp />
                       <span>0</span>
                     </div>
                     <div className="reply">
@@ -300,7 +301,7 @@ export default function FeedPost1() {
                 <div className="media-left">
                   <div className="image">
                     <img
-                      src="https://via.placeholder.com/300x300"
+                      src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/rolf.jpg"
                       data-user-popover="13"
                       alt=""
@@ -319,7 +320,7 @@ export default function FeedPost1() {
                   {/* Actions */}
                   <div className="controls">
                     <div className="like-count">
-                      <i data-feather="thumbs-up"></i>
+                      <ThumbsUp />
                       <span>1</span>
                     </div>
                     <div className="reply">
@@ -340,7 +341,7 @@ export default function FeedPost1() {
                 <div className="media-left">
                   <div className="image">
                     <img
-                      src="https://via.placeholder.com/300x300"
+                      src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/elise.jpg"
                       data-user-popover="6"
                       alt=""
@@ -359,7 +360,7 @@ export default function FeedPost1() {
                   {/* Actions */}
                   <div className="controls">
                     <div className="like-count">
-                      <i data-feather="thumbs-up"></i>
+                      <ThumbsUp />
                       <span>0</span>
                     </div>
                     <div className="reply">
@@ -387,7 +388,7 @@ export default function FeedPost1() {
             <div className="media-left">
               <div className="image">
                 <img
-                  src="https://via.placeholder.com/300x300"
+                  src="https://img.icons8.com/color/344/person-male.png"
                   data-demo-src="assets/img/avatars/lana.jpeg"
                   data-user-popover="10"
                   alt=""
@@ -405,7 +406,7 @@ export default function FeedPost1() {
               {/* Comment actions */}
               <div className="controls">
                 <div className="like-count">
-                  <i data-feather="thumbs-up"></i>
+                  <ThumbsUp />
                   <span>5</span>
                 </div>
                 <div className="reply">
@@ -441,7 +442,7 @@ export default function FeedPost1() {
                 <div className="image is-32x32">
                   <img
                     className="is-rounded"
-                    src="https://via.placeholder.com/300x300"
+                    src="https://img.icons8.com/color/344/person-male.png"
                     data-demo-src="assets/img/avatars/jenna.png"
                     data-user-popover="0"
                     alt=""
@@ -449,13 +450,13 @@ export default function FeedPost1() {
                 </div>
                 <div className="toolbar">
                   <div className="action is-auto">
-                    <i data-feather="at-sign"></i>
+                    <AtSign />
                   </div>
                   <div className="action is-emoji">
-                    <i data-feather="smile"></i>
+                    <Smile />
                   </div>
                   <div className="action is-upload">
-                    <i data-feather="camera"></i>
+                    <Camera />
                     <input type="file" />
                   </div>
                   <a className="button is-solid primary-button raised">

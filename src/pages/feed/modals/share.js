@@ -174,7 +174,7 @@ export const ShareModal = (props) => {
                             <textarea class="textarea comment-textarea" rows="1"
                                 placeholder="Say something about this ..."></textarea>
                             <button class="emoji-button">
-                                <i data-feather="smile"></i>
+                                <Smile />
                             </button>
                         </div>
                         <div class="shared-publication">

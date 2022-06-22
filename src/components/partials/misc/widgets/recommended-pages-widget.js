@@ -46,8 +46,8 @@ export default function RecommendedPagesWidget() {
       <div class="card-body no-padding">
         <div class="page-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
-            data-demo-src="assets/img/icons/logos/fastpizza.svg"
+            src="https://cdn3.iconfinder.com/data/icons/street-food-and-food-trucker-1/64/pizza-fast-food-bake-bread-256.png"
+            data-demo-src="https://cdn3.iconfinder.com/data/icons/street-food-and-food-trucker-1/64/pizza-fast-food-bake-bread-256.png"
             data-page-popover="0"
             alt=""
           />
@@ -61,8 +61,8 @@ export default function RecommendedPagesWidget() {
         </div>
         <div class="page-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
-            data-demo-src="assets/img/icons/logos/lonelydroid.svg"
+            src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-256.png"
+            data-demo-src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-256.png"
             data-page-popover="1"
             alt=""
           />
@@ -76,8 +76,8 @@ export default function RecommendedPagesWidget() {
         </div>
         <div class="page-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
-            data-demo-src="assets/img/icons/logos/metamovies.svg"
+            src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-256.png"
+            data-demo-src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-256.png"
             data-page-popover="2"
             alt=""
           />
@@ -91,7 +91,7 @@ export default function RecommendedPagesWidget() {
         </div>
         <div class="page-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-256.png"
             data-demo-src="assets/img/icons/logos/nuclearjs.svg"
             data-page-popover="3"
             alt=""
@@ -106,7 +106,7 @@ export default function RecommendedPagesWidget() {
         </div>
         <div class="page-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-256.png"
             data-demo-src="assets/img/icons/logos/slicer.svg"
             data-page-popover="4"
             alt=""

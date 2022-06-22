@@ -18,7 +18,7 @@ const BasicNavbar = () => {
   }, []);
 
   return (
-    <h1>Hi00</h1>
+    <h1></h1>
   );
 };
 
@@ -44,7 +44,7 @@ const NavbarMobile = () => {
   }, []);
 
   return (
-    <h1>Hi</h1>
+    <h1></h1>
   );
 };
 

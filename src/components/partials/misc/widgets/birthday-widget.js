@@ -1,3 +1,5 @@
+import { MessageCircle } from "react-feather";
+
 export default function BirthdayWidget() {
   return (
     <div
@@ -25,7 +27,7 @@ export default function BirthdayWidget() {
               </a>
               <a class="dropdown-item">
                 <div class="media">
-                  <i data-feather="message-circle"></i>
+                  <MessageCircle />
                   <div class="media-content">
                     <h3>Message</h3>
                     <small>Send an automatic greeting message.</small>

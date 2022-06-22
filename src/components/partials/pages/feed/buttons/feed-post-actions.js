@@ -1,3 +1,5 @@
+import { Link2, MessageCircle } from "react-feather";
+
 export default function FeedPostActions() {
   return (
     <>
@@ -15,13 +17,13 @@ export default function FeedPostActions() {
           class="small-fab share-fab modal-trigger"
           data-modal="share-modal"
         >
-          <i data-feather="link-2"></i>
+          <Link2 />
         </a>
       </div>
 
       <div class="fab-wrapper is-comment">
         <a href="javascript:void(0);" class="small-fab">
-          <i data-feather="message-circle"></i>
+          <MessageCircle />
         </a>
       </div>
     </>

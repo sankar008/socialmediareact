@@ -1,3 +1,5 @@
+import { X } from "react-feather";
+
 export default function CommentDropdown() {
   return (
     <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
@@ -10,7 +12,7 @@ export default function CommentDropdown() {
         <div class="dropdown-content">
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="x"></i>
+              <X />
               <div class="media-content">
                 <h3>Hide</h3>
                 <small>Hide this comment.</small>
