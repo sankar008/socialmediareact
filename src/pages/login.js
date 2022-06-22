@@ -69,9 +69,12 @@ export default class Login extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="section forgot-password">
-                  <div className="has-text-centered">
-                    <Link to="/forgot">Forgot password?</Link>
+                <div className="section forgot-password is-flex is-justify-content-space-between">
+                <div className="has-text-left">
+                    <Link to="/signup" className="has-text-primary">Signup?</Link>
+                  </div>
+                  <div className="has-text-right">
+                    <Link to="/forgot" className="has-text-primary">Forgot password?</Link>
                   </div>
                 </div>
               </div>
