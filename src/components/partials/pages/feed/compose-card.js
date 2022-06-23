@@ -23,6 +23,7 @@ import {
 export default function ComposeCard(props) {
   const [isActive, setIsActive] = useState(false);
   const [extended, setExtended] = useState(false);
+  const [autoComp, setAutoComp] = useState(0);
 
   const openModal = () => {
     setIsActive(true);
@@ -37,11 +38,11 @@ export default function ComposeCard(props) {
 
   const openAlbumModal = () => {
     props.setAlbumOverlay(true);
-  }
+  };
 
   const openVideoModal = () => {
     props.setVideoOverlay(true);
-  }
+  };
 
   return (
     <div
@@ -113,11 +114,12 @@ export default function ComposeCard(props) {
 
             <div
               id="tag-suboption"
-              className="is-autocomplete is-suboption is-hidden"
-            >
+              className={`is-autocomplete is-suboption ${
+                autoComp === 2 ? "" : "is-hidden"
+              }`}            >
               {/* Tag friends suboption */}
               <div id="tag-list" className="tag-list"></div>
-              <div className="control">
+              <div className="control is-location-wrapper has-margin">
                 <input
                   id="users-autocpl"
                   type="text"
@@ -137,9 +139,14 @@ export default function ComposeCard(props) {
             {/* Activities suboption */}
             <div
               id="activities-suboption"
-              className="is-autocomplete is-suboption is-hidden"
+              className={`is-autocomplete is-suboption ${
+                autoComp === 1 ? "" : "is-hidden"
+              }`}
             >
-              <div id="activities-autocpl-wrapper" className="control has-margin">
+              <div
+                id="activities-autocpl-wrapper"
+                className="control has-margin"
+              >
                 <input
                   id="activities-autocpl"
                   type="text"
@@ -273,7 +280,9 @@ export default function ComposeCard(props) {
             {/* Location suboption */}
             <div
               id="location-suboption"
-              className="is-autocomplete is-suboption is-hidden"
+              className={`is-autocomplete is-suboption ${
+                autoComp === 3 ? "" : "is-hidden"
+              }`}
             >
               <div
                 id="location-autocpl-wrapper"
@@ -297,7 +306,9 @@ export default function ComposeCard(props) {
             {/* Link suboption */}
             <div
               id="link-suboption"
-              className="is-autocomplete is-suboption is-hidden"
+              className={`is-autocomplete is-suboption ${
+                autoComp === 4 ? "" : "is-hidden"
+              }`}
             >
               <div
                 id="link-autocpl-wrapper"
@@ -321,7 +332,9 @@ export default function ComposeCard(props) {
             {/* GIF suboption */}
             <div
               id="gif-suboption"
-              className="is-autocomplete is-suboption is-hidden"
+              className={`is-autocomplete is-suboption ${
+                autoComp === 5 ? "" : "is-hidden"
+              }`}
             >
               <div
                 id="gif-autocpl-wrapper"
@@ -416,7 +429,10 @@ export default function ComposeCard(props) {
           {/* /Compose form */}
 
           {/* General extended options */}
-          <div id="extended-options" className={`compose-options ${extended ? '' : 'is-hidden'}`}>
+          <div
+            id="extended-options"
+            className={`compose-options ${extended ? "" : "is-hidden"}`}
+          >
             <div className="columns is-multiline is-full">
               {/* Upload action */}
               <div className="column is-6 is-narrower">
@@ -432,7 +448,10 @@ export default function ComposeCard(props) {
                 </div>
               </div>
               {/* Mood action */}
-              <div className="column is-6 is-narrower">
+              <div
+                className="column is-6 is-narrower"
+                onClick={() => setAutoComp(1)}
+              >
                 <div
                   id="extended-show-activities"
                   className="compose-option is-centered"
@@ -442,14 +461,23 @@ export default function ComposeCard(props) {
                 </div>
               </div>
               {/* Tag friends action */}
-              <div className="column is-6 is-narrower">
-                <div id="open-tag-suboption" className="compose-option is-centered">
+              <div
+                className="column is-6 is-narrower"
+                onClick={() => setAutoComp(2)}
+              >
+                <div
+                  id="open-tag-suboption"
+                  className="compose-option is-centered"
+                >
                   <Tag />
                   <span>Tag friends</span>
                 </div>
               </div>
               {/* Post location action */}
-              <div className="column is-6 is-narrower">
+              <div
+                className="column is-6 is-narrower"
+                onClick={() => setAutoComp(3)}
+              >
                 <div
                   id="open-location-suboption"
                   className="compose-option is-centered"
@@ -459,7 +487,10 @@ export default function ComposeCard(props) {
                 </div>
               </div>
               {/* Share link action */}
-              <div className="column is-6 is-narrower">
+              <div
+                className="column is-6 is-narrower"
+                onClick={() => setAutoComp(4)}
+              >
                 <div
                   id="open-link-suboption"
                   className="compose-option is-centered"
@@ -469,8 +500,14 @@ export default function ComposeCard(props) {
                 </div>
               </div>
               {/* Post GIF action */}
-              <div className="column is-6 is-narrower">
-                <div id="open-gif-suboption" className="compose-option is-centered">
+              <div
+                className="column is-6 is-narrower"
+                onClick={() => setAutoComp(5)}
+              >
+                <div
+                  id="open-gif-suboption"
+                  className="compose-option is-centered"
+                >
                   <Image />
                   <span>Post GIF</span>
                 </div>
@@ -480,7 +517,10 @@ export default function ComposeCard(props) {
           {/* /General extended options */}
 
           {/* General basic options */}
-          <div id="basic-options" className={`compose-options ${!extended ? '' : 'is-hidden'}`}>
+          <div
+            id="basic-options"
+            className={`compose-options ${!extended ? "" : "is-hidden"}`}
+          >
             {/* Upload action */}
             <div className="compose-option">
               <Camera />
@@ -498,7 +538,12 @@ export default function ComposeCard(props) {
               <span>Activity</span>
             </div>
             {/* Expand action */}
-            <div id="open-extended-options" className="compose-option" onClick={setExtended} onFocus={openModal}>
+            <div
+              id="open-extended-options"
+              className="compose-option"
+              onClick={setExtended}
+              onFocus={openModal}
+            >
               <MoreHorizontal />
             </div>
           </div>
