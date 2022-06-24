@@ -145,7 +145,7 @@ export default function ComposeCard(props) {
             >
               <div
                 id="activities-autocpl-wrapper"
-                className="control has-margin"
+                className="control is-location-wrapper has-margin"
               >
                 <input
                   id="activities-autocpl"
@@ -548,259 +548,11 @@ export default function ComposeCard(props) {
             </div>
           </div>
           {/* /General basic options */}
-
-          {/* Hidden Options */}
-          <div className="hidden-options">
-            <div className="target-channels">
-              {/* Publication Channel */}
-              <div className="channel">
-                <div className="round-checkbox is-small">
-                  <div>
-                    <input type="checkbox" id="checkbox-1" checked />
-                    <label htmlFor="checkbox-1"></label>
-                  </div>
-                </div>
-                <div className="channel-icon">
-                  <Bell />
-                </div>
-                <div className="channel-name">Activity Feed</div>
-                {/* Dropdown menu */}
-                <div className="dropdown is-spaced is-modern is-right is-neutral dropdown-trigger">
-                  <div>
-                    <button className="button" aria-haspopup="true">
-                      <Smile />
-                      <span>Friends</span>
-                      <i className="caret" data-feather="chevron-down"></i>
-                    </button>
-                  </div>
-                  <div className="dropdown-menu" role="menu">
-                    <div className="dropdown-content">
-                      <a href="#" className="dropdown-item">
-                        <div className="media">
-                          <Globe />
-                          <div className="media-content">
-                            <h3>Public</h3>
-                            <small>Anyone can see this publication.</small>
-                          </div>
-                        </div>
-                      </a>
-                      <a className="dropdown-item">
-                        <div className="media">
-                          <Users />
-                          <div className="media-content">
-                            <h3>Friends</h3>
-                            <small>
-                              only friends can see this publication.
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <a className="dropdown-item">
-                        <div className="media">
-                          <User />
-                          <div className="media-content">
-                            <h3>Specific friends</h3>
-                            <small>Don't show it to some friends.</small>
-                          </div>
-                        </div>
-                      </a>
-                      <hr className="dropdown-divider" />
-                      <a className="dropdown-item">
-                        <div className="media">
-                          <Lock />
-                          <div className="media-content">
-                            <h3>Only me</h3>
-                            <small>Only me can see this publication.</small>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Publication Channel */}
-              <div className="channel">
-                <div className="round-checkbox is-small">
-                  <div>
-                    <input type="checkbox" id="checkbox-2" />
-                    <label htmlFor="checkbox-2"></label>
-                  </div>
-                </div>
-                <div className="story-icon">
-                  <div className="plus-icon">
-                    <Plus />
-                  </div>
-                </div>
-
-                <div className="channel-name">My Story</div>
-                {/* Dropdown menu */}
-                <div className="dropdown is-spaced is-modern is-right is-neutral dropdown-trigger">
-                  <div>
-                    <button className="button" aria-haspopup="true">
-                      <Smile />
-                      <span>Friends</span>
-                      <i className="caret" data-feather="chevron-down"></i>
-                    </button>
-                  </div>
-                  <div className="dropdown-menu" role="menu">
-                    <div className="dropdown-content">
-                      <a href="#" className="dropdown-item">
-                        <div className="media">
-                          <Globe />
-                          <div className="media-content">
-                            <h3>Public</h3>
-                            <small>Anyone can see this publication.</small>
-                          </div>
-                        </div>
-                      </a>
-                      <a className="dropdown-item">
-                        <div className="media">
-                          <Users />
-                          <div className="media-content">
-                            <h3>Friends</h3>
-                            <small>
-                              only friends can see this publication.
-                            </small>
-                          </div>
-                        </div>
-                      </a>
-                      <a className="dropdown-item">
-                        <div className="media">
-                          <Users />
-                          <div className="media-content">
-                            <h3>Friends and contacts</h3>
-                            <small>Your friends and contacts.</small>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Friends list */}
-            <div className="friends-list is-hidden">
-              {/* Header */}
-              <div className="list-header">
-                <span>Send in a message</span>
-                <div className="actions">
-                  <a
-                    id="open-compose-search"
-                    href="javascript:void(0);"
-                    className="search-trigger"
-                  >
-                    <Search />
-                  </a>
-                  {/* Hidden filter input */}
-                  <div id="compose-search" className="control is-hidden">
-                    <input
-                      type="text"
-                      className="input"
-                      placeholder="Search People"
-                    />
-                    <span>
-                      <Search />
-                    </span>
-                  </div>
-                  <a
-                    href="javascript:void(0);"
-                    className="is-inverted modal-trigger"
-                    data-modal="create-group-modal"
-                  >
-                    Create group
-                  </a>
-                </div>
-              </div>
-              {/* List body */}
-              <div className="list-body">
-                {/* Friend */}
-                <div className="friend-block">
-                  <div className="round-checkbox is-small">
-                    <div>
-                      <input type="checkbox" id="checkbox-3" />
-                      <label htmlFor="checkbox-3"></label>
-                    </div>
-                  </div>
-                  <img
-                    className="friend-avatar"
-                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
-                    data-demo-src="assets/img/avatars/dan.jpg"
-                    alt=""
-                  />
-                  <div className="friend-name">Dan Walker</div>
-                </div>
-                {/* Friend */}
-                <div className="friend-block">
-                  <div className="round-checkbox is-small">
-                    <div>
-                      <input type="checkbox" id="checkbox-4" />
-                      <label htmlFor="checkbox-4"></label>
-                    </div>
-                  </div>
-                  <img
-                    className="friend-avatar"
-                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
-                    data-demo-src="assets/img/avatars/daniel.jpg"
-                    alt=""
-                  />
-                  <div className="friend-name">Daniel Wellington</div>
-                </div>
-                {/* Friend */}
-                <div className="friend-block">
-                  <div className="round-checkbox is-small">
-                    <div>
-                      <input type="checkbox" id="checkbox-5" />
-                      <label htmlFor="checkbox-5"></label>
-                    </div>
-                  </div>
-                  <img
-                    className="friend-avatar"
-                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
-                    data-demo-src="assets/img/avatars/stella.jpg"
-                    alt=""
-                  />
-                  <div className="friend-name">Stella Bergmann</div>
-                </div>
-                {/* Friend */}
-                <div className="friend-block">
-                  <div className="round-checkbox is-small">
-                    <div>
-                      <input type="checkbox" id="checkbox-6" />
-                      <label htmlFor="checkbox-6"></label>
-                    </div>
-                  </div>
-                  <img
-                    className="friend-avatar"
-                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
-                    data-demo-src="assets/img/avatars/david.jpg"
-                    alt=""
-                  />
-                  <div className="friend-name">David Kim</div>
-                </div>
-                {/* Friend */}
-                <div className="friend-block">
-                  <div className="round-checkbox is-small">
-                    <div>
-                      <input type="checkbox" id="checkbox-7" />
-                      <label htmlFor="checkbox-7"></label>
-                    </div>
-                  </div>
-                  <img
-                    className="friend-avatar"
-                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
-                    data-demo-src="assets/img/avatars/nelly.png"
-                    alt=""
-                  />
-                  <div className="friend-name">Nelly Schwartz</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
           {/* Footer buttons */}
           <div className="more-wrap">
             {/* View more button */}
-            <button
+            {/* <button
               id="show-compose-friends"
               type="button"
               className="button is-more"
@@ -808,12 +560,12 @@ export default function ComposeCard(props) {
             >
               <MoreVertical />
               <span>View More</span>
-            </button>
+            </button> */}
             {/* Publish button */}
             <button
               id="publish-button"
               type="button"
-              className="button is-solid accent-button is-fullwidth is-disabled"
+              className="button is-solid accent-button is-fullwidth"
             >
               Publish
             </button>

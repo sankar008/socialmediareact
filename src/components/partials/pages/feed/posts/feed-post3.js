@@ -25,7 +25,7 @@ export default function FeedPost1() {
             </div>
           </div>
           {/* /partials/pages/feed/dropdowns/feed-post-dropdown.html */}
-          <FeedPostActions />
+          
         </div>
         {/* /Header */}
 
@@ -58,6 +58,7 @@ export default function FeedPost1() {
             </a>
             {/* Post actions */}
             {/* /partials/pages/feed/buttons/feed-post-actions.html */}
+            <FeedPostActions />
             <FeedPostDropdown />
           </div>
         </div>

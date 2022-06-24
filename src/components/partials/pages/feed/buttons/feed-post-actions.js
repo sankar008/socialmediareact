@@ -1,13 +1,11 @@
-import { Link2, MessageCircle } from "react-feather";
+import { Heart, Link2, MessageCircle, X } from "react-feather";
 
 export default function FeedPostActions() {
   return (
     <>
       <div class="like-wrapper">
         <a href="javascript:void(0);" class="like-button">
-          <i class="mdi mdi-heart not-liked bouncy"></i>
-          <i class="mdi mdi-heart is-liked bouncy"></i>
-          <span class="like-overlay"></span>
+          <Heart />
         </a>
       </div>
 

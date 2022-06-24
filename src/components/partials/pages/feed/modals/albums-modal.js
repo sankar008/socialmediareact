@@ -1,4 +1,4 @@
-import { Calendar, Camera, MapPin, Plus, Search, X } from "react-feather";
+import { Calendar, Camera, MapPin, Plus, Search, X, XCircle } from "react-feather";
 
 export default function AlbumsModal(props) {
   const { albumOverlay } = props;
@@ -185,8 +185,9 @@ export default function AlbumsModal(props) {
                 <div className="columns is-multiline" id="previews">
                   <div id="template" className="column is-4 is-template">
                     <div className="preview-box">
+                      
                       <div className="remove-button" data-dz-remove>
-                        <i className="mdi mdi-close"></i>
+                        <X />
                       </div>
                       <div>
                         <span className="preview">
