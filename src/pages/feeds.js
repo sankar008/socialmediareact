@@ -9,15 +9,11 @@ import StoriesWidget from "../components/partials/misc/widgets/stories-widget";
 import SuggestedFriendsWidget from "../components/partials/misc/widgets/suggested-friends-widget";
 import WeatherWidget from "../components/partials/misc/widgets/weather-widget";
 import ComposeCard from "../components/partials/pages/feed/compose-card";
-import CreateGroupModal from "../components/partials/pages/feed/modals/create-group-modal";
-import ShareModal from "../components/partials/pages/feed/modals/share-modal";
-import VideosHelpModal from "../components/partials/pages/feed/modals/videos-help-modal";
-
-import AlbumsHelpModal from "../components/partials/pages/feed/modals/albums-help-modal";
 import AlbumsModal from "../components/partials/pages/feed/modals/albums-modal";
-import VideosModal from "../components/partials/pages/feed/modals/videos-modal";
+import CreateGroupModal from "../components/partials/pages/feed/modals/create-group-modal";
 import NoStreamModal from "../components/partials/pages/feed/modals/no-stream-modal";
-
+import ShareModal from "../components/partials/pages/feed/modals/share-modal";
+import VideosModal from "../components/partials/pages/feed/modals/videos-modal";
 import FeedPost1 from "../components/partials/pages/feed/posts/feed-post1";
 import FeedPost2 from "../components/partials/pages/feed/posts/feed-post2";
 import FeedPost3 from "../components/partials/pages/feed/posts/feed-post3";
@@ -29,6 +25,7 @@ export default function Feeds() {
   const [appOverlay, setAppOverlay] = useState(false);
   const [albumOverlay, setAlbumOverlay] = useState(false);
   const [videoOverlay, setVideoOverlay] = useState(false);
+  const [shareOverlay, setShareOverlay] = useState(false);
 
   return (
     <>
@@ -55,12 +52,30 @@ export default function Feeds() {
                   setVideoOverlay={setVideoOverlay}
                 />
 
-                <FeedPost1 />
-                <FeedPost2 />
-                <FeedPost3 />
-                <FeedPost4 />
-                <FeedPost5 />
-                <FeedPost6 />
+                <FeedPost1
+                  shareOverlay={shareOverlay}
+                  setShareOverlay={setShareOverlay}
+                />
+                <FeedPost2
+                  shareOverlay={shareOverlay}
+                  setShareOverlay={setShareOverlay}
+                />
+                <FeedPost3
+                  shareOverlay={shareOverlay}
+                  setShareOverlay={setShareOverlay}
+                />
+                <FeedPost4
+                  shareOverlay={shareOverlay}
+                  setShareOverlay={setShareOverlay}
+                />
+                <FeedPost5
+                  shareOverlay={shareOverlay}
+                  setShareOverlay={setShareOverlay}
+                />
+                <FeedPost6
+                  shareOverlay={shareOverlay}
+                  setShareOverlay={setShareOverlay}
+                />
 
                 {/* Load more posts */}
                 <div class=" load-more-wrap narrow-top has-text-centered">
@@ -87,9 +102,15 @@ export default function Feeds() {
           setAlbumOverlay={setAlbumOverlay}
         />
 
-        <VideosModal videoOverlay ={videoOverlay} setVideoOverlay={setVideoOverlay}/>
+        <VideosModal
+          videoOverlay={videoOverlay}
+          setVideoOverlay={setVideoOverlay}
+        />
 
-        <ShareModal />
+        <ShareModal
+          shareOverlay={shareOverlay}
+          setShareOverlay={setShareOverlay}
+        />
 
         <NoStreamModal />
       </div>

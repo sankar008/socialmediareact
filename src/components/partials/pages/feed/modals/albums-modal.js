@@ -192,7 +192,7 @@ export default function AlbumsModal(props) {
                       <div>
                         <span className="preview">
                           <img
-                            src="https://via.placeholder.com/120x120"
+                            src="https://via.placeholder.com/300x100"
                             data-dz-thumbnail
                             alt=""
                           />

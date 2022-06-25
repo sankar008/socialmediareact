@@ -1,13 +1,25 @@
 import CommentDropdown from "../dropdowns/comment-dropdown";
 import FeedPostDropdown from "../dropdowns/feed-post-dropdown";
 import FeedPostActions from "../buttons/feed-post-actions";
-import { AtSign, Camera, Smile, ThumbsUp, X, MessageCircle, Link2 } from "react-feather";
+import {
+  AtSign,
+  Camera,
+  Smile,
+  ThumbsUp,
+  X,
+  MessageCircle,
+  Link2,
+} from "react-feather";
+import { useState } from "react";
 
-export default function FeedPost1() {
+export default function FeedPost1(props) {
+  const {shareOverlay, setShareOverlay} = props;
+  const [showComment, setShowComment] = useState(false);
+
   return (
     <div id="feed-post-1" className="card is-post">
       {/* Main wrap */}
-      <div className="content-wrap">
+      <div className={`content-wrap ${!showComment ? "" : "is-hidden"}`}>
         {/* Post header */}
         <div className="card-heading">
           {/* User meta */}
@@ -60,7 +72,13 @@ export default function FeedPost1() {
             </a>
             {/* Action buttons */}
             {/* /partials/pages/feed/buttons/feed-post-actions.html */}
-            <FeedPostActions />
+            <FeedPostActions
+              showComment={showComment}
+              setShowComment={setShowComment}
+
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
           </div>
         </div>
         {/* /Post body */}
@@ -122,14 +140,17 @@ export default function FeedPost1() {
       {/* /Main wrap */}
 
       {/* Post #1 Comments */}
-      <div className="comments-wrap is-hidden">
+      <div className={`comments-wrap ${showComment ? "" : "is-hidden"}`}>
         {/* Header */}
         <div className="comments-heading">
           <h4>
             Comments
             <small>(8)</small>
           </h4>
-          <div className="close-comments">
+          <div
+            className="close-comments"
+            onClick={() => setShowComment(!showComment)}
+          >
             <X />
           </div>
         </div>

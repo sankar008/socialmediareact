@@ -1,33 +1,63 @@
-export default function ShareModal() {
+import { useState } from "react";
+import {
+  AlignLeft,
+  ChevronDown,
+  Layout,
+  Mail,
+  MapPin,
+  UserCheck,
+  UserPlus,
+  Users,
+  X,
+} from "react-feather";
+
+export default function ShareModal(props) {
+  const [openDropDown, setOpenDropDown] = useState(false);
+  const { shareOverlay } = props;
+  console.log(shareOverlay);
+
+  const closeModal = () => {
+    props.setShareOverlay(false);
+  };
   return (
-    <div id="share-modal" class="modal share-modal is-xsmall has-light-bg">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="card">
-          <div class="card-heading">
-            <div class="dropdown is-primary share-dropdown">
+    <div
+      id="share-modal"
+      className={`modal share-modal is-xsmall has-light-bg ${
+        shareOverlay ? "is-active" : ""
+      }`}
+    >
+      <div className="modal-background"></div>
+      <div className="modal-content">
+        <div className="card">
+          <div className="card-heading">
+            <div
+              className={`dropdown is-primary share-dropdown ${
+                openDropDown ? "is-active" : ""
+              }`}
+            >
               <div>
-                <div class="button">
-                  <i class="mdi mdi-format-float-left"></i>{" "}
-                  <span>Share in your feed</span>{" "}
-                  <i data-feather="chevron-down"></i>
+                <div
+                  className="button"
+                  onClick={() => setOpenDropDown(!openDropDown)}
+                >
+                  <AlignLeft /> <span>Share in your feed</span> <ChevronDown />
                 </div>
               </div>
-              <div class="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                  <div class="dropdown-item" data-target-channel="feed">
-                    <div class="media">
-                      <i class="mdi mdi-format-float-left"></i>
-                      <div class="media-content">
+              <div className="dropdown-menu" role="menu">
+                <div className="dropdown-content">
+                  <div className="dropdown-item" data-target-channel="feed">
+                    <div className="media">
+                      <AlignLeft />
+                      <div className="media-content">
                         <h3>Share in your feed</h3>
                         <small>Share this publication on your feed.</small>
                       </div>
                     </div>
                   </div>
-                  <div class="dropdown-item" data-target-channel="friend">
-                    <div class="media">
-                      <i class="mdi mdi-account-heart"></i>
-                      <div class="media-content">
+                  <div className="dropdown-item" data-target-channel="friend">
+                    <div className="media">
+                      <UserCheck />
+                      <div className="media-content">
                         <h3>Share in a friend's feed</h3>
                         <small>
                           Share this publication on a friend's feed.
@@ -35,32 +65,32 @@ export default function ShareModal() {
                       </div>
                     </div>
                   </div>
-                  <div class="dropdown-item" data-target-channel="group">
-                    <div class="media">
-                      <i class="mdi mdi-account-group"></i>
-                      <div class="media-content">
+                  <div className="dropdown-item" data-target-channel="group">
+                    <div className="media">
+                      <Users />
+                      <div className="media-content">
                         <h3>Share in a group</h3>
                         <small>Share this publication in a group.</small>
                       </div>
                     </div>
                   </div>
-                  <div class="dropdown-item" data-target-channel="page">
-                    <div class="media">
-                      <i class="mdi mdi-file-document-box"></i>
-                      <div class="media-content">
+                  <div className="dropdown-item" data-target-channel="page">
+                    <div className="media">
+                      <Layout />
+                      <div className="media-content">
                         <h3>Share in a page</h3>
                         <small>Share this publication in a page.</small>
                       </div>
                     </div>
                   </div>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                   <div
-                    class="dropdown-item"
+                    className="dropdown-item"
                     data-target-channel="private-message"
                   >
-                    <div class="media">
-                      <i class="mdi mdi-email-plus"></i>
-                      <div class="media-content">
+                    <div className="media">
+                      <Mail />
+                      <div className="media-content">
                         <h3>Share in message</h3>
                         <small>
                           Share this publication in a private message.
@@ -72,52 +102,52 @@ export default function ShareModal() {
               </div>
             </div>
 
-            <div class="close-wrap">
-              <span class="close-modal">
-                <i data-feather="x"></i>
+            <div className="close-wrap">
+              <span className="close-modal" onClick={closeModal}>
+                <X />
               </span>
             </div>
           </div>
-          <div class="share-inputs">
-            <div class="field is-autocomplete">
+          <div className="share-inputs">
+            <div className="field is-autocomplete">
               <div
                 id="share-to-friend"
-                class="control share-channel-control is-hidden"
+                className="control share-channel-control is-hidden"
               >
                 <input
                   id="share-with-friend"
                   type="text"
-                  class="input is-sm no-radius share-input simple-users-autocpl"
+                  className="input is-sm no-radius share-input simple-users-autocpl"
                   placeholder="Your friend's name"
                 />
-                <div class="input-heading">Friend :</div>
+                <div className="input-heading">Friend :</div>
               </div>
             </div>
 
-            <div class="field is-autocomplete">
+            <div className="field is-autocomplete">
               <div
                 id="share-to-group"
-                class="control share-channel-control is-hidden"
+                className="control share-channel-control is-hidden"
               >
                 <input
                   id="share-with-group"
                   type="text"
-                  class="input is-sm no-radius share-input simple-groups-autocpl"
+                  className="input is-sm no-radius share-input simple-groups-autocpl"
                   placeholder="Your group's name"
                 />
-                <div class="input-heading">Group :</div>
+                <div className="input-heading">Group :</div>
               </div>
             </div>
 
             <div
               id="share-to-page"
-              class="control share-channel-control no-border is-hidden"
+              className="control share-channel-control no-border is-hidden"
             >
-              <div class="page-controls">
-                <div class="page-selection">
-                  <div class="dropdown is-accent page-dropdown">
+              <div className="page-controls">
+                <div className="page-selection">
+                  <div className="dropdown is-accent page-dropdown">
                     <div>
-                      <div class="button page-selector">
+                      <div className="button page-selector">
                         <img
                           src="https://via.placeholder.com/150x150"
                           data-demo-src="assets/img/avatars/hanzo.svg"
@@ -127,44 +157,44 @@ export default function ShareModal() {
                         <i data-feather="chevron-down"></i>
                       </div>
                     </div>
-                    <div class="dropdown-menu" role="menu">
-                      <div class="dropdown-content">
-                        <div class="dropdown-item">
-                          <div class="media">
+                    <div className="dropdown-menu" role="menu">
+                      <div className="dropdown-content">
+                        <div className="dropdown-item">
+                          <div className="media">
                             <img
                               src="https://via.placeholder.com/150x150"
                               data-demo-src="assets/img/avatars/hanzo.svg"
                               alt=""
                             />
-                            <div class="media-content">
+                            <div className="media-content">
                               <h3>Css Ninja</h3>
                               <small>Share on Css Ninja.</small>
                             </div>
                           </div>
                         </div>
 
-                        <div class="dropdown-item">
-                          <div class="media">
+                        <div className="dropdown-item">
+                          <div className="media">
                             <img
                               src="https://via.placeholder.com/150x150"
                               data-demo-src="assets/img/icons/logos/nuclearjs.svg"
                               alt=""
                             />
-                            <div class="media-content">
+                            <div className="media-content">
                               <h3>NuclearJs</h3>
                               <small>Share on NuclearJs.</small>
                             </div>
                           </div>
                         </div>
 
-                        <div class="dropdown-item">
-                          <div class="media">
+                        <div className="dropdown-item">
+                          <div className="media">
                             <img
                               src="https://via.placeholder.com/150x150"
                               data-demo-src="assets/img/icons/logos/slicer.svg"
                               alt=""
                             />
-                            <div class="media-content">
+                            <div className="media-content">
                               <h3>Slicer</h3>
                               <small>Share on Slicer.</small>
                             </div>
@@ -175,7 +205,7 @@ export default function ShareModal() {
                   </div>
                 </div>
 
-                <div class="alias">
+                <div className="alias">
                   <img
                     src="https://via.placeholder.com/150x150"
                     data-demo-src="assets/img/avatars/jenna.png"
@@ -185,34 +215,34 @@ export default function ShareModal() {
               </div>
             </div>
 
-            <div class="field is-autocomplete">
+            <div className="field is-autocomplete">
               <div
                 id="share-to-private-message"
-                class="control share-channel-control is-hidden"
+                className="control share-channel-control is-hidden"
               >
                 <input
                   id="share-with-private-message"
                   type="text"
-                  class="input is-sm no-radius share-input simple-users-autocpl"
+                  className="input is-sm no-radius share-input simple-users-autocpl"
                   placeholder="Message a friend"
                 />
-                <div class="input-heading">To :</div>
+                <div className="input-heading">To :</div>
               </div>
             </div>
           </div>
-          <div class="card-body">
-            <div class="control">
+          <div className="card-body">
+            <div className="control">
               <textarea
-                class="textarea comment-textarea"
+                className="textarea comment-textarea"
                 rows="1"
                 placeholder="Say something about this ..."
               ></textarea>
-              <button class="emoji-button">
+              <button className="emoji-button">
                 <i data-feather="smile"></i>
               </button>
             </div>
-            <div class="shared-publication">
-              <div class="featured-image">
+            <div className="shared-publication">
+              <div className="featured-image">
                 <img
                   id="share-modal-image"
                   src="https://via.placeholder.com/1600x900"
@@ -220,8 +250,8 @@ export default function ShareModal() {
                   alt=""
                 />
               </div>
-              <div class="publication-meta">
-                <div class="inner-flex">
+              <div className="publication-meta">
+                <div className="inner-flex">
                   <img
                     id="share-modal-avatar"
                     src="https://via.placeholder.com/300x300"
@@ -236,107 +266,113 @@ export default function ShareModal() {
                     fantastic! People were really excited about this one!
                   </p>
                 </div>
-                <div class="publication-footer">
-                  <div class="stats">
-                    <div class="stat-block">
-                      <i class="mdi mdi-earth"></i>
+                <div className="publication-footer">
+                  <div className="stats">
+                    <div className="stat-block">
+                      <i className="mdi mdi-earth"></i>
                       <small>Public</small>
                     </div>
-                    <div class="stat-block">
-                      <i class="mdi mdi-eye"></i>
+                    <div className="stat-block">
+                      <i className="mdi mdi-eye"></i>
                       <small>163 views</small>
                     </div>
                   </div>
-                  <div class="publication-origin">
+                  <div className="publication-origin">
                     <small>Friendkit.io</small>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="bottom-share-inputs">
+          <div className="bottom-share-inputs">
             <div
               id="action-place"
-              class="field is-autocomplete is-dropup is-hidden"
+              className="field is-autocomplete is-dropup is-hidden"
             >
               <div
                 id="share-place"
-                class="control share-bottom-channel-control"
+                className="control share-bottom-channel-control"
               >
                 <input
                   type="text"
-                  class="input is-sm no-radius share-input simple-locations-autocpl"
+                  className="input is-sm no-radius share-input simple-locations-autocpl"
                   placeholder="Where are you?"
                 />
-                <div class="input-heading">Location :</div>
+                <div className="input-heading">Location :</div>
               </div>
             </div>
 
             <div
               id="action-tag"
-              class="field is-autocomplete is-dropup is-hidden"
+              className="field is-autocomplete is-dropup is-hidden"
             >
-              <div id="share-tags" class="control share-bottom-channel-control">
+              <div
+                id="share-tags"
+                className="control share-bottom-channel-control"
+              >
                 <input
                   id="share-friend-tags-autocpl"
                   type="text"
-                  class="input is-sm no-radius share-input"
+                  className="input is-sm no-radius share-input"
                   placeholder="Who are you with"
                 />
-                <div class="input-heading">Friends :</div>
-              </div>
-              <div id="share-modal-tag-list" class="tag-list no-margin"></div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="action-wrap">
-              <div class="footer-action" data-target-action="tag">
-                <i class="mdi mdi-account-plus"></i>
-              </div>
-              <div class="footer-action" data-target-action="place">
-                <i class="mdi mdi-map-marker"></i>
+                <div className="input-heading">Friends :</div>
               </div>
               <div
-                class="footer-action dropdown is-spaced is-neutral dropdown-trigger is-up"
+                id="share-modal-tag-list"
+                className="tag-list no-margin"
+              ></div>
+            </div>
+          </div>
+          <div className="card-footer">
+            <div className="action-wrap">
+              <div className="footer-action" data-target-action="tag">
+                <UserPlus />
+              </div>
+              <div className="footer-action" data-target-action="place">
+                <MapPin />
+              </div>
+              <div
+                className="footer-action dropdown is-spaced is-neutral dropdown-trigger is-up"
                 data-target-action="permissions"
               >
                 <div>
-                  <i class="mdi mdi-lock-clock"></i>
+                  <i className="mdi mdi-lock-clock"></i>
                 </div>
-                <div class="dropdown-menu" role="menu">
-                  <div class="dropdown-content">
-                    <a href="#" class="dropdown-item">
-                      <div class="media">
+                <div className="dropdown-menu" role="menu">
+                  <div className="dropdown-content">
+                    <a href="#" className="dropdown-item">
+                      <div className="media">
                         <i data-feather="globe"></i>
-                        <div class="media-content">
+                        <div className="media-content">
                           <h3>Public</h3>
                           <small>Anyone can see this publication.</small>
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item">
-                      <div class="media">
+                    <a className="dropdown-item">
+                      <div className="media">
                         <i data-feather="users"></i>
-                        <div class="media-content">
+                        <div className="media-content">
                           <h3>Friends</h3>
                           <small>only friends can see this publication.</small>
                         </div>
                       </div>
                     </a>
-                    <a class="dropdown-item">
-                      <div class="media">
+                    <a className="dropdown-item">
+                      <div className="media">
                         <i data-feather="user"></i>
-                        <div class="media-content">
+                        <div className="media-content">
                           <h3>Specific friends</h3>
                           <small>Don't show it to some friends.</small>
                         </div>
                       </div>
                     </a>
-                    <hr class="dropdown-divider" />
-                    <a class="dropdown-item">
-                      <div class="media">
+                    <hr className="dropdown-divider" />
+                    <a className="dropdown-item">
+                      <div className="media">
                         <i data-feather="lock"></i>
-                        <div class="media-content">
+                        <div className="media-content">
                           <h3>Only me</h3>
                           <small>Only me can see this publication.</small>
                         </div>
@@ -346,16 +382,16 @@ export default function ShareModal() {
                 </div>
               </div>
             </div>
-            <div class="button-wrap">
+            <div className="button-wrap">
               <button
                 type="button"
-                class="button is-solid dark-grey-button close-modal"
+                className="button is-solid dark-grey-button close-modal"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                class="button is-solid primary-button close-modal"
+                className="button is-solid primary-button close-modal"
               >
                 Publish
               </button>

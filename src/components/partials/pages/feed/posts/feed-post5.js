@@ -2,12 +2,16 @@ import CommentDropdown from "../dropdowns/comment-dropdown";
 import FeedPostDropdown from "../dropdowns/feed-post-dropdown";
 import FeedPostActions from "../buttons/feed-post-actions";
 import { AtSign, Camera, Smile, ThumbsUp, X, MessageCircle, Link2 } from "react-feather";
+import { useState } from "react";
 
-export default function FeedPost1() {
+export default function FeedPost5(props) {
+  const {shareOverlay, setShareOverlay} = props;
+  const [showComment, setShowComment] = useState(false);
+
   return (
     <div class="card is-post">
       {/* Main wrap */}
-      <div class="content-wrap">
+      <div className={`content-wrap ${!showComment ? "" : "is-hidden"}`}>
         {/* Header */}
         <div class="card-heading">
           {/* User image */}
@@ -66,7 +70,13 @@ export default function FeedPost1() {
             </div>
             {/* Post actions */}
             {/* /partials/pages/feed/buttons/feed-post-actions.html */}
-            <FeedPostActions />
+            <FeedPostActions
+              showComment={showComment}
+              setShowComment={setShowComment}
+
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
           </div>
         </div>
         {/* /Post body */}
@@ -121,14 +131,17 @@ export default function FeedPost1() {
       {/* /Main wrap */}
 
       {/* Post #5 comments */}
-      <div class="comments-wrap is-hidden">
+      <div className={`comments-wrap ${showComment ? "" : "is-hidden"}`}>
         {/* Header */}
         <div class="comments-heading">
           <h4>
             Comments
             <small>(2)</small>
           </h4>
-          <div class="close-comments">
+          <div
+            className="close-comments"
+            onClick={() => setShowComment(!showComment)}
+          >
             <X />
           </div>
         </div>
