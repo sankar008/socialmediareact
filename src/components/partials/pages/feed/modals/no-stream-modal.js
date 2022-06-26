@@ -1,3 +1,5 @@
+import { X } from "react-feather";
+
 export default function NoStreamModal() {
   return (
     <div
@@ -11,7 +13,7 @@ export default function NoStreamModal() {
             <h3></h3>
             <div class="close-wrap">
               <span class="close-modal">
-                <i data-feather="x"></i>
+                <X />
               </span>
             </div>
           </div>

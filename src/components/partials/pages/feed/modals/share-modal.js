@@ -2,9 +2,13 @@ import { useState } from "react";
 import {
   AlignLeft,
   ChevronDown,
+  Globe,
   Layout,
+  Lock,
   Mail,
   MapPin,
+  Smile,
+  User,
   UserCheck,
   UserPlus,
   Users,
@@ -154,7 +158,7 @@ export default function ShareModal(props) {
                           alt=""
                         />
                         <span>Css Ninja</span>{" "}
-                        <i data-feather="chevron-down"></i>
+                        <ChevronDown />
                       </div>
                     </div>
                     <div className="dropdown-menu" role="menu">
@@ -238,7 +242,7 @@ export default function ShareModal(props) {
                 placeholder="Say something about this ..."
               ></textarea>
               <button className="emoji-button">
-                <i data-feather="smile"></i>
+                <Smile />
               </button>
             </div>
             <div className="shared-publication">
@@ -343,7 +347,7 @@ export default function ShareModal(props) {
                   <div className="dropdown-content">
                     <a href="#" className="dropdown-item">
                       <div className="media">
-                        <i data-feather="globe"></i>
+                        <Globe />
                         <div className="media-content">
                           <h3>Public</h3>
                           <small>Anyone can see this publication.</small>
@@ -352,7 +356,7 @@ export default function ShareModal(props) {
                     </a>
                     <a className="dropdown-item">
                       <div className="media">
-                        <i data-feather="users"></i>
+                        <Users />
                         <div className="media-content">
                           <h3>Friends</h3>
                           <small>only friends can see this publication.</small>
@@ -361,7 +365,7 @@ export default function ShareModal(props) {
                     </a>
                     <a className="dropdown-item">
                       <div className="media">
-                        <i data-feather="user"></i>
+                        <User />
                         <div className="media-content">
                           <h3>Specific friends</h3>
                           <small>Don't show it to some friends.</small>
@@ -371,7 +375,7 @@ export default function ShareModal(props) {
                     <hr className="dropdown-divider" />
                     <a className="dropdown-item">
                       <div className="media">
-                        <i data-feather="lock"></i>
+                        <Lock />
                         <div className="media-content">
                           <h3>Only me</h3>
                           <small>Only me can see this publication.</small>

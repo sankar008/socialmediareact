@@ -1,4 +1,4 @@
-import { Bell } from "react-feather";
+import { Bell, Image, MessageSquare, Youtube } from "react-feather";
 import { useState } from "react";
 
 
@@ -9,7 +9,7 @@ export const NotificationsDropdown = () => {
         <div class="navbar-item is-icon drop-trigger" onBlur={(() => setisActive(false))}> 
             <a class="icon-link" onClick={() => setisActive(!isActive)} href="javascript:void(0);" >
                 <Bell />
-                <i data-feather="bell"></i>
+                <Bell />
                 <span class="indicator"></span>
             </a>
 
@@ -35,7 +35,7 @@ export const NotificationsDropdown = () => {
                             </div>
                             <div class="media-right">
                                 <div class="added-icon">
-                                    <i data-feather="message-square"></i>
+                                    <MessageSquare />
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export const NotificationsDropdown = () => {
                             </div>
                             <div class="media-right">
                                 <div class="added-icon">
-                                    <i data-feather="youtube"></i>
+                                    <Youtube />
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ export const NotificationsDropdown = () => {
                             </div>
                             <div class="media-right">
                                 <div class="added-icon">
-                                    <i data-feather="image"></i>
+                                    <Image />
                                 </div>
                             </div>
                         </div>

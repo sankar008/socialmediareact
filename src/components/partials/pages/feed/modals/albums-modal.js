@@ -1,4 +1,4 @@
-import { Calendar, Camera, MapPin, Plus, Search, X, XCircle } from "react-feather";
+import { Calendar, Camera, ChevronDown, Globe, Lock, MapPin, Plus, Search, Smile, User, Users, X, XCircle } from "react-feather";
 
 export default function AlbumsModal(props) {
   const { albumOverlay } = props;
@@ -260,16 +260,16 @@ export default function AlbumsModal(props) {
             <div className="dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger">
               <div>
                 <button className="button" aria-haspopup="true">
-                  <i className="main-icon" data-feather="smile"></i>
+                  <Smile className="main-icon" />
                   <span>Friends</span>
-                  <i className="caret" data-feather="chevron-down"></i>
+                  <ChevronDown className="caret"/>
                 </button>
               </div>
               <div className="dropdown-menu" role="menu">
                 <div className="dropdown-content">
                   <a href="#" className="dropdown-item">
                     <div className="media">
-                      <i data-feather="globe"></i>
+                      <Globe />
                       <div className="media-content">
                         <h3>Public</h3>
                         <small>Anyone can see this publication.</small>
@@ -278,7 +278,7 @@ export default function AlbumsModal(props) {
                   </a>
                   <a className="dropdown-item">
                     <div className="media">
-                      <i data-feather="users"></i>
+                      <Users />
                       <div className="media-content">
                         <h3>Friends</h3>
                         <small>only friends can see this publication.</small>
@@ -287,7 +287,7 @@ export default function AlbumsModal(props) {
                   </a>
                   <a className="dropdown-item">
                     <div className="media">
-                      <i data-feather="user"></i>
+                      <User />
                       <div className="media-content">
                         <h3>Specific friends</h3>
                         <small>Don't show it to some friends.</small>
@@ -297,7 +297,7 @@ export default function AlbumsModal(props) {
                   <hr className="dropdown-divider" />
                   <a className="dropdown-item">
                     <div className="media">
-                      <i data-feather="lock"></i>
+                      <Lock />
                       <div className="media-content">
                         <h3>Only me</h3>
                         <small>Only me can see this publication.</small>

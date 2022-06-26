@@ -1,16 +1,18 @@
+import { Bell, Bookmark, Flag, MoreVertical } from "react-feather";
+
 export default function FeedPostDropdown() {
   return (
     <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
       <div>
         <div class="button">
-          <i data-feather="more-vertical"></i>
+          <MoreVertical />
         </div>
       </div>
       <div class="dropdown-menu" role="menu">
         <div class="dropdown-content">
           <a href="#" class="dropdown-item">
             <div class="media">
-              <i data-feather="bookmark"></i>
+              <Bookmark />
               <div class="media-content">
                 <h3>Bookmark</h3>
                 <small>Add this post to your bookmarks.</small>
@@ -19,7 +21,7 @@ export default function FeedPostDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="bell"></i>
+              <Bell />
               <div class="media-content">
                 <h3>Notify me</h3>
                 <small>Send me the updates.</small>
@@ -29,7 +31,7 @@ export default function FeedPostDropdown() {
           <hr class="dropdown-divider" />
           <a href="#" class="dropdown-item">
             <div class="media">
-              <i data-feather="flag"></i>
+              <Flag />
               <div class="media-content">
                 <h3>Flag</h3>
                 <small>In case of inappropriate content.</small>

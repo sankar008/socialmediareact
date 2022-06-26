@@ -1,3 +1,5 @@
+import { Bookmark, FileText, MoreVertical, Settings, Trash2 } from "react-feather";
+
 export default function RecommendedPagesWidget() {
   return (
     <div class="card">
@@ -6,14 +8,14 @@ export default function RecommendedPagesWidget() {
         <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
           <div>
             <div class="button">
-              <i data-feather="more-vertical"></i>
+              <MoreVertical />
             </div>
           </div>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="file-text"></i>
+                  <FileText />
                   <div class="media-content">
                     <h3>All Recommandations</h3>
                     <small>View all recommandations.</small>
@@ -22,7 +24,7 @@ export default function RecommendedPagesWidget() {
               </a>
               <a class="dropdown-item">
                 <div class="media">
-                  <i data-feather="settings"></i>
+                  <Settings />
                   <div class="media-content">
                     <h3>Settings</h3>
                     <small>Access widget settings.</small>
@@ -32,7 +34,7 @@ export default function RecommendedPagesWidget() {
               <hr class="dropdown-divider" />
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="trash-2"></i>
+                  <Trash2 />
                   <div class="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
@@ -56,7 +58,7 @@ export default function RecommendedPagesWidget() {
             <span>Pizza & Fast Food</span>
           </div>
           <div class="add-page add-transition">
-            <i data-feather="bookmark"></i>
+            <Bookmark />
           </div>
         </div>
         <div class="page-block transition-block">
@@ -71,7 +73,7 @@ export default function RecommendedPagesWidget() {
             <span>Technology</span>
           </div>
           <div class="add-page add-transition">
-            <i data-feather="bookmark"></i>
+            <Bookmark />
           </div>
         </div>
         <div class="page-block transition-block">
@@ -86,7 +88,7 @@ export default function RecommendedPagesWidget() {
             <span>Movies / Entertainment</span>
           </div>
           <div class="add-page add-transition">
-            <i data-feather="bookmark"></i>
+            <Bookmark />
           </div>
         </div>
         <div class="page-block transition-block">
@@ -101,7 +103,7 @@ export default function RecommendedPagesWidget() {
             <span>Technology</span>
           </div>
           <div class="add-page add-transition">
-            <i data-feather="bookmark"></i>
+            <Bookmark />
           </div>
         </div>
         <div class="page-block transition-block">
@@ -116,7 +118,7 @@ export default function RecommendedPagesWidget() {
             <span>Web / Design</span>
           </div>
           <div class="add-page add-transition">
-            <i data-feather="bookmark"></i>
+            <Bookmark />
           </div>
         </div>
       </div>

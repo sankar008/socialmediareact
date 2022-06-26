@@ -1,3 +1,5 @@
+import { Plus, Search, X } from "react-feather";
+
 export default function CreateGroupModal() {
   return (
     <div id="create-group-modal" class="modal create-group-modal is-light-bg">
@@ -8,7 +10,7 @@ export default function CreateGroupModal() {
             <h3>Create group</h3>
             <div class="close-wrap">
               <span class="close-modal">
-                <i data-feather="x"></i>
+                <X />
               </span>
             </div>
           </div>
@@ -16,7 +18,7 @@ export default function CreateGroupModal() {
             <div class="group-avatar">
               <input id="group-avatar-upload" type="file" />
               <div class="add-photo">
-                <i data-feather="plus"></i>
+                <Plus />
               </div>
             </div>
             <div class="control">
@@ -38,7 +40,7 @@ export default function CreateGroupModal() {
                       placeholder="Search for friends to add"
                     />
                     <span class="icon">
-                      <i data-feather="search"></i>
+                      <Search />
                     </span>
                   </div>
                 </div>

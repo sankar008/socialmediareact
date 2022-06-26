@@ -1,3 +1,5 @@
+import { CloudDrizzle, CloudLightning, CloudRain, MapPin, MoreVertical, RotateCcw, Settings, Sun, Trash2 } from "react-feather";
+
 export default function WeatherWidget() {
     return (
         <div class="card is-weather-card has-background-image" data-background="assets/img/illustrations/cards/weather-bg.svg">
@@ -5,14 +7,14 @@ export default function WeatherWidget() {
                 <div class="dropdown is-spaced is-accent is-right dropdown-trigger is-light">
                     <div>
                         <div class="button">
-                            <i data-feather="more-vertical"></i>
+                            <MoreVertical />
                         </div>
                     </div>
                     <div class="dropdown-menu" role="menu">
                         <div class="dropdown-content">
                             <a href="#" class="dropdown-item">
                                 <div class="media">
-                                    <i data-feather="map-pin"></i>
+                                    <MapPin />
                                     <div class="media-content">
                                         <h3>Change City</h3>
                                         <small>Change the displayed city.</small>
@@ -21,7 +23,7 @@ export default function WeatherWidget() {
                             </a>
                             <a href="#" class="dropdown-item">
                                 <div class="media">
-                                    <i data-feather="rotate-ccw"></i>
+                                    <RotateCcw />
                                     <div class="media-content">
                                         <h3>Synchronize</h3>
                                         <small>Synchronize with a weather source.</small>
@@ -30,7 +32,7 @@ export default function WeatherWidget() {
                             </a>
                             <a class="dropdown-item">
                                 <div class="media">
-                                    <i data-feather="settings"></i>
+                                    <Settings />
                                     <div class="media-content">
                                         <h3>Settings</h3>
                                         <small>Access widget settings.</small>
@@ -40,7 +42,7 @@ export default function WeatherWidget() {
                             <hr class="dropdown-divider" />
                             <a href="#" class="dropdown-item">
                                 <div class="media">
-                                    <i data-feather="trash-2"></i>
+                                    <Trash2 />
                                     <div class="media-content">
                                         <h3>Remove</h3>
                                         <small>Removes this widget from your feed.</small>
@@ -57,7 +59,7 @@ export default function WeatherWidget() {
                 </div>
                 <div class="weather-icon">
                     <div>
-                        <i data-feather="sun"></i>
+                        <Sun />
                         <h4>Sunny</h4>
                         <div class="details">
                             <span>Real Feel: 78° </span>
@@ -68,43 +70,44 @@ export default function WeatherWidget() {
                 <div class="previsions">
                     <div class="day">
                         <span>Mon</span>
-                        <i data-feather="sun"></i>
+                        <Sun />
                         <span>69°</span>
                     </div>
                     <div class="day">
                         <span>Tue</span>
-                        <i data-feather="cloud-lightning"></i>
+                        <CloudLightning />
                         <span>74°</span>
                     </div>
                     <div class="day">
                         <span>Wed</span>
-                        <i data-feather="cloud-lightning"></i>
+                        <CloudLightning />
                         <span>73°</span>
                     </div>
                     <div class="day">
                         <span>Thu</span>
-                        <i data-feather="sun"></i>
+                        <Sun />
                         <span>68°</span>
                     </div>
                     <div class="day">
                         <span>Fri</span>
-                        <i data-feather="cloud-drizzle"></i>
+                        <CloudDrizzle />
                         <span>55°</span>
                     </div>
                     <div class="day">
                         <span>Sat</span>
-                        <i data-feather="cloud-rain"></i>
+                        <CloudRain />
                         <span>58°</span>
                     </div>
                     <div class="day">
                         <span>Sun</span>
-                        <i data-feather="sun"></i>
+                        <Sun />
                         <span>64°</span>
                     </div>
                 </div>
                 <div class="current-date-location has-text-centered"> 
                     <span class="date">Sunday, 18th 2018</span>
-                    <span class="location"> <i data-feather="map-pin"></i> Los Angeles, CA</span>
+                    <span class="location"> 
+                    <MapPin /> Los Angeles, CA</span>
                 </div>
             </div>
         </div>

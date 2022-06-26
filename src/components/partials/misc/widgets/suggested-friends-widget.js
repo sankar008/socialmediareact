@@ -1,3 +1,5 @@
+import { MoreVertical, Settings, Trash2, UserPlus, Users } from "react-feather";
+
 export default function SuggestedFriendsWidget() {
   return (
     <div class="card">
@@ -6,14 +8,14 @@ export default function SuggestedFriendsWidget() {
         <div class="dropdown is-spaced is-right dropdown-trigger">
           <div>
             <div class="button">
-              <i data-feather="more-vertical"></i>
+              <MoreVertical />
             </div>
           </div>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="users"></i>
+                  <Users />
                   <div class="media-content">
                     <h3>All Suggestions</h3>
                     <small>View all friend suggestions.</small>
@@ -22,7 +24,7 @@ export default function SuggestedFriendsWidget() {
               </a>
               <a class="dropdown-item">
                 <div class="media">
-                  <i data-feather="settings"></i>
+                  <Settings />
                   <div class="media-content">
                     <h3>Settings</h3>
                     <small>Access widget settings.</small>
@@ -32,7 +34,7 @@ export default function SuggestedFriendsWidget() {
               <hr class="dropdown-divider" />
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="trash-2"></i>
+                  <Trash2 />
                   <div class="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
@@ -56,7 +58,7 @@ export default function SuggestedFriendsWidget() {
             <span>Melbourne</span>
           </div>
           <div class="add-friend add-transition">
-            <i data-feather="user-plus"></i>
+            <UserPlus />
           </div>
         </div>
         <div class="add-friend-block transition-block">
@@ -71,7 +73,7 @@ export default function SuggestedFriendsWidget() {
             <span>Helsinki</span>
           </div>
           <div class="add-friend add-transition">
-            <i data-feather="user-plus"></i>
+            <UserPlus />
           </div>
         </div>
         <div class="add-friend-block transition-block">
@@ -86,7 +88,7 @@ export default function SuggestedFriendsWidget() {
             <span>Lyon</span>
           </div>
           <div class="add-friend add-transition">
-            <i data-feather="user-plus"></i>
+            <UserPlus />
           </div>
         </div>
         <div class="add-friend-block transition-block">
@@ -101,7 +103,7 @@ export default function SuggestedFriendsWidget() {
             <span>Toronto</span>
           </div>
           <div class="add-friend add-transition">
-            <i data-feather="user-plus"></i>
+            <UserPlus />
           </div>
         </div>
         <div class="add-friend-block transition-block">
@@ -116,7 +118,7 @@ export default function SuggestedFriendsWidget() {
             <span>Berlin</span>
           </div>
           <div class="add-friend add-transition">
-            <i data-feather="user-plus"></i>
+            <UserPlus />
           </div>
         </div>
       </div>

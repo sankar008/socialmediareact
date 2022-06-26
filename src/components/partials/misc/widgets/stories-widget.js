@@ -1,3 +1,5 @@
+import { MoreVertical, Plus, Settings, Trash2, Tv } from "react-feather";
+
 export default function StoriesWidget() {
   return (
     <div class="card">
@@ -6,14 +8,14 @@ export default function StoriesWidget() {
         <div class="dropdown is-spaced is-neutral is-right dropdown-trigger">
           <div>
             <div class="button">
-              <i data-feather="more-vertical"></i>
+              <MoreVertical />
             </div>
           </div>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="tv"></i>
+                  <Tv />
                   <div class="media-content">
                     <h3>Browse stories</h3>
                     <small>View all recent stories.</small>
@@ -22,7 +24,7 @@ export default function StoriesWidget() {
               </a>
               <a class="dropdown-item">
                 <div class="media">
-                  <i data-feather="settings"></i>
+                  <Settings />
                   <div class="media-content">
                     <h3>Settings</h3>
                     <small>Access widget settings.</small>
@@ -32,7 +34,7 @@ export default function StoriesWidget() {
               <hr class="dropdown-divider" />
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="trash-2"></i>
+                  <Trash2 />
                   <div class="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
@@ -46,7 +48,7 @@ export default function StoriesWidget() {
       <div class="card-body no-padding">
         <div class="story-block">
           <a id="add-story-button" href="#" class="add-story">
-            <i data-feather="plus"></i>
+            <Plus />
           </a>
           <div class="story-meta">
             <span>Add a new Story</span>

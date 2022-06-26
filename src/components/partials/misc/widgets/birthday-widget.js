@@ -1,4 +1,4 @@
-import { MessageCircle } from "react-feather";
+import { Clock, Gift, MessageCircle, MoreVertical, Trash2 } from "react-feather";
 
 export default function BirthdayWidget() {
   return (
@@ -7,18 +7,18 @@ export default function BirthdayWidget() {
       data-background="assets/img/illustrations/cards/birthday-bg.svg"
     >
       <div class="card-heading">
-        <i data-feather="gift"></i>
+        <Gift />
         <div class="dropdown is-spaced is-right dropdown-trigger is-light">
           <div>
             <div class="button">
-              <i data-feather="more-vertical"></i>
+              <MoreVertical />
             </div>
           </div>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="clock"></i>
+                  <Clock />
                   <div class="media-content">
                     <h3>Remind me</h3>
                     <small>Remind me of this later today.</small>
@@ -37,7 +37,7 @@ export default function BirthdayWidget() {
               <hr class="dropdown-divider" />
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="trash-2"></i>
+                  <Trash2 />
                   <div class="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>

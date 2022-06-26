@@ -1,3 +1,5 @@
+import { Eye, List, MoreVertical, Settings, Trash2 } from "react-feather";
+
 export default function LatestActivityWidget() {
   return (
     <div id="latest-activity-1" class="card">
@@ -6,14 +8,14 @@ export default function LatestActivityWidget() {
         <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
           <div>
             <div class="button">
-              <i data-feather="more-vertical"></i>
+              <MoreVertical />
             </div>
           </div>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="list"></i>
+                  <List />
                   <div class="media-content">
                     <h3>All updates</h3>
                     <small>View my network's activity.</small>
@@ -22,7 +24,7 @@ export default function LatestActivityWidget() {
               </a>
               <a class="dropdown-item">
                 <div class="media">
-                  <i data-feather="settings"></i>
+                  <Settings />
                   <div class="media-content">
                     <h3>Settings</h3>
                     <small>Access widget settings.</small>
@@ -32,7 +34,7 @@ export default function LatestActivityWidget() {
               <hr class="dropdown-divider" />
               <a href="#" class="dropdown-item">
                 <div class="media">
-                  <i data-feather="trash-2"></i>
+                  <Trash2 />
                   <div class="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
@@ -56,7 +58,7 @@ export default function LatestActivityWidget() {
             <span>3 hours ago</span>
           </div>
           <div class="add-page">
-            <i data-feather="eye"></i>
+            <Eye />
           </div>
         </div>
         <div class="page-block">
@@ -71,7 +73,7 @@ export default function LatestActivityWidget() {
             <span>5 hours ago</span>
           </div>
           <div class="add-page">
-            <i data-feather="eye"></i>
+            <Eye />
           </div>
         </div>
         <div class="page-block">
@@ -86,7 +88,7 @@ export default function LatestActivityWidget() {
             <span>Yesterday</span>
           </div>
           <div class="add-page">
-            <i data-feather="eye"></i>
+            <Eye />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { X } from "react-feather";
+import { Activity, Check, Eye, Globe, Heart, Link2, Lock, MessageCircle, MoreVertical, Smile, ThumbsUp, Triangle, User, Users, X } from "react-feather";
 
 export default function VideosModal(props) {
   const { videoOverlay } = props;
@@ -75,7 +75,7 @@ export default function VideosModal(props) {
                   <div className="dropdown is-spaced is-right dropdown-trigger">
                     <div>
                       <div className="button">
-                        <i data-feather="more-vertical"></i>
+                        <MoreVertical />
                       </div>
                     </div>
                     <div className="dropdown-menu" role="menu">
@@ -85,7 +85,7 @@ export default function VideosModal(props) {
                         </div>
                         <a href="#" className="dropdown-item">
                           <div className="media">
-                            <i data-feather="globe"></i>
+                            <Globe />
                             <div className="media-content">
                               <h3>Public</h3>
                               <small>Anyone can see this publication.</small>
@@ -94,7 +94,7 @@ export default function VideosModal(props) {
                         </a>
                         <a className="dropdown-item">
                           <div className="media">
-                            <i data-feather="users"></i>
+                            <Users />
                             <div className="media-content">
                               <h3>Friends</h3>
                               <small>
@@ -105,7 +105,7 @@ export default function VideosModal(props) {
                         </a>
                         <a className="dropdown-item">
                           <div className="media">
-                            <i data-feather="user"></i>
+                            <User />
                             <div className="media-content">
                               <h3>Specific friends</h3>
                               <small>Don't show it to some friends.</small>
@@ -115,7 +115,7 @@ export default function VideosModal(props) {
                         <hr className="dropdown-divider" />
                         <a className="dropdown-item">
                           <div className="media">
-                            <i data-feather="lock"></i>
+                            <Lock />
                             <div className="media-content">
                               <h3>Only me</h3>
                               <small>Only me can see this publication.</small>
@@ -135,27 +135,27 @@ export default function VideosModal(props) {
                       placeholder="What is this live about?"
                     />
                     <div className="icon">
-                      <i data-feather="activity"></i>
+                      <Activity />
                     </div>
                   </div>
                   <div className="live-stats">
                     <div className="social-count">
                       <div className="likes-count">
-                        <i data-feather="heart"></i>
+                        <Heart />
                         <span>0</span>
                       </div>
                       <div className="shares-count">
-                        <i data-feather="link-2"></i>
+                        <Link2 />
                         <span>0</span>
                       </div>
                       <div className="comments-count">
-                        <i data-feather="message-circle"></i>
+                        <MessageCircle />
                         <span>0</span>
                       </div>
                     </div>
                     <div className="social-count ml-auto">
                       <div className="views-count">
-                        <i data-feather="eye"></i>
+                        <Eye />
                         <span>0</span>
                         <span className="views">
                           <small>views</small>
@@ -165,15 +165,15 @@ export default function VideosModal(props) {
                   </div>
                   <div className="actions">
                     <div className="action">
-                      <i data-feather="thumbs-up"></i>
+                      <ThumbsUp />
                       <span>Like</span>
                     </div>
                     <div className="action">
-                      <i data-feather="message-circle"></i>
+                      <MessageCircle />
                       <span>Comment</span>
                     </div>
                     <div className="action">
-                      <i data-feather="link-2"></i>
+                      <Link2 />
                       <span>Share</span>
                     </div>
                     <div className="dropdown is-spaced is-right dropdown-trigger">
@@ -184,7 +184,7 @@ export default function VideosModal(props) {
                             data-demo-src="assets/img/avatars/jenna.png"
                             alt=""
                           />
-                          <i data-feather="triangle"></i>
+                          <Triangle />
                         </div>
                       </div>
                       <div className="dropdown-menu has-margin" role="menu">
@@ -201,7 +201,7 @@ export default function VideosModal(props) {
                                 <small>Interact as Jenna Davis.</small>
                               </div>
                               <div className="checkmark">
-                                <i data-feather="check"></i>
+                                <Check />
                               </div>
                             </div>
                           </a>
@@ -218,7 +218,7 @@ export default function VideosModal(props) {
                                 <small>Interact as Css Ninja.</small>
                               </div>
                               <div className="checkmark">
-                                <i data-feather="check"></i>
+                                <Check />
                               </div>
                             </div>
                           </a>
@@ -333,7 +333,7 @@ export default function VideosModal(props) {
                         rows="1"
                       ></textarea>
                       <button className="emoji-button">
-                        <i data-feather="smile"></i>
+                        <Smile />
                       </button>
                     </div>
                   </div>

@@ -1,11 +1,11 @@
-import { X } from "react-feather";
+import { Flag, MoreVertical, X } from "react-feather";
 
 export default function CommentDropdown() {
   return (
     <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
       <div>
         <div class="button">
-          <i data-feather="more-vertical"></i>
+          <MoreVertical />
         </div>
       </div>
       <div class="dropdown-menu" role="menu">
@@ -22,7 +22,7 @@ export default function CommentDropdown() {
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <div class="media">
-              <i data-feather="flag"></i>
+              <Flag />
               <div class="media-content">
                 <h3>Report</h3>
                 <small>Report this comment.</small>
