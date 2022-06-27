@@ -51,11 +51,11 @@ export default function FeedPost3(props) {
               data-fancybox="post2"
               data-lightbox-type="comments"
               data-thumb="assets/img/demo/unsplash/2.jpg"
-              href="https://via.placeholder.com/1600x900"
+              href="https://friendkit.cssninja.io/assets/img/demo/unsplash/2.jpg"
               data-demo-href="assets/img/demo/unsplash/2.jpg"
             >
               <img
-                src="https://via.placeholder.com/1600x900"
+                src="https://friendkit.cssninja.io/assets/img/demo/unsplash/2.jpg"
                 data-demo-src="assets/img/demo/unsplash/2.jpg"
                 alt=""
               />

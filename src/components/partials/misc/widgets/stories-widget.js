@@ -58,7 +58,7 @@ export default function StoriesWidget() {
         <div class="story-block">
           <div class="img-wrapper">
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
               data-demo-src="assets/img/avatars/dan.jpg"
               data-user-popover="1"
               alt=""
@@ -72,7 +72,7 @@ export default function StoriesWidget() {
         <div class="story-block">
           <div class="img-wrapper">
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://friendkit.cssninja.io/assets/img/avatars/bobby.jpg"
               data-demo-src="assets/img/avatars/bobby.jpg"
               data-user-popover="8"
               alt=""
@@ -86,7 +86,7 @@ export default function StoriesWidget() {
         <div class="story-block">
           <div class="img-wrapper">
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://friendkit.cssninja.io/assets/img/avatars/elise.jpg"
               data-demo-src="assets/img/avatars/elise.jpg"
               data-user-popover="6"
               alt=""

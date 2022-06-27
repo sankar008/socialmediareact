@@ -60,13 +60,13 @@ export default function FeedPost1(props) {
             <a
               data-fancybox="post1"
               data-lightbox-type="comments"
-              data-thumb="assets/img/demo/unsplash/1.jpg"
-              href="https://via.placeholder.com/1600x900"
-              data-demo-href="assets/img/demo/unsplash/1.jpg"
+              data-thumb="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
+              href="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
+              data-demo-href="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
             >
               <img
-                src="https://via.placeholder.com/1600x900"
-                data-demo-src="assets/img/demo/unsplash/1.jpg"
+                src="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
+                data-demo-src="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
                 alt=""
               />
             </a>

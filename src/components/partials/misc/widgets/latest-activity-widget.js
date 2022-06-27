@@ -48,8 +48,7 @@ export default function LatestActivityWidget() {
       <div class="card-body no-padding">
         <div class="page-block">
           <img
-            src="https://via.placeholder.com/300x300"
-            data-demo-src="assets/img/avatars/hanzo.svg"
+            src="https://friendkit.cssninja.io/assets/img/avatars/hanzo.svg"
             data-page-popover="5"
             alt=""
           />
@@ -63,8 +62,7 @@ export default function LatestActivityWidget() {
         </div>
         <div class="page-block">
           <img
-            src="https://via.placeholder.com/300x300"
-            data-demo-src="assets/img/avatars/milly.jpg"
+            src="https://friendkit.cssninja.io/assets/img/avatars/milly.jpg"
             alt=""
             data-user-popover="7"
           />
@@ -78,7 +76,7 @@ export default function LatestActivityWidget() {
         </div>
         <div class="page-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/icons/logos/nuclearjs.svg"
             data-demo-src="assets/img/icons/logos/nuclearjs.svg"
             data-page-popover="3"
             alt=""

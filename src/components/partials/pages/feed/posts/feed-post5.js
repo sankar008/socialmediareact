@@ -52,7 +52,7 @@ export default function FeedPost5(props) {
             {/* link image */}
             <div class="link-image">
               <img
-                src="https://img.icons8.com/color/344/person-male.png"
+                src="https://friendkit.cssninja.io/assets/img/demo/video/bulma2.png"
                 data-demo-src="assets/img/demo/video/bulma2.png"
                 alt=""
               />

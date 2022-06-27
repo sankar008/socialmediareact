@@ -48,7 +48,7 @@ export default function SuggestedFriendsWidget() {
       <div class="card-body no-padding">
         <div class="add-friend-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/avatars/nelly.png"
             data-demo-src="assets/img/avatars/nelly.png"
             data-user-popover="9"
             alt=""
@@ -63,7 +63,7 @@ export default function SuggestedFriendsWidget() {
         </div>
         <div class="add-friend-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/avatars/lana.jpeg"
             data-demo-src="assets/img/avatars/lana.jpeg"
             data-user-popover="10"
             alt=""
@@ -78,7 +78,7 @@ export default function SuggestedFriendsWidget() {
         </div>
         <div class="add-friend-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/avatars/gaelle.jpeg"
             data-demo-src="assets/img/avatars/gaelle.jpeg"
             data-user-popover="11"
             alt=""
@@ -93,7 +93,7 @@ export default function SuggestedFriendsWidget() {
         </div>
         <div class="add-friend-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/avatars/mike.jpg"
             data-demo-src="assets/img/avatars/mike.jpg"
             data-user-popover="12"
             alt=""
@@ -108,7 +108,7 @@ export default function SuggestedFriendsWidget() {
         </div>
         <div class="add-friend-block transition-block">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/avatars/rolf.jpg"
             data-demo-src="assets/img/avatars/rolf.jpg"
             data-user-popover="13"
             alt=""

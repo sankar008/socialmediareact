@@ -54,11 +54,11 @@ export default function FeedPost4(props) {
                   data-fancybox="post3"
                   data-lightbox-type="comments"
                   data-thumb="assets/img/demo/unsplash/3.jpg"
-                  href="https://via.placeholder.com/1600x900"
+                  href="https://friendkit.cssninja.io/assets/img/demo/unsplash/3.jpg"
                   data-demo-href="assets/img/demo/unsplash/3.jpg"
                 >
                   <img
-                    src="https://via.placeholder.com/1600x900"
+                    src="https://friendkit.cssninja.io/assets/img/demo/unsplash/3.jpg"
                     data-demo-src="assets/img/demo/unsplash/3.jpg"
                     alt=""
                   />
@@ -67,11 +67,11 @@ export default function FeedPost4(props) {
                   data-fancybox="post3"
                   data-lightbox-type="comments"
                   data-thumb="assets/img/demo/unsplash/4.jpg"
-                  href="https://via.placeholder.com/1600x900"
+                  href="https://friendkit.cssninja.io/assets/img/demo/unsplash/4.jpg"
                   data-demo-href="assets/img/demo/unsplash/4.jpg"
                 >
                   <img
-                    src="https://via.placeholder.com/1600x900"
+                    src="https://friendkit.cssninja.io/assets/img/demo/unsplash/4.jpg"
                     data-demo-src="assets/img/demo/unsplash/4.jpg"
                     alt=""
                   />
@@ -83,11 +83,11 @@ export default function FeedPost4(props) {
                   data-fancybox="post3"
                   data-lightbox-type="comments"
                   data-thumb="assets/img/demo/unsplash/5.jpg"
-                  href="https://via.placeholder.com/1600x900"
+                  href="https://friendkit.cssninja.io/assets/img/demo/unsplash/5.jpg"
                   data-demo-href="assets/img/demo/unsplash/5.jpg"
                 >
                   <img
-                    src="https://via.placeholder.com/1600x900"
+                    src="https://friendkit.cssninja.io/assets/img/demo/unsplash/5.jpg"
                     data-demo-src="assets/img/demo/unsplash/5.jpg"
                     alt=""
                   />
@@ -96,11 +96,11 @@ export default function FeedPost4(props) {
                   data-fancybox="post3"
                   data-lightbox-type="comments"
                   data-thumb="assets/img/demo/unsplash/6.jpg"
-                  href="https://via.placeholder.com/1600x900"
+                  href="https://friendkit.cssninja.io/assets/img/demo/unsplash/6.jpg"
                   data-demo-href="assets/img/demo/unsplash/6.jpg"
                 >
                   <img
-                    src="https://via.placeholder.com/1600x900"
+                    src="https://friendkit.cssninja.io/assets/img/demo/unsplash/6.jpg"
                     data-demo-src="assets/img/demo/unsplash/6.jpg"
                     alt=""
                   />
@@ -109,11 +109,11 @@ export default function FeedPost4(props) {
                   data-fancybox="post3"
                   data-lightbox-type="comments"
                   data-thumb="assets/img/demo/unsplash/7.jpg"
-                  href="https://via.placeholder.com/1600x900"
+                  href="https://friendkit.cssninja.io/assets/img/demo/unsplash/7.jpg"
                   data-demo-href="assets/img/demo/unsplash/7.jpg"
                 >
                   <img
-                    src="https://via.placeholder.com/1600x900"
+                    src="https://friendkit.cssninja.io/assets/img/demo/unsplash/7.jpg"
                     data-demo-src="assets/img/demo/unsplash/7.jpg"
                     alt=""
                   />

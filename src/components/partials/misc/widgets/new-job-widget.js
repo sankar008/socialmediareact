@@ -52,7 +52,7 @@ export default function NewJobWidget() {
         <div>
           <div class="job-avatar">
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://friendkit.cssninja.io/assets/img/avatars/nelly.png"
               data-demo-src="assets/img/avatars/nelly.png"
               alt=""
             />

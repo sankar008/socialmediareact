@@ -51,8 +51,8 @@ export default function FeedPost2(props) {
             {/* Link image */}
             <div class="link-image">
               <img
-                src="https://img.icons8.com/color/344/person-male.png"
-                data-demo-src="assets/img/demo/video/bootstrap.jpg"
+                src="https://friendkit.cssninja.io/assets/img/demo/video/bootstrap.jpg"
+                data-demo-src="https://friendkit.cssninja.io/assets/img/demo/video/bootstrap.jpg"
                 alt=""
               />
               <div class="video-overlay"></div>

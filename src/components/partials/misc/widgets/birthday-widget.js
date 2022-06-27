@@ -52,7 +52,7 @@ export default function BirthdayWidget() {
         <div>
           <div class="birthday-avatar">
             <img
-              src="https://via.placeholder.com/300x300"
+              src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
               data-demo-src="assets/img/avatars/dan.jpg"
               alt=""
             />
