@@ -1,16 +1,31 @@
+import { useState } from "react";
 import { MoreVertical, Plus, Settings, Trash2, Tv } from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function StoriesWidget() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
     <div class="card">
       <div class="card-heading is-bordered">
         <h4>Stories</h4>
-        <div class="dropdown is-spaced is-neutral is-right dropdown-trigger">
-          <div>
-            <div class="button">
+        <div
+          class={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
+            activeDropDown ? "is-active" : ""
+          }`}
+        >
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              setActiveDropDown(false);
+            }}
+          >
+            <div
+              class="button"
+              onClick={() => setActiveDropDown(!activeDropDown)}
+            >
               <MoreVertical />
             </div>
-          </div>
+          </OutsideClickHandler>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">

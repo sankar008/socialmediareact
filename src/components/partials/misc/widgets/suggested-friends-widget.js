@@ -1,16 +1,31 @@
+import { useState } from "react";
 import { MoreVertical, Settings, Trash2, UserPlus, Users } from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function SuggestedFriendsWidget() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
     <div class="card">
       <div class="card-heading is-bordered">
         <h4>Suggested Friends</h4>
-        <div class="dropdown is-spaced is-right dropdown-trigger">
-          <div>
-            <div class="button">
+        <div
+          class={`dropdown is-spaced is-right dropdown-trigger ${
+            activeDropDown ? "is-active" : ""
+          }`}
+        >
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              setActiveDropDown(false);
+            }}
+          >
+            <div
+              class="button"
+              onClick={() => setActiveDropDown(!activeDropDown)}
+            >
               <MoreVertical />
             </div>
-          </div>
+          </OutsideClickHandler>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">

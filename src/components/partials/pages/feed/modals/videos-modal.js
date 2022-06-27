@@ -1,6 +1,26 @@
-import { Activity, Check, Eye, Globe, Heart, Link2, Lock, MessageCircle, MoreVertical, Smile, ThumbsUp, Triangle, User, Users, X } from "react-feather";
+import { useState } from "react";
+import {
+  Activity,
+  Check,
+  Eye,
+  Globe,
+  Heart,
+  Link2,
+  Lock,
+  MessageCircle,
+  MoreVertical,
+  Smile,
+  ThumbsUp,
+  Triangle,
+  User,
+  Users,
+  X,
+} from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function VideosModal(props) {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   const { videoOverlay } = props;
 
   const closeModal = () => {
@@ -8,7 +28,12 @@ export default function VideosModal(props) {
   };
 
   return (
-    <div id="videos-modal" className={`modal videos-modal is-xxl has-light-bg ${videoOverlay ? 'is-active' : ''}`}>
+    <div
+      id="videos-modal"
+      className={`modal videos-modal is-xxl has-light-bg ${
+        videoOverlay ? "is-active" : ""
+      }`}
+    >
       <div className="modal-background"></div>
       <div className="modal-content">
         <div className="card">
@@ -57,7 +82,7 @@ export default function VideosModal(props) {
               <div className="right-section">
                 <div className="header">
                   <img
-                    src="https://via.placeholder.com/300x300"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
                     data-demo-src="assets/img/avatars/jenna.png"
                     alt=""
                   />
@@ -72,12 +97,23 @@ export default function VideosModal(props) {
                   <button type="button" className="button">
                     Follow
                   </button>
-                  <div className="dropdown is-spaced is-right dropdown-trigger">
-                    <div>
-                      <div className="button">
+                  <div
+                    class={`dropdown is-spaced is-right dropdown-trigger ${
+                      activeDropDown ? "is-active" : ""
+                    }`}
+                  >
+                    <OutsideClickHandler
+                      onOutsideClick={() => {
+                        setActiveDropDown(false);
+                      }}
+                    >
+                      <div
+                        class="button"
+                        onClick={() => setActiveDropDown(!activeDropDown)}
+                      >
                         <MoreVertical />
                       </div>
-                    </div>
+                    </OutsideClickHandler>
                     <div className="dropdown-menu" role="menu">
                       <div className="dropdown-content">
                         <div className="dropdown-item is-title">
@@ -180,7 +216,7 @@ export default function VideosModal(props) {
                       <div>
                         <div className="avatar-button">
                           <img
-                            src="https://via.placeholder.com/300x300"
+                            src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
                             data-demo-src="assets/img/avatars/jenna.png"
                             alt=""
                           />
@@ -244,7 +280,7 @@ export default function VideosModal(props) {
                       <figure className="media-left">
                         <p className="image is-32x32">
                           <img
-                            src="https://via.placeholder.com/300x300"
+                            src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
                             data-demo-src="assets/img/avatars/dan.jpg"
                             alt=""
                             data-user-popover="1"
@@ -270,7 +306,7 @@ export default function VideosModal(props) {
                       <figure className="media-left">
                         <p className="image is-32x32">
                           <img
-                            src="https://via.placeholder.com/300x300"
+                            src="https://friendkit.cssninja.io/assets/img/avatars/david.jpg"
                             data-demo-src="assets/img/avatars/david.jpg"
                             alt=""
                             data-user-popover="4"
@@ -295,7 +331,7 @@ export default function VideosModal(props) {
                       <figure className="media-left">
                         <p className="image is-32x32">
                           <img
-                            src="https://via.placeholder.com/300x300"
+                            src="https://friendkit.cssninja.io/assets/img/avatars/rolf.jpg"
                             data-demo-src="assets/img/avatars/rolf.jpg"
                             alt=""
                             data-user-popover="17"
@@ -323,7 +359,7 @@ export default function VideosModal(props) {
                 <div className="comment-controls">
                   <div className="controls-inner">
                     <img
-                      src="https://via.placeholder.com/300x300"
+                      src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
                       data-demo-src="assets/img/avatars/jenna.png"
                       alt=""
                     />

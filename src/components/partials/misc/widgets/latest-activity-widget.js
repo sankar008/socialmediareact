@@ -1,15 +1,32 @@
+import { useState } from "react";
 import { Eye, List, MoreVertical, Settings, Trash2 } from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function LatestActivityWidget() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
     <div id="latest-activity-1" class="card">
       <div class="card-heading is-bordered">
         <h4>Latest activity</h4>
-        <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+        <div
+          class={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
+            activeDropDown ? "is-active" : ""
+          }`}
+        >
           <div>
-            <div class="button">
-              <MoreVertical />
-            </div>
+            <OutsideClickHandler
+              onOutsideClick={() => {
+                setActiveDropDown(false);
+              }}
+            >
+              <div
+                class="button"
+                onClick={() => setActiveDropDown(!activeDropDown)}
+              >
+                <MoreVertical />
+              </div>
+            </OutsideClickHandler>
           </div>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">

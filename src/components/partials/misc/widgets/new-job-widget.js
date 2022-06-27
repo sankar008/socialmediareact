@@ -1,6 +1,16 @@
-import { Briefcase, Clock, MessageCircle, MoreVertical, Trash2 } from "react-feather";
+import { useState } from "react";
+import {
+  Briefcase,
+  Clock,
+  MessageCircle,
+  MoreVertical,
+  Trash2
+} from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function NewJobWidget() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
     <div
       class="card is-new-job-card has-background-image"
@@ -8,12 +18,23 @@ export default function NewJobWidget() {
     >
       <div class="card-heading">
         <Briefcase />
-        <div class="dropdown is-spaced is-right dropdown-trigger is-light">
-          <div>
-            <div class="button">
+        <div
+          class={`dropdown is-spaced is-right dropdown-trigger is-light ${
+            activeDropDown ? "is-active" : ""
+          }`}
+        >
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              setActiveDropDown(false);
+            }}
+          >
+            <div
+              class="button"
+              onClick={() => setActiveDropDown(!activeDropDown)}
+            >
               <MoreVertical />
             </div>
-          </div>
+          </OutsideClickHandler>
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item">

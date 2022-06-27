@@ -29,7 +29,7 @@ export default function FeedPost3(props) {
             </div>
           </div>
           {/* /partials/pages/feed/dropdowns/feed-post-dropdown.html */}
-          
+          <FeedPostDropdown />
         </div>
         {/* /Header */}
 
@@ -69,7 +69,7 @@ export default function FeedPost3(props) {
               shareOverlay={shareOverlay}
               setShareOverlay={setShareOverlay}
             />
-            {/* <FeedPostDropdown /> */}
+            
           </div>
         </div>
         {/* /Post body */}

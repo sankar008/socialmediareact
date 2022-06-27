@@ -1,12 +1,29 @@
 import { Bell, Bookmark, Flag, MoreVertical } from "react-feather";
+import { useState } from "react";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function FeedPostDropdown() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
-    <div class="dropdown is-spaced is-right is-neutral dropdown-trigger">
+    <div
+      class={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
+        activeDropDown ? "is-active" : ""
+      }`}
+    >
       <div>
-        <div class="button">
-          <MoreVertical />
-        </div>
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            setActiveDropDown(false);
+          }}
+        >
+          <div
+            class="button"
+            onClick={() => setActiveDropDown(!activeDropDown)}
+          >
+            <MoreVertical />
+          </div>
+        </OutsideClickHandler>
       </div>
       <div class="dropdown-menu" role="menu">
         <div class="dropdown-content">

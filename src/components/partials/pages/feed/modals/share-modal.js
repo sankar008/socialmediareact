@@ -2,6 +2,8 @@ import { useState } from "react";
 import {
   AlignLeft,
   ChevronDown,
+  Clock,
+  Eye,
   Globe,
   Layout,
   Lock,
@@ -51,7 +53,7 @@ export default function ShareModal(props) {
                 <div className="dropdown-content">
                   <div className="dropdown-item" data-target-channel="feed">
                     <div className="media">
-                      <AlignLeft />
+                      <AlignLeft className="mr-4" />
                       <div className="media-content">
                         <h3>Share in your feed</h3>
                         <small>Share this publication on your feed.</small>
@@ -60,7 +62,7 @@ export default function ShareModal(props) {
                   </div>
                   <div className="dropdown-item" data-target-channel="friend">
                     <div className="media">
-                      <UserCheck />
+                      <UserCheck className="mr-4" />
                       <div className="media-content">
                         <h3>Share in a friend's feed</h3>
                         <small>
@@ -71,7 +73,7 @@ export default function ShareModal(props) {
                   </div>
                   <div className="dropdown-item" data-target-channel="group">
                     <div className="media">
-                      <Users />
+                      <Users className="mr-4" />
                       <div className="media-content">
                         <h3>Share in a group</h3>
                         <small>Share this publication in a group.</small>
@@ -80,7 +82,7 @@ export default function ShareModal(props) {
                   </div>
                   <div className="dropdown-item" data-target-channel="page">
                     <div className="media">
-                      <Layout />
+                      <Layout className="mr-4" />
                       <div className="media-content">
                         <h3>Share in a page</h3>
                         <small>Share this publication in a page.</small>
@@ -93,7 +95,7 @@ export default function ShareModal(props) {
                     data-target-channel="private-message"
                   >
                     <div className="media">
-                      <Mail />
+                      <Mail className="mr-4" />
                       <div className="media-content">
                         <h3>Share in message</h3>
                         <small>
@@ -157,8 +159,7 @@ export default function ShareModal(props) {
                           data-demo-src="assets/img/avatars/hanzo.svg"
                           alt=""
                         />
-                        <span>Css Ninja</span>{" "}
-                        <ChevronDown />
+                        <span>Css Ninja</span> <ChevronDown />
                       </div>
                     </div>
                     <div className="dropdown-menu" role="menu">
@@ -258,7 +259,7 @@ export default function ShareModal(props) {
                 <div className="inner-flex">
                   <img
                     id="share-modal-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
                     data-demo-src="assets/img/avatars/dan.jpg"
                     data-user-popover="1"
                     alt=""
@@ -273,11 +274,11 @@ export default function ShareModal(props) {
                 <div className="publication-footer">
                   <div className="stats">
                     <div className="stat-block">
-                      <i className="mdi mdi-earth"></i>
+                      <Globe size={16} className="mr-1" />
                       <small>Public</small>
                     </div>
                     <div className="stat-block">
-                      <i className="mdi mdi-eye"></i>
+                      <Eye size={16} className="mr-1" />
                       <small>163 views</small>
                     </div>
                   </div>
@@ -331,17 +332,17 @@ export default function ShareModal(props) {
           <div className="card-footer">
             <div className="action-wrap">
               <div className="footer-action" data-target-action="tag">
-                <UserPlus />
+                <UserPlus size={16} className="mr-1" />
               </div>
               <div className="footer-action" data-target-action="place">
-                <MapPin />
+                <MapPin size={16} className="mr-1" />
               </div>
               <div
                 className="footer-action dropdown is-spaced is-neutral dropdown-trigger is-up"
                 data-target-action="permissions"
               >
                 <div>
-                  <i className="mdi mdi-lock-clock"></i>
+                  <Lock size={16} className="mr-1" />
                 </div>
                 <div className="dropdown-menu" role="menu">
                   <div className="dropdown-content">
