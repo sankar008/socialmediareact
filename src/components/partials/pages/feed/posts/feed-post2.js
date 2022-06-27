@@ -61,7 +61,7 @@ export default function FeedPost2(props) {
                 data-fancybox
                 href="https://www.youtube.com/watch?v=N8GksI_-iIM"
               >
-                <img src="assets/img/icons/video/play.svg" alt="" />
+                <img src="https://friendkit.cssninja.io/assets/img/icons/video/play.svg" alt="" />
               </a>
             </div>
             {/* Link content */}

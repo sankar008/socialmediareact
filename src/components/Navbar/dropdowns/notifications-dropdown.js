@@ -9,7 +9,6 @@ export const NotificationsDropdown = () => {
         <div class="navbar-item is-icon drop-trigger" onBlur={(() => setisActive(false))}> 
             <a class="icon-link" onClick={() => setisActive(!isActive)} href="javascript:void(0);" >
                 <Bell />
-                <Bell />
                 <span class="indicator"></span>
             </a>
 
