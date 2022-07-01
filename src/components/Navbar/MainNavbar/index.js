@@ -24,6 +24,8 @@ const BasicNavbar = (props) => {
     setMessageOverlay,
   } = props;
 
+  const menu = ["Feed", "Friends", "Groups", "Store"];
+
   return (
     <div
       id="main-navbar"
@@ -59,6 +61,13 @@ const BasicNavbar = (props) => {
                 <Grid />
               </a>
             </div>
+            {menu.map((item) => (
+              <div class="navbar-item">
+                <a href="">
+                  <span>{item}</span>
+                </a>
+              </div>
+            ))}
           </div>
 
           <div class="navbar-end">

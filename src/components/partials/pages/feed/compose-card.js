@@ -558,7 +558,14 @@ export default function ComposeCard(props) {
               />
             </div>
             {/* Mood action */}
-            <div id="show-activities" className="compose-option">
+            <div
+              id="show-activities"
+              className="compose-option"
+              onClick={() => {
+                setAutoComp(1);
+                openModal();
+              }}
+            >
               <Smile />
               <span>Activity</span>
             </div>
