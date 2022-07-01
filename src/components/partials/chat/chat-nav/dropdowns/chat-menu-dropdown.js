@@ -1,16 +1,40 @@
+import {
+  DownloadCloud,
+  FileText,
+  Gift,
+  LifeBuoy,
+  MoreVertical,
+  Users,
+} from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
+import { useState } from "react";
+
 export default function ChatMenuDropdown() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
-    <div class="dropdown is-spaced is-neutral is-right dropdown-trigger">
-      <div>
-        <a class="chat-nav-item is-icon no-margin">
-          <i data-feather="more-vertical"></i>
+    <div
+      class={`dropdown is-spaced is-neutral is-right dropdown-trigger  ${
+        activeDropDown ? "is-active" : ""
+      }`}
+    >
+      <OutsideClickHandler
+        onOutsideClick={() => {
+          setActiveDropDown(false);
+        }}
+      >
+        <a
+          class="chat-nav-item is-icon no-margin"
+          onClick={() => setActiveDropDown(!activeDropDown)}
+        >
+          <MoreVertical />
         </a>
-      </div>
+      </OutsideClickHandler>
       <div class="dropdown-menu" role="menu">
         <div class="dropdown-content">
           <a href="#" class="dropdown-item">
             <div class="media">
-              <i data-feather="file-text"></i>
+              <FileText />
               <div class="media-content">
                 <h3>Files</h3>
                 <small>View all your files.</small>
@@ -19,7 +43,7 @@ export default function ChatMenuDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="users"></i>
+              <Users />
               <div class="media-content">
                 <h3>Users</h3>
                 <small>View all users you're talking to.</small>
@@ -29,7 +53,7 @@ export default function ChatMenuDropdown() {
           <hr class="dropdown-divider" />
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="gift"></i>
+              <Gift />
               <div class="media-content">
                 <h3>Daily bonus</h3>
                 <small>Get your daily bonus.</small>
@@ -38,7 +62,7 @@ export default function ChatMenuDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="download-cloud"></i>
+              <DownloadCloud />
               <div class="media-content">
                 <h3>Downloads</h3>
                 <small>See all your downloads.</small>
@@ -48,7 +72,7 @@ export default function ChatMenuDropdown() {
           <hr class="dropdown-divider" />
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="life-buoy"></i>
+              <LifeBuoy />
               <div class="media-content">
                 <h3>Support</h3>
                 <small>Reach our support team.</small>

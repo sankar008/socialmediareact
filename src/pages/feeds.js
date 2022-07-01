@@ -9,6 +9,7 @@ import RecommendedPagesWidget from "../components/partials/misc/widgets/recommen
 import StoriesWidget from "../components/partials/misc/widgets/stories-widget";
 import SuggestedFriendsWidget from "../components/partials/misc/widgets/suggested-friends-widget";
 import WeatherWidget from "../components/partials/misc/widgets/weather-widget";
+import ExplorerMenu from "../components/partials/navigation/explorer-menu/explorer-menu";
 import ComposeCard from "../components/partials/pages/feed/compose-card";
 import AlbumsModal from "../components/partials/pages/feed/modals/albums-modal";
 import CreateGroupModal from "../components/partials/pages/feed/modals/create-group-modal";
@@ -28,25 +29,33 @@ export default function Feeds() {
   const [videoOverlay, setVideoOverlay] = useState(false);
   const [shareOverlay, setShareOverlay] = useState(false);
 
+  const [messageOverlay, setMessageOverlay] = useState(false);
+  const [exploreOverlay, setExploreOverlay] = useState(false);
+
   return (
     <>
       <div className={`app-overlay ${appOverlay ? "is-active" : ""}`}></div>
-      <MainNavbar />
-      <div class="view-wrapper">
-        <div id="main-feed" class="container">
+      <MainNavbar
+        messageOverlay={messageOverlay}
+        setMessageOverlay={setMessageOverlay}
+        exploreOverlay={exploreOverlay}
+        setExploreOverlay={setExploreOverlay}
+      />
+      <div className="view-wrapper">
+        <div id="main-feed" className="container">
           {/* Content placeholders at page load */}
           {/* {{> feed-shadow-dom ---------------------}} */}
 
-          <div id="activity-feed" class="view-wrap true-dom is-hidden1">
-            <div class="columns">
-              <div class="column is-3 is-hidden-mobile">
+          <div id="activity-feed" className="view-wrap true-dom is-hidden1">
+            <div className="columns">
+              <div className="column is-3 is-hidden-mobile">
                 <WeatherWidget />
                 <RecommendedPagesWidget />
                 <FakeAddWidget />
                 <LatestActivityWidget />
               </div>
 
-              <div class="column is-6">
+              <div className="column is-6">
                 <ComposeCard
                   setAppOverlay={setAppOverlay}
                   setAlbumOverlay={setAlbumOverlay}
@@ -79,14 +88,14 @@ export default function Feeds() {
                 />
 
                 {/* Load more posts */}
-                <div class=" load-more-wrap narrow-top has-text-centered">
-                  <a href="#" class="load-more-button">
+                <div className=" load-more-wrap narrow-top has-text-centered">
+                  <a href="#" className="load-more-button">
                     Load More
                   </a>
                 </div>
                 {/* /Load more posts */}
               </div>
-              <div class="column is-3">
+              <div className="column is-3">
                 <StoriesWidget />
                 <BirthdayWidget />
                 <SuggestedFriendsWidget />
@@ -115,7 +124,14 @@ export default function Feeds() {
 
         <NoStreamModal />
       </div>
-      <ChatWrapper />
+      <ChatWrapper
+        messageOverlay={messageOverlay}
+        setMessageOverlay={setMessageOverlay}
+      />
+      <ExplorerMenu
+        exploreOverlay={exploreOverlay}
+        setExploreOverlay={setExploreOverlay}
+      />
     </>
   );
 }

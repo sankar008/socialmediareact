@@ -7,7 +7,7 @@ export default function CommentDropdown() {
 
   return (
     <div
-      class={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
+      className={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
         activeDropDown ? "is-active" : ""
       }`}
     >
@@ -18,29 +18,29 @@ export default function CommentDropdown() {
           }}
         >
           <div
-            class="button"
+            className="button"
             onClick={() => setActiveDropDown(!activeDropDown)}
           >
             <MoreVertical />
           </div>
         </OutsideClickHandler>
       </div>
-      <div class="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-          <a class="dropdown-item">
-            <div class="media">
+      <div className="dropdown-menu" role="menu">
+        <div className="dropdown-content">
+          <a className="dropdown-item">
+            <div className="media">
               <X />
-              <div class="media-content">
+              <div className="media-content">
                 <h3>Hide</h3>
                 <small>Hide this comment.</small>
               </div>
             </div>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <div class="media">
+          <div className="dropdown-divider"></div>
+          <a href="#" className="dropdown-item">
+            <div className="media">
               <Flag />
-              <div class="media-content">
+              <div className="media-content">
                 <h3>Report</h3>
                 <small>Report this comment.</small>
               </div>

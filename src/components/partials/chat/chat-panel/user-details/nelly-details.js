@@ -2,79 +2,79 @@ import UserDetailsDropdown from "../../chat-dropdowns/user-details-dropdown";
 
 export default function NellyDetails() {
   return (
-    <div id="nelly-details" class="panel-body is-user-details is-hidden">
-      <div class="panel-body-inner">
-        <div class="subheader">
-          <div class="action-icon">
-            <i class="mdi mdi-video"></i>
+    <div id="nelly-details" className="panel-body is-user-details is-hidden">
+      <div className="panel-body-inner">
+        <div className="subheader">
+          <div className="action-icon">
+            <i className="mdi mdi-video"></i>
           </div>
-          <div class="action-icon">
-            <i class="mdi mdi-camera"></i>
+          <div className="action-icon">
+            <i className="mdi mdi-camera"></i>
           </div>
-          <div class="action-icon">
-            <i class="mdi mdi-microphone"></i>
+          <div className="action-icon">
+            <i className="mdi mdi-microphone"></i>
           </div>
           <UserDetailsDropdown />
         </div>
 
-        <div class="details-avatar">
+        <div className="details-avatar">
           <img
             src="https://via.placeholder.com/300x300"
             data-demo-src="assets/img/avatars/nelly.png"
             alt=""
           />
-          <div class="call-me">
-            <i class="mdi mdi-phone"></i>
+          <div className="call-me">
+            <i className="mdi mdi-phone"></i>
           </div>
         </div>
 
-        <div class="user-meta has-text-centered">
+        <div className="user-meta has-text-centered">
           <h3>Nelly Schwartz</h3>
           <h4>HR Manager</h4>
         </div>
 
-        <div class="user-badges">
-          <div class="hexagon is-red">
+        <div className="user-badges">
+          <div className="hexagon is-red">
             <div>
-              <i class="mdi mdi-heart"></i>
+              <i className="mdi mdi-heart"></i>
             </div>
           </div>
-          <div class="hexagon is-green">
+          <div className="hexagon is-green">
             <div>
-              <i class="mdi mdi-dog"></i>
+              <i className="mdi mdi-dog"></i>
             </div>
           </div>
-          <div class="hexagon is-accent">
+          <div className="hexagon is-accent">
             <div>
-              <i class="mdi mdi-flash"></i>
+              <i className="mdi mdi-flash"></i>
             </div>
           </div>
-          <div class="hexagon is-blue">
+          <div className="hexagon is-blue">
             <div>
-              <i class="mdi mdi-briefcase"></i>
+              <i className="mdi mdi-briefcase"></i>
             </div>
           </div>
         </div>
 
-        <div class="user-about">
+        <div className="user-about">
           <label>About Me</label>
-          <div class="about-block">
-            <i class="mdi mdi-domain"></i>
-            <div class="about-text">
+          <div className="about-block">
+            <i className="mdi mdi-domain"></i>
+            <div className="about-text">
               <span>Works at</span>
               <span>
-                <a class="is-inverted" href="#">
+                <a className="is-inverted" href="#">
                   Carrefour
                 </a>
               </span>
             </div>
           </div>
-          <div class="about-block">
-            <i class="mdi mdi-map-marker"></i>
-            <div class="about-text">
+          <div className="about-block">
+            <i className="mdi mdi-map-marker"></i>
+            <div className="about-text">
               <span>From</span>
               <span>
-                <a class="is-inverted" href="#">
+                <a className="is-inverted" href="#">
                   Melbourne
                 </a>
               </span>

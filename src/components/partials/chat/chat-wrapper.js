@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { User, X } from "react-feather";
 import DanConversation from "./chat-body/dan-conversation";
 import DanielConversation from "./chat-body/daniel-conversation";
 import DavidConversation from "./chat-body/david-conversation";
@@ -7,7 +9,7 @@ import MillyConversation from "./chat-body/milly-conversation";
 import NellyConversation from "./chat-body/nelly-conversation";
 import StellaConversation from "./chat-body/stella-conversation";
 import ComposeAddDropdown from "./chat-dropdowns/compose-add-dropdown";
-import AddConversationModal from './chat-modals/add-conversation-modal';
+import AddConversationModal from "./chat-modals/add-conversation-modal";
 import ChatNav from "./chat-nav/chat-nav";
 import DanDetails from "./chat-panel/user-details/dan-details";
 import DanielDetails from "./chat-panel/user-details/daniel-details";
@@ -19,18 +21,20 @@ import NellyDetails from "./chat-panel/user-details/nelly-details";
 import StellaDetails from "./chat-panel/user-details/stella-details";
 import ConversationsList from "./chat-sidebar/conversations-list";
 
-export default function ChatWrapper() {
+export default function ChatWrapper(props) {
+  const { messageOverlay, setMessageOverlay } = props;
+  const [openNewConversation, setOpenNewConversation] = useState(false);
   return (
     <>
-      <div className="chat-wrapper">
+      <div className={`chat-wrapper ${messageOverlay ? "is-active" : ""}`}>
         <div className="chat-inner">
-          <ChatNav />
+          <ChatNav messageOverlay={messageOverlay} setMessageOverlay={setMessageOverlay}/>
 
           <div id="chat-sidebar" className="users-sidebar">
             <div className="header-item">
               <img
                 className="light-image"
-                src="assets/img/logo/friendkit-bold.svg"
+                src="https://friendkit.cssninja.io/assets/img/logo/friendkit-bold.svg"
                 alt=""
               />
               <img
@@ -46,8 +50,9 @@ export default function ChatWrapper() {
               <div
                 className="add-button modal-trigger"
                 data-modal="add-conversation-modal"
+                onClick={() => setOpenNewConversation(true)}
               >
-                <i data-feather="user"></i>
+                <User />
               </div>
             </div>
           </div>
@@ -80,7 +85,7 @@ export default function ChatWrapper() {
               <div className="panel-header">
                 <h3>Details</h3>
                 <div className="panel-close">
-                  <i data-feather="x"></i>
+                  <X />
                 </div>
               </div>
 
@@ -96,7 +101,7 @@ export default function ChatWrapper() {
           </div>
         </div>
       </div>
-      <AddConversationModal />
+      <AddConversationModal openNewConversation={openNewConversation} setOpenNewConversation={setOpenNewConversation}/>
     </>
   );
 }

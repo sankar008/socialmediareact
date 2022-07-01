@@ -1,16 +1,33 @@
+import { useState } from "react";
+import { Mail, MoreVertical, Share2, User, X } from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
+
 export default function UserDetailsDropdown() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
-    <div class="dropdown details-dropdown is-spaced is-neutral is-right dropdown-trigger ml-auto">
-      <div>
-        <div class="action-icon">
-          <i class="mdi mdi-dots-vertical"></i>
+    <div
+      class={`dropdown details-dropdown is-spaced is-neutral is-right dropdown-trigger ml-auto
+     ${activeDropDown ? "is-active" : ""}`}
+    >
+      <OutsideClickHandler
+        onOutsideClick={() => {
+          setActiveDropDown(false);
+        }}
+      >
+        <div
+          class="action-icon"
+          onClick={() => setActiveDropDown(!activeDropDown)}
+        >
+          <MoreVertical size={18} />
         </div>
-      </div>
+      </OutsideClickHandler>
+
       <div class="dropdown-menu" role="menu">
         <div class="dropdown-content">
           <a href="#" class="dropdown-item">
             <div class="media">
-              <i data-feather="user"></i>
+              <User />
               <div class="media-content">
                 <h3>View profile</h3>
                 <small>View this user's profile.</small>
@@ -19,7 +36,7 @@ export default function UserDetailsDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="mail"></i>
+              <Mail />
               <div class="media-content">
                 <h3>Send message</h3>
                 <small>Send a message to the user's inbox.</small>
@@ -29,7 +46,7 @@ export default function UserDetailsDropdown() {
           <hr class="dropdown-divider" />
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="share-2"></i>
+              <Share2 />
               <div class="media-content">
                 <h3>Share profile</h3>
                 <small>Share this user's profile.</small>
@@ -38,7 +55,7 @@ export default function UserDetailsDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="x"></i>
+              <X />
               <div class="media-content">
                 <h3>Block user</h3>
                 <small>Block this user permanently.</small>

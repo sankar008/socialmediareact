@@ -4,23 +4,23 @@ export default function AlbumsHelpModal() {
   return (
     <div
       id="albums-help-modal"
-      class="modal albums-help-modal is-xsmall has-light-bg"
+      className="modal albums-help-modal is-xsmall has-light-bg"
     >
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="card">
-          <div class="card-heading">
+      <div className="modal-background"></div>
+      <div className="modal-content">
+        <div className="card">
+          <div className="card-heading">
             <h3>Add Photos</h3>
-            <div class="close-wrap">
-              <span class="close-modal">
+            <div className="close-wrap">
+              <span className="close-modal">
                 <X />
               </span>
             </div>
           </div>
-          <div class="card-body">
-            <div class="content-block is-active">
+          <div className="card-body">
+            <div className="content-block is-active">
               <img src="assets/img/illustrations/cards/albums.svg" alt="" />
-              <div class="help-text">
+              <div className="help-text">
                 <h3>Manage your photos</h3>
                 <p>
                   Lorem ipsum sit dolor amet is a dummy text used by the
@@ -29,9 +29,9 @@ export default function AlbumsHelpModal() {
               </div>
             </div>
 
-            <div class="content-block">
+            <div className="content-block">
               <img src="assets/img/illustrations/cards/upload.svg" alt="" />
-              <div class="help-text">
+              <div className="help-text">
                 <h3>Upload your photos</h3>
                 <p>
                   Lorem ipsum sit dolor amet is a dummy text used by the
@@ -40,14 +40,14 @@ export default function AlbumsHelpModal() {
               </div>
             </div>
 
-            <div class="slide-dots">
-              <div class="dot is-active"></div>
-              <div class="dot"></div>
+            <div className="slide-dots">
+              <div className="dot is-active"></div>
+              <div className="dot"></div>
             </div>
-            <div class="action">
+            <div className="action">
               <button
                 type="button"
-                class="button is-solid accent-button next-modal raised"
+                className="button is-solid accent-button next-modal raised"
                 data-modal="albums-modal"
               >
                 Next

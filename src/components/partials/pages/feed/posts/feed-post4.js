@@ -9,13 +9,13 @@ export default function FeedPost4(props) {
   const [showComment, setShowComment] = useState(false);
 
   return (
-    <div class="card is-post">
+    <div className="card is-post">
       {/* Main wrap */}
       <div className={`content-wrap ${!showComment ? "" : "is-hidden"}`}>
         {/* Header */}
-        <div class="card-heading">
-          <div class="user-block">
-            <div class="image">
+        <div className="card-heading">
+          <div className="user-block">
+            <div className="image">
               <img
                 src="https://img.icons8.com/color/344/person-male.png"
                 data-demo-src="assets/img/avatars/stella.jpg"
@@ -23,9 +23,9 @@ export default function FeedPost4(props) {
                 alt=""
               />
             </div>
-            <div class="user-info">
+            <div className="user-info">
               <a href="#">Stella Bergmann</a>
-              <span class="time">July 19 2018, 15:13pm</span>
+              <span className="time">July 19 2018, 15:13pm</span>
             </div>
           </div>
           {/* Right side dropdown */}
@@ -35,9 +35,9 @@ export default function FeedPost4(props) {
         {/* Header */}
 
         {/* Post body */}
-        <div class="card-body">
+        <div className="card-body">
           {/* Post body text */}
-          <div class="post-text">
+          <div className="post-text">
             <p>
               Hey friends ! Iam back and i wanted to share with you some awesome
               pictures we took during our trip to Santa Monica. We had wonderful
@@ -45,11 +45,11 @@ export default function FeedPost4(props) {
             </p>
           </div>
           {/* Featured image */}
-          <div class="post-image">
+          <div className="post-image">
             {/* CSS masonry wrap */}
-            <div class="masonry-grid">
+            <div className="masonry-grid">
               {/* Left column */}
-              <div class="masonry-column-left">
+              <div className="masonry-column-left">
                 <a
                   data-fancybox="post3"
                   data-lightbox-type="comments"
@@ -78,7 +78,7 @@ export default function FeedPost4(props) {
                 </a>
               </div>
               {/* Right column */}
-              <div class="masonry-column-right">
+              <div className="masonry-column-right">
                 <a
                   data-fancybox="post3"
                   data-lightbox-type="comments"
@@ -134,9 +134,9 @@ export default function FeedPost4(props) {
         {/* /Post body */}
 
         {/* Post footer */}
-        <div class="card-footer">
+        <div className="card-footer">
           {/* Followers */}
-          <div class="likers-group">
+          <div className="likers-group">
             <img
               src="https://img.icons8.com/color/344/person-male.png"
               data-demo-src="assets/img/avatars/rolf.jpg"
@@ -168,23 +168,23 @@ export default function FeedPost4(props) {
               alt=""
             />
           </div>
-          <div class="likers-text">
+          <div className="likers-text">
             <p>
               <a href="#">Gaelle</a>,<a href="#">Rolf</a>
             </p>
             <p>and 31 more liked this</p>
           </div>
           {/* Post statistics */}
-          <div class="social-count">
-            <div class="likes-count">
+          <div className="social-count">
+            <div className="likes-count">
               <heart />
               <span>33</span>
             </div>
-            <div class="shares-count">
+            <div className="shares-count">
               <Link2 />
               <span>1</span>
             </div>
-            <div class="comments-count">
+            <div className="comments-count">
               <MessageCircle />
               <span>9</span>
             </div>
@@ -197,7 +197,7 @@ export default function FeedPost4(props) {
       {/* Post #4 comments */}
       <div className={`comments-wrap ${showComment ? "" : "is-hidden"}`}>
         {/* Header */}
-        <div class="comments-heading">
+        <div className="comments-heading">
           <h4>
             Comments
             <small>(9)</small>
@@ -212,12 +212,12 @@ export default function FeedPost4(props) {
         {/* /Header */}
 
         {/* Comments body */}
-        <div class="comments-body has-slimscroll">
+        <div className="comments-body has-slimscroll">
           {/* Comment */}
-          <div class="media is-comment">
+          <div className="media is-comment">
             {/* User image */}
-            <div class="media-left">
-              <div class="image">
+            <div className="media-left">
+              <div className="image">
                 <img
                   src="https://img.icons8.com/color/344/person-male.png"
                   data-demo-src="assets/img/avatars/jenna.png"
@@ -227,9 +227,9 @@ export default function FeedPost4(props) {
               </div>
             </div>
             {/* Content */}
-            <div class="media-content">
+            <div className="media-content">
               <a href="#">Jenna Davis</a>
-              <span class="time">30 minutes ago</span>
+              <span className="time">30 minutes ago</span>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut
@@ -237,21 +237,21 @@ export default function FeedPost4(props) {
                 consequat.
               </p>
               {/* Comment actions */}
-              <div class="controls">
-                <div class="like-count">
+              <div className="controls">
+                <div className="like-count">
                   <ThumbsUp />
                   <span>0</span>
                 </div>
-                <div class="reply">
+                <div className="reply">
                   <a href="#">Reply</a>
                 </div>
               </div>
 
               {/* Nested Comment */}
-              <div class="media is-comment">
+              <div className="media is-comment">
                 {/* User image */}
-                <div class="media-left">
-                  <div class="image">
+                <div className="media-left">
+                  <div className="image">
                     <img
                       src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/lana.jpeg"
@@ -261,26 +261,26 @@ export default function FeedPost4(props) {
                   </div>
                 </div>
                 {/* Content */}
-                <div class="media-content">
+                <div className="media-content">
                   <a href="#">Lana Henrikssen</a>
-                  <span class="time">15 minutes ago</span>
+                  <span className="time">15 minutes ago</span>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempo.
                   </p>
                   {/* Comment actions */}
-                  <div class="controls">
-                    <div class="like-count">
+                  <div className="controls">
+                    <div className="like-count">
                       <ThumbsUp />
                       <span>2</span>
                     </div>
-                    <div class="reply">
+                    <div className="reply">
                       <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
                 {/* Right side dropdown */}
-                <div class="media-right">
+                <div className="media-right">
                   {/* /partials/pages/feed/dropdowns/comment-dropdown.html */}
                   <CommentDropdown />
                 </div>
@@ -288,10 +288,10 @@ export default function FeedPost4(props) {
               {/* /Nested Comment */}
 
               {/* Nested Comment */}
-              <div class="media is-comment">
+              <div className="media is-comment">
                 {/* User image */}
-                <div class="media-left">
-                  <div class="image">
+                <div className="media-left">
+                  <div className="image">
                     <img
                       src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/david.jpg"
@@ -301,36 +301,36 @@ export default function FeedPost4(props) {
                   </div>
                 </div>
                 {/* Content */}
-                <div class="media-content">
+                <div className="media-content">
                   <a href="#">David Kim</a>
-                  <span class="time">12 minutes ago</span>
+                  <span className="time">12 minutes ago</span>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempo incididunt ut labore et dolore magna
                     aliqua.
                   </p>
-                  <div class="controls">
-                    <div class="like-count">
+                  <div className="controls">
+                    <div className="like-count">
                       <ThumbsUp />
                       <span>5</span>
                     </div>
-                    <div class="reply">
+                    <div className="reply">
                       <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
                 {/* Right side dropdown */}
-                <div class="media-right">
+                <div className="media-right">
                   <CommentDropdown />
                 </div>
               </div>
               {/* /Nested Comment */}
 
               {/* Nested Comment */}
-              <div class="media is-comment">
+              <div className="media is-comment">
                 {/* User image */}
-                <div class="media-left">
-                  <div class="image">
+                <div className="media-left">
+                  <div className="image">
                     <img
                       src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/mike.jpg"
@@ -340,35 +340,35 @@ export default function FeedPost4(props) {
                   </div>
                 </div>
                 {/* Content */}
-                <div class="media-content">
+                <div className="media-content">
                   <a href="#">Mike Lasalle</a>
-                  <span class="time">8 minutes ago</span>
+                  <span className="time">8 minutes ago</span>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempo incididunt.
                   </p>
-                  <div class="controls">
-                    <div class="like-count">
+                  <div className="controls">
+                    <div className="like-count">
                       <ThumbsUp />
                       <span>5</span>
                     </div>
-                    <div class="reply">
+                    <div className="reply">
                       <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
                 {/* Right side dropdown */}
-                <div class="media-right">
+                <div className="media-right">
                   <CommentDropdown />
                 </div>
               </div>
               {/* /Nested Comment */}
 
               {/* Nested Comment */}
-              <div class="media is-comment">
+              <div className="media is-comment">
                 {/* User image */}
-                <div class="media-left">
-                  <div class="image">
+                <div className="media-left">
+                  <div className="image">
                     <img
                       src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/stella.jpg"
@@ -378,42 +378,42 @@ export default function FeedPost4(props) {
                   </div>
                 </div>
                 {/* Content */}
-                <div class="media-content">
+                <div className="media-content">
                   <a href="#">Stella Bergmann</a>
-                  <span class="time">Just now</span>
+                  <span className="time">Just now</span>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempo incididunt.
                   </p>
-                  <div class="controls">
-                    <div class="like-count">
+                  <div className="controls">
+                    <div className="like-count">
                       <ThumbsUp />
                       <span>2</span>
                     </div>
-                    <div class="reply">
+                    <div className="reply">
                       <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
                 {/* Right side dropdown */}
-                <div class="media-right">
+                <div className="media-right">
                   <CommentDropdown />
                 </div>
               </div>
               {/* /Nested Comment */}
             </div>
             {/* Right side dropdown */}
-            <div class="media-right">
+            <div className="media-right">
               <CommentDropdown />
             </div>
           </div>
           {/* /Comment */}
 
           {/* Comment */}
-          <div class="media is-comment">
+          <div className="media is-comment">
             {/* User image */}
-            <div class="media-left">
-              <div class="image">
+            <div className="media-left">
+              <div className="image">
                 <img
                   src="https://img.icons8.com/color/344/person-male.png"
                   data-demo-src="assets/img/avatars/daniel.jpg"
@@ -423,36 +423,36 @@ export default function FeedPost4(props) {
               </div>
             </div>
             {/* Content */}
-            <div class="media-content">
+            <div className="media-content">
               <a href="#">Daniel Wellington</a>
-              <span class="time">5 hours ago</span>
+              <span className="time">5 hours ago</span>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempo incididunt ut labore et dolore magna aliqua.
               </p>
               {/* Comment actions */}
-              <div class="controls">
-                <div class="like-count">
+              <div className="controls">
+                <div className="like-count">
                   <ThumbsUp />
                   <span>1</span>
                 </div>
-                <div class="reply">
+                <div className="reply">
                   <a href="#">Reply</a>
                 </div>
               </div>
             </div>
             {/* Right side dropdown */}
-            <div class="media-right">
+            <div className="media-right">
               <CommentDropdown />
             </div>
           </div>
           {/* /Comment */}
 
           {/* Comment */}
-          <div class="media is-comment">
+          <div className="media is-comment">
             {/* User image */}
-            <div class="media-left">
-              <div class="image">
+            <div className="media-left">
+              <div className="image">
                 <img
                   src="https://img.icons8.com/color/344/person-male.png"
                   data-demo-src="assets/img/avatars/bobby.jpg"
@@ -462,29 +462,29 @@ export default function FeedPost4(props) {
               </div>
             </div>
             {/* Content */}
-            <div class="media-content">
+            <div className="media-content">
               <a href="#">Bobby Brown</a>
-              <span class="time">7 hours ago</span>
+              <span className="time">7 hours ago</span>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempo incididunt ut labore et dolore magna aliqua.
               </p>
               {/* Comment actions */}
-              <div class="controls">
-                <div class="like-count">
+              <div className="controls">
+                <div className="like-count">
                   <ThumbsUp />
                   <span>1</span>
                 </div>
-                <div class="reply">
+                <div className="reply">
                   <a href="#">Reply</a>
                 </div>
               </div>
 
               {/* Nested Comment */}
-              <div class="media is-comment">
+              <div className="media is-comment">
                 {/* User image */}
-                <div class="media-left">
-                  <div class="image">
+                <div className="media-left">
+                  <div className="image">
                     <img
                       src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/stella.jpg"
@@ -494,35 +494,35 @@ export default function FeedPost4(props) {
                   </div>
                 </div>
                 {/* Content */}
-                <div class="media-content">
+                <div className="media-content">
                   <a href="#">Stella Bergmann</a>
-                  <span class="time">7 hours ago</span>
+                  <span className="time">7 hours ago</span>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempo incididunt.
                   </p>
-                  <div class="controls">
-                    <div class="like-count">
+                  <div className="controls">
+                    <div className="like-count">
                       <ThumbsUp />
                       <span>2</span>
                     </div>
-                    <div class="reply">
+                    <div className="reply">
                       <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
                 {/* Right side dropdown */}
-                <div class="media-right">
+                <div className="media-right">
                   <CommentDropdown />
                 </div>
               </div>
               {/* /Nested Comment */}
 
               {/* Nested Comment */}
-              <div class="media is-comment">
+              <div className="media is-comment">
                 {/* User image */}
-                <div class="media-left">
-                  <div class="image">
+                <div className="media-left">
+                  <div className="image">
                     <img
                       src="https://img.icons8.com/color/344/person-male.png"
                       data-demo-src="assets/img/avatars/lana.jpeg"
@@ -532,33 +532,33 @@ export default function FeedPost4(props) {
                   </div>
                 </div>
                 {/* Content */}
-                <div class="media-content">
+                <div className="media-content">
                   <a href="#">Lana Henrikssen</a>
-                  <span class="time">15 minutes ago</span>
+                  <span className="time">15 minutes ago</span>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempo.
                   </p>
                   {/* Comment actions */}
-                  <div class="controls">
-                    <div class="like-count">
+                  <div className="controls">
+                    <div className="like-count">
                       <ThumbsUp />
                       <span>2</span>
                     </div>
-                    <div class="reply">
+                    <div className="reply">
                       <a href="#">Reply</a>
                     </div>
                   </div>
                 </div>
                 {/* Right side dropdown */}
-                <div class="media-right">
+                <div className="media-right">
                   <CommentDropdown />
                 </div>
               </div>
               {/* /Nested Comment */}
             </div>
             {/* Right side dropdown */}
-            <div class="media-right">
+            <div className="media-right">
               <CommentDropdown />
             </div>
           </div>
@@ -567,42 +567,42 @@ export default function FeedPost4(props) {
         {/* /Comments body */}
 
         {/* Comments footer */}
-        <div class="card-footer">
-          <div class="media post-comment has-emojis">
+        <div className="card-footer">
+          <div className="media post-comment has-emojis">
             {/* Textarea */}
-            <div class="media-content">
-              <div class="field">
-                <p class="control">
+            <div className="media-content">
+              <div className="field">
+                <p className="control">
                   <textarea
-                    class="textarea comment-textarea"
+                    className="textarea comment-textarea"
                     rows="5"
                     placeholder="Write a comment..."
                   ></textarea>
                 </p>
               </div>
               {/* Additional actions */}
-              <div class="actions">
-                <div class="image is-32x32">
+              <div className="actions">
+                <div className="image is-32x32">
                   <img
-                    class="is-rounded"
+                    className="is-rounded"
                     src="https://img.icons8.com/color/344/person-male.png"
                     data-demo-src="assets/img/avatars/jenna.png"
                     data-user-popover="0"
                     alt=""
                   />
                 </div>
-                <div class="toolbar">
-                  <div class="action is-auto">
+                <div className="toolbar">
+                  <div className="action is-auto">
                     <AtSign />
                   </div>
-                  <div class="action is-emoji">
+                  <div className="action is-emoji">
                     <Smile />
                   </div>
-                  <div class="action is-upload">
+                  <div className="action is-upload">
                     <Camera />
                     <input type="file" />
                   </div>
-                  <a class="button is-solid primary-button raised">
+                  <a className="button is-solid primary-button raised">
                     Post Comment
                   </a>
                 </div>

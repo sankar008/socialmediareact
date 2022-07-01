@@ -8,7 +8,7 @@ export default function DanConversation() {
 
       <div class="chat-message is-received">
         <img
-          src="https://via.placeholder.com/300x300"
+          src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
           data-demo-src="assets/img/avatars/dan.jpg"
           alt=""
         />
@@ -22,7 +22,7 @@ export default function DanConversation() {
 
       <div class="chat-message is-received">
         <img
-          src="https://via.placeholder.com/300x300"
+          src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
           data-demo-src="assets/img/avatars/dan.jpg"
           alt=""
         />
@@ -36,7 +36,7 @@ export default function DanConversation() {
 
       <div class="chat-message is-sent">
         <img
-          src="https://via.placeholder.com/300x300"
+          src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
           data-demo-src="assets/img/avatars/jenna.png"
           alt=""
         />
@@ -48,7 +48,7 @@ export default function DanConversation() {
 
       <div class="chat-message is-received">
         <img
-          src="https://via.placeholder.com/300x300"
+          src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
           data-demo-src="assets/img/avatars/dan.jpg"
           alt=""
         />
@@ -60,7 +60,7 @@ export default function DanConversation() {
 
       <div class="chat-message is-sent">
         <img
-          src="https://via.placeholder.com/300x300"
+          src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
           data-demo-src="assets/img/avatars/jenna.png"
           alt=""
         />
@@ -75,7 +75,7 @@ export default function DanConversation() {
 
       <div class="chat-message is-sent">
         <img
-          src="https://via.placeholder.com/300x300"
+          src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
           data-demo-src="assets/img/avatars/jenna.png"
           alt=""
         />

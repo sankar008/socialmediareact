@@ -6,11 +6,11 @@ export default function StoriesWidget() {
   const [activeDropDown, setActiveDropDown] = useState(false);
 
   return (
-    <div class="card">
-      <div class="card-heading is-bordered">
+    <div className="card">
+      <div className="card-heading is-bordered">
         <h4>Stories</h4>
         <div
-          class={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
+          className={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
             activeDropDown ? "is-active" : ""
           }`}
         >
@@ -20,37 +20,37 @@ export default function StoriesWidget() {
             }}
           >
             <div
-              class="button"
+              className="button"
               onClick={() => setActiveDropDown(!activeDropDown)}
             >
               <MoreVertical />
             </div>
           </OutsideClickHandler>
-          <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item">
-                <div class="media">
+          <div className="dropdown-menu" role="menu">
+            <div className="dropdown-content">
+              <a href="#" className="dropdown-item">
+                <div className="media">
                   <Tv />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Browse stories</h3>
                     <small>View all recent stories.</small>
                   </div>
                 </div>
               </a>
-              <a class="dropdown-item">
-                <div class="media">
+              <a className="dropdown-item">
+                <div className="media">
                   <Settings />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Settings</h3>
                     <small>Access widget settings.</small>
                   </div>
                 </div>
               </a>
-              <hr class="dropdown-divider" />
-              <a href="#" class="dropdown-item">
-                <div class="media">
+              <hr className="dropdown-divider" />
+              <a href="#" className="dropdown-item">
+                <div className="media">
                   <Trash2 />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
                   </div>
@@ -60,18 +60,18 @@ export default function StoriesWidget() {
           </div>
         </div>
       </div>
-      <div class="card-body no-padding">
-        <div class="story-block">
-          <a id="add-story-button" href="#" class="add-story">
+      <div className="card-body no-padding">
+        <div className="story-block">
+          <a id="add-story-button" href="#" className="add-story">
             <Plus />
           </a>
-          <div class="story-meta">
+          <div className="story-meta">
             <span>Add a new Story</span>
             <span>Share an image, a video or some text</span>
           </div>
         </div>
-        <div class="story-block">
-          <div class="img-wrapper">
+        <div className="story-block">
+          <div className="img-wrapper">
             <img
               src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
               data-demo-src="assets/img/avatars/dan.jpg"
@@ -79,13 +79,13 @@ export default function StoriesWidget() {
               alt=""
             />
           </div>
-          <div class="story-meta">
+          <div className="story-meta">
             <span>Dan Walker</span>
             <span>1 hour ago</span>
           </div>
         </div>
-        <div class="story-block">
-          <div class="img-wrapper">
+        <div className="story-block">
+          <div className="img-wrapper">
             <img
               src="https://friendkit.cssninja.io/assets/img/avatars/bobby.jpg"
               data-demo-src="assets/img/avatars/bobby.jpg"
@@ -93,13 +93,13 @@ export default function StoriesWidget() {
               alt=""
             />
           </div>
-          <div class="story-meta">
+          <div className="story-meta">
             <span>Bobby Brown</span>
             <span>3 days ago</span>
           </div>
         </div>
-        <div class="story-block">
-          <div class="img-wrapper">
+        <div className="story-block">
+          <div className="img-wrapper">
             <img
               src="https://friendkit.cssninja.io/assets/img/avatars/elise.jpg"
               data-demo-src="assets/img/avatars/elise.jpg"
@@ -107,7 +107,7 @@ export default function StoriesWidget() {
               alt=""
             />
           </div>
-          <div class="story-meta">
+          <div className="story-meta">
             <span>Elise Walker</span>
             <span>Last week</span>
           </div>

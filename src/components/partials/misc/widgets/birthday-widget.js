@@ -13,13 +13,13 @@ export default function BirthdayWidget() {
 
   return (
     <div
-      class="card is-birthday-card has-background-image"
+      className="card is-birthday-card has-background-image"
       data-background="assets/img/illustrations/cards/birthday-bg.svg"
     >
-      <div class="card-heading">
+      <div className="card-heading">
         <Gift />
         <div
-          class={`dropdown is-spaced is-right dropdown-trigger is-light ${
+          className={`dropdown is-spaced is-right dropdown-trigger is-light ${
             activeDropDown ? "is-active" : ""
           }`}
         >
@@ -29,37 +29,37 @@ export default function BirthdayWidget() {
             }}
           >
             <div
-              class="button"
+              className="button"
               onClick={() => setActiveDropDown(!activeDropDown)}
             >
               <MoreVertical />
             </div>
           </OutsideClickHandler>
-          <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item">
-                <div class="media">
+          <div className="dropdown-menu" role="menu">
+            <div className="dropdown-content">
+              <a href="#" className="dropdown-item">
+                <div className="media">
                   <Clock />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Remind me</h3>
                     <small>Remind me of this later today.</small>
                   </div>
                 </div>
               </a>
-              <a class="dropdown-item">
-                <div class="media">
+              <a className="dropdown-item">
+                <div className="media">
                   <MessageCircle />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Message</h3>
                     <small>Send an automatic greeting message.</small>
                   </div>
                 </div>
               </a>
-              <hr class="dropdown-divider" />
-              <a href="#" class="dropdown-item">
-                <div class="media">
+              <hr className="dropdown-divider" />
+              <a href="#" className="dropdown-item">
+                <div className="media">
                   <Trash2 />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
                   </div>
@@ -69,20 +69,20 @@ export default function BirthdayWidget() {
           </div>
         </div>
       </div>
-      <div class="card-body">
+      <div className="card-body">
         <div>
-          <div class="birthday-avatar">
+          <div className="birthday-avatar">
             <img
               src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
               data-demo-src="assets/img/avatars/dan.jpg"
               alt=""
             />
-            <div class="birthday-indicator">31</div>
+            <div className="birthday-indicator">31</div>
           </div>
-          <div class="birthday-content">
+          <div className="birthday-content">
             <h4>Dan turns 31 today!</h4>
             <p>Send him your best wishes by leaving something on his wall.</p>
-            <button type="button" class="button light-button">
+            <button type="button" className="button light-button">
               Write Message
             </button>
           </div>

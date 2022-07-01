@@ -10,13 +10,14 @@ import {
   Lock,
   MapPin,
   MoreHorizontal,
+  MoreVertical,
   Search,
   Smile,
   Tag,
   User,
   Users,
   Video,
-  X
+  X,
 } from "react-feather";
 import OutsideClickHandler from "react-outside-click-handler";
 
@@ -572,21 +573,21 @@ export default function ComposeCard(props) {
             </div>
           </div>
           {/* /General basic options */}
-          <div class="hidden-options">
-            <div class="target-channels">
-              <div class="channel">
-                <div class="round-checkbox is-small">
+          <div className="hidden-options">
+            <div className="target-channels">
+              <div className="channel">
+                <div className="round-checkbox is-small">
                   <div>
                     <input type="checkbox" id="checkbox-1" checked />
                     <label for="checkbox-1"></label>
                   </div>
                 </div>
-                <div class="channel-icon">
+                <div className="channel-icon">
                   <Bell />
                 </div>
-                <div class="channel-name">Activity Feed</div>
+                <div className="channel-name">Activity Feed</div>
                 <div
-                  class={`dropdown is-spaced is-modern is-right is-neutral dropdown-trigger ${
+                  className={`dropdown is-spaced is-modern is-right is-neutral dropdown-trigger ${
                     activeDropDown1 ? "is-active" : ""
                   }`}
                 >
@@ -597,7 +598,7 @@ export default function ComposeCard(props) {
                       }}
                     >
                       <button
-                        class="button"
+                        className="button"
                         aria-haspopup="true"
                         onClick={() => setActiveDropDown1(!activeDropDown1)}
                       >
@@ -607,21 +608,21 @@ export default function ComposeCard(props) {
                       </button>
                     </OutsideClickHandler>
                   </div>
-                  <div class="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-                      <a href="#" class="dropdown-item">
-                        <div class="media">
+                  <div className="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      <a href="#" className="dropdown-item">
+                        <div className="media">
                           <Globe />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Public</h3>
                             <small>Anyone can see this publication.</small>
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
+                      <a className="dropdown-item">
+                        <div className="media">
                           <Users />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Friends</h3>
                             <small>
                               only friends can see this publication.
@@ -629,20 +630,20 @@ export default function ComposeCard(props) {
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
+                      <a className="dropdown-item">
+                        <div className="media">
                           <User />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Specific friends</h3>
                             <small>Don't show it to some friends.</small>
                           </div>
                         </div>
                       </a>
-                      <hr class="dropdown-divider" />
-                      <a class="dropdown-item">
-                        <div class="media">
+                      <hr className="dropdown-divider" />
+                      <a className="dropdown-item">
+                        <div className="media">
                           <Lock />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Only me</h3>
                             <small>Only me can see this publication.</small>
                           </div>
@@ -652,22 +653,22 @@ export default function ComposeCard(props) {
                   </div>
                 </div>
               </div>
-              <div class="channel">
-                <div class="round-checkbox is-small">
+              <div className="channel">
+                <div className="round-checkbox is-small">
                   <div>
                     <input type="checkbox" id="checkbox-2" />
                     <label for="checkbox-2"></label>
                   </div>
                 </div>
-                <div class="story-icon">
-                  <div class="plus-icon">
+                <div className="story-icon">
+                  <div className="plus-icon">
                     <i data-feather="plus"></i>
                   </div>
                 </div>
 
-                <div class="channel-name">My Story</div>
+                <div className="channel-name">My Story</div>
                 <div
-                  class={`dropdown is-spaced is-modern is-right is-neutral dropdown-trigger ${
+                  className={`dropdown is-spaced is-modern is-right is-neutral dropdown-trigger ${
                     activeDropDown2 ? "is-active" : ""
                   }`}
                 >
@@ -678,7 +679,7 @@ export default function ComposeCard(props) {
                       }}
                     >
                       <button
-                        class="button"
+                        className="button"
                         aria-haspopup="true"
                         onClick={() => setActiveDropDown2(!activeDropDown2)}
                       >
@@ -688,21 +689,21 @@ export default function ComposeCard(props) {
                       </button>
                     </OutsideClickHandler>
                   </div>
-                  <div class="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-                      <a href="#" class="dropdown-item">
-                        <div class="media">
+                  <div className="dropdown-menu" role="menu">
+                    <div className="dropdown-content">
+                      <a href="#" className="dropdown-item">
+                        <div className="media">
                           <Globe />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Public</h3>
                             <small>Anyone can see this publication.</small>
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
+                      <a className="dropdown-item">
+                        <div className="media">
                           <Users />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Friends</h3>
                             <small>
                               only friends can see this publication.
@@ -710,10 +711,10 @@ export default function ComposeCard(props) {
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item">
-                        <div class="media">
+                      <a className="dropdown-item">
+                        <div className="media">
                           <Users />
-                          <div class="media-content">
+                          <div className="media-content">
                             <h3>Friends and contacts</h3>
                             <small>Your friends and contacts.</small>
                           </div>
@@ -725,21 +726,21 @@ export default function ComposeCard(props) {
               </div>
             </div>
 
-            <div class="friends-list is-hidden">
-              <div class="list-header">
+            <div className="friends-list ">
+              <div className="list-header">
                 <span>Send in a message</span>
-                <div class="actions">
+                <div className="actions">
                   <a
                     id="open-compose-search"
                     href="javascript:void(0);"
-                    class="search-trigger"
+                    className="search-trigger"
                   >
                     <i data-feather="search"></i>
                   </a>
-                  <div id="compose-search" class="control is-hidden">
+                  <div id="compose-search" className="control is-hidden">
                     <input
                       type="text"
-                      class="input"
+                      className="input"
                       placeholder="Search People"
                     />
                     <span>
@@ -747,97 +748,94 @@ export default function ComposeCard(props) {
                     </span>
                   </div>
                   <a
-                    href="javascript:void(0);"
-                    class="is-inverted modal-trigger"
+                    className="is-inverted modal-trigger"
                     data-modal="create-group-modal"
                   >
                     Create group
                   </a>
                 </div>
               </div>
-              <div class="list-body">
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+              <div className="list-body">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-3" />
                       <label for="checkbox-3"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/elise.jpg"
                     data-demo-src="assets/img/avatars/dan.jpg"
                     alt=""
                   />
-                  <div class="friend-name">Dan Walker</div>
+                  <div className="friend-name">Dan Walker</div>
                 </div>
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-4" />
                       <label for="checkbox-4"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/bobby.jpg"
                     data-demo-src="assets/img/avatars/daniel.jpg"
                     alt=""
                   />
-                  <div class="friend-name">Daniel Wellington</div>
+                  <div className="friend-name">Daniel Wellington</div>
                 </div>
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-5" />
                       <label for="checkbox-5"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/elise.jpg"
                     data-demo-src="assets/img/avatars/stella.jpg"
                     alt=""
                   />
-                  <div class="friend-name">Stella Bergmann</div>
+                  <div className="friend-name">Stella Bergmann</div>
                 </div>
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-6" />
                       <label for="checkbox-6"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
                     data-demo-src="assets/img/avatars/david.jpg"
                     alt=""
                   />
-                  <div class="friend-name">David Kim</div>
+                  <div className="friend-name">David Kim</div>
                 </div>
-                <div class="friend-block">
-                  <div class="round-checkbox is-small">
+                <div className="friend-block">
+                  <div className="round-checkbox is-small">
                     <div>
                       <input type="checkbox" id="checkbox-7" />
                       <label for="checkbox-7"></label>
                     </div>
                   </div>
                   <img
-                    class="friend-avatar"
-                    src="https://via.placeholder.com/300x300"
+                    className="friend-avatar"
+                    src="https://friendkit.cssninja.io/assets/img/avatars/elise.jpg"
                     data-demo-src="assets/img/avatars/nelly.png"
                     alt=""
                   />
-                  <div class="friend-name">Nelly Schwartz</div>
+                  <div className="friend-name">Nelly Schwartz</div>
                 </div>
               </div>
             </div>
           </div>
-          {/* Footer buttons */}
           <div className="more-wrap">
-            {/* View more button */}
-            {/* <button
+            <button
               id="show-compose-friends"
               type="button"
               className="button is-more"
@@ -845,8 +843,7 @@ export default function ComposeCard(props) {
             >
               <MoreVertical />
               <span>View More</span>
-            </button> */}
-            {/* Publish button */}
+            </button>
             <button
               id="publish-button"
               type="button"

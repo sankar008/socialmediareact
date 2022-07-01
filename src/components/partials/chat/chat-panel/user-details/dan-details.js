@@ -1,4 +1,6 @@
+import { Camera, Mic, Phone, Video } from "react-feather";
 import UserDetailsDropdown from "../../chat-dropdowns/user-details-dropdown";
+import UserBadge from "./user-badge";
 
 export default function DanDetails() {
   return (
@@ -6,25 +8,25 @@ export default function DanDetails() {
       <div class="panel-body-inner">
         <div class="subheader">
           <div class="action-icon">
-            <i class="mdi mdi-video"></i>
+            <Video size={18} />
           </div>
           <div class="action-icon">
-            <i class="mdi mdi-camera"></i>
+            <Camera size={18} />
           </div>
           <div class="action-icon">
-            <i class="mdi mdi-microphone"></i>
+            <Mic size={18} />
           </div>
           <UserDetailsDropdown />
         </div>
 
         <div class="details-avatar">
           <img
-            src="https://via.placeholder.com/300x300"
+            src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
             data-demo-src="assets/img/avatars/dan.jpg"
             alt=""
           />
           <div class="call-me">
-            <i class="mdi mdi-phone"></i>
+            <Phone size={16} color="#fff"/>
           </div>
         </div>
 
@@ -33,28 +35,7 @@ export default function DanDetails() {
           <h4>IOS Developer</h4>
         </div>
 
-        <div class="user-badges">
-          <div class="hexagon is-red">
-            <div>
-              <i class="mdi mdi-heart"></i>
-            </div>
-          </div>
-          <div class="hexagon is-green">
-            <div>
-              <i class="mdi mdi-dog"></i>
-            </div>
-          </div>
-          <div class="hexagon is-accent">
-            <div>
-              <i class="mdi mdi-flash"></i>
-            </div>
-          </div>
-          <div class="hexagon is-blue">
-            <div>
-              <i class="mdi mdi-briefcase"></i>
-            </div>
-          </div>
-        </div>
+        <UserBadge />
 
         <div class="user-about">
           <label>About Me</label>

@@ -13,13 +13,13 @@ export default function NewJobWidget() {
 
   return (
     <div
-      class="card is-new-job-card has-background-image"
+      className="card is-new-job-card has-background-image"
       data-background="assets/img/illustrations/cards/job-bg.svg"
     >
-      <div class="card-heading">
+      <div className="card-heading">
         <Briefcase />
         <div
-          class={`dropdown is-spaced is-right dropdown-trigger is-light ${
+          className={`dropdown is-spaced is-right dropdown-trigger is-light ${
             activeDropDown ? "is-active" : ""
           }`}
         >
@@ -29,37 +29,37 @@ export default function NewJobWidget() {
             }}
           >
             <div
-              class="button"
+              className="button"
               onClick={() => setActiveDropDown(!activeDropDown)}
             >
               <MoreVertical />
             </div>
           </OutsideClickHandler>
-          <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item">
-                <div class="media">
+          <div className="dropdown-menu" role="menu">
+            <div className="dropdown-content">
+              <a href="#" className="dropdown-item">
+                <div className="media">
                   <Clock />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Remind me</h3>
                     <small>Remind me of this later today.</small>
                   </div>
                 </div>
               </a>
-              <a class="dropdown-item">
-                <div class="media">
+              <a className="dropdown-item">
+                <div className="media">
                   <MessageCircle />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Message</h3>
                     <small>Send an automatic congratz message.</small>
                   </div>
                 </div>
               </a>
-              <hr class="dropdown-divider" />
-              <a href="#" class="dropdown-item">
-                <div class="media">
+              <hr className="dropdown-divider" />
+              <a href="#" className="dropdown-item">
+                <div className="media">
                   <Trash2 />
-                  <div class="media-content">
+                  <div className="media-content">
                     <h3>Remove</h3>
                     <small>Removes this widget from your feed.</small>
                   </div>
@@ -69,19 +69,19 @@ export default function NewJobWidget() {
           </div>
         </div>
       </div>
-      <div class="card-body">
+      <div className="card-body">
         <div>
-          <div class="job-avatar">
+          <div className="job-avatar">
             <img
               src="https://friendkit.cssninja.io/assets/img/avatars/nelly.png"
               data-demo-src="assets/img/avatars/nelly.png"
               alt=""
             />
           </div>
-          <div class="job-content">
+          <div className="job-content">
             <h4>Nelly has a new job!</h4>
             <p>Send her message congratulating her for getting this job.</p>
-            <button type="button" class="button light-button">
+            <button type="button" className="button light-button">
               Write Message
             </button>
           </div>

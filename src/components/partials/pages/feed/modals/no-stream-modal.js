@@ -4,21 +4,21 @@ export default function NoStreamModal() {
   return (
     <div
       id="no-stream-modal"
-      class="modal no-stream-modal is-xsmall has-light-bg"
+      className="modal no-stream-modal is-xsmall has-light-bg"
     >
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="card">
-          <div class="card-heading">
+      <div className="modal-background"></div>
+      <div className="modal-content">
+        <div className="card">
+          <div className="card-heading">
             <h3></h3>
-            <div class="close-wrap">
-              <span class="close-modal">
+            <div className="close-wrap">
+              <span className="close-modal">
                 <X />
               </span>
             </div>
           </div>
-          <div class="card-body has-text-centered">
-            <div class="image-wrap">
+          <div className="card-body has-text-centered">
+            <div className="image-wrap">
               <img
                 src="assets/img/illustrations/characters/no-stream.svg"
                 alt=""
@@ -31,10 +31,10 @@ export default function NoStreamModal() {
               apps for mobile streaming.
             </p>
 
-            <div class="action">
+            <div className="action">
               <a
                 href="/#demos-section"
-                class="button is-solid accent-button raised is-fullwidth"
+                className="button is-solid accent-button raised is-fullwidth"
               >
                 Got It
               </a>

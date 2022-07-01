@@ -1,7 +1,10 @@
 import SettingsDropdown from "./dropdowns/settings-dropdown";
 import ChatMenuDropdown from "./dropdowns/chat-menu-dropdown";
+import { AtSign, Search, Star, X } from "react-feather";
 
-export default function ChatNav() {
+export default function ChatNav(props) {
+  const { messageOverlay, setMessageOverlay } = props;
+
   return (
     <div class="chat-nav">
       <div class="nav-start">
@@ -9,7 +12,7 @@ export default function ChatNav() {
           <div class="avatar-container">
             <img
               class="user-avatar"
-              src="https://via.placeholder.com/300x300"
+              src="https://friendkit.cssninja.io/assets/img/avatars/dan.jpg"
               data-demo-src="assets/img/avatars/dan.jpg"
               alt=""
             />
@@ -17,7 +20,8 @@ export default function ChatNav() {
           <div class="username">
             <span>Dan Walker</span>
             <span>
-              <i data-feather="star"></i> <span>| Online</span>
+              <Star />
+              <span>| Online</span>
             </span>
           </div>
         </div>
@@ -29,21 +33,24 @@ export default function ChatNav() {
           <div class="control has-icon">
             <input type="text" class="input" placeholder="Search messages" />
             <div class="form-icon">
-              <i data-feather="search"></i>
+              <Search />
             </div>
           </div>
         </div>
         <a class="chat-nav-item is-icon is-hidden-mobile">
-          <i data-feather="at-sign"></i>
+          <AtSign />
         </a>
         <a class="chat-nav-item is-icon is-hidden-mobile">
-          <i data-feather="star"></i>
+          <Star />
         </a>
 
         <ChatMenuDropdown />
 
-        <a class="chat-nav-item is-icon close-chat">
-          <i data-feather="x"></i>
+        <a
+          class="chat-nav-item is-icon close-chat"
+          onClick={() => setMessageOverlay(false)}
+        >
+          <X />
         </a>
       </div>
     </div>

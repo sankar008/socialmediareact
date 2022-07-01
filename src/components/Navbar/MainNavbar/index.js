@@ -16,90 +16,104 @@ import { SearchWidget } from "../widget/SearchWidget";
 import { CartDropdown } from "../dropdowns/cart-dropdown";
 import { AccountDropdown } from "../dropdowns/account-dropdown";
 
-const BasicNavbar = (props) => (
-  <div
-    id="main-navbar"
-    class="navbar navbar-v1 is-inline-flex is-transparent no-shadow is-hidden-mobile"
-  >
-    <div class="container is-fluid">
-      <div class="navbar-brand">
-        <a href="/" class="navbar-item">
-          <img class="logo" src={logoBold} width="112" height="28" alt="" />
-        </a>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          {/* Navbar Search */}
+const BasicNavbar = (props) => {
+  const {
+    exploreOverlay,
+    setExploreOverlay,
+    messageOverlay,
+    setMessageOverlay,
+  } = props;
 
-          <FriendRequestDropdown />
-
-          <NotificationsDropdown />
-
-          <MessagesDropdown />
-          <div class="navbar-item is-icon open-chat">
-            <a class="icon-link is-primary">
-              <MessageSquare />
-              <span class="indicator"></span>
-            </a>
-          </div>
-
-          <div id="explorer-trigger" class="navbar-item is-icon">
-            <a class="icon-link is-primary">
-              <Grid />
-            </a>
-          </div>
+  return (
+    <div
+      id="main-navbar"
+      class="navbar navbar-v1 is-inline-flex is-transparent no-shadow is-hidden-mobile"
+    >
+      <div class="container is-fluid">
+        <div class="navbar-brand">
+          <a href="/" class="navbar-item">
+            <img class="logo" src={logoBold} width="112" height="28" alt="" />
+          </a>
         </div>
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <FriendRequestDropdown />
+            <NotificationsDropdown />
 
-        <div class="navbar-end">
-          <SearchWidget />
-          {/* {{> search - widget}} */}
+            <MessagesDropdown />
+            <div class="navbar-item is-icon open-chat">
+              <a
+                class="icon-link is-primary"
+                onClick={() => setMessageOverlay(!messageOverlay)}
+              >
+                <MessageSquare />
+                <span class="indicator"></span>
+              </a>
+            </div>
 
-          <CartDropdown />
-          {/* {{> cart - dropdown}} */}
+            <div id="explorer-trigger" class="navbar-item is-icon">
+              <a
+                class="icon-link is-primary"
+                onClick={() => setExploreOverlay(!exploreOverlay)}
+              >
+                <Grid />
+              </a>
+            </div>
+          </div>
 
-          <AccountDropdown />
-          {/* {{> account - dropdown}} */}
+          <div class="navbar-end">
+            <SearchWidget />
+            <CartDropdown />
+            <AccountDropdown />
 
-          <div class="navbar-item is-plus-menu is-hidden">
-            <a
-              id="plus-menu"
-              class="button action-button is-solid primary-button raised"
-            >
-              <Plus />
-            </a>
-            <div class="plus-drop">
-              <div class="drop-content">
-                <a>
-                  <Book />
-                  <div class="meta">
-                    <span>Guides</span>
-                    <span>Learn everything fast</span>
-                  </div>
-                </a>
-                <a>
-                  <HelpCircle />
-                  <div class="meta">
-                    <span>FAQ</span>
-                    <span>Most asked questions</span>
-                  </div>
-                </a>
-                <a>
-                  <LifeBuoy />
-                  <div class="meta">
-                    <span>Assistance</span>
-                    <span>Get in touch with support</span>
-                  </div>
-                </a>
+            <div class="navbar-item is-plus-menu is-hidden">
+              <a
+                id="plus-menu"
+                class="button action-button is-solid primary-button raised"
+              >
+                <Plus />
+              </a>
+              <div class="plus-drop">
+                <div class="drop-content">
+                  <a>
+                    <Book />
+                    <div class="meta">
+                      <span>Guides</span>
+                      <span>Learn everything fast</span>
+                    </div>
+                  </a>
+                  <a>
+                    <HelpCircle />
+                    <div class="meta">
+                      <span>FAQ</span>
+                      <span>Most asked questions</span>
+                    </div>
+                  </a>
+                  <a>
+                    <LifeBuoy />
+                    <div class="meta">
+                      <span>Assistance</span>
+                      <span>Get in touch with support</span>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-export const MainNavbar = () => {
+export const MainNavbar = (props) => {
+  const {
+    exploreOverlay,
+    setExploreOverlay,
+    messageOverlay,
+    setMessageOverlay,
+  } = props;
+
   const [navScroll, setNavScroll] = useState();
 
   useLayoutEffect(() => {
@@ -117,8 +131,18 @@ export const MainNavbar = () => {
 
   return (
     <>
-      <MobileNavbar navScroll={navScroll} />
-      <BasicNavbar navScroll={navScroll} />
+      <MobileNavbar
+        messageOverlay={messageOverlay}
+        setMessageOverlay={setMessageOverlay}
+        exploreOverlay={exploreOverlay}
+        setExploreOverlay={setExploreOverlay}
+      />
+      <BasicNavbar
+        messageOverlay={messageOverlay}
+        setMessageOverlay={setMessageOverlay}
+        exploreOverlay={exploreOverlay}
+        setExploreOverlay={setExploreOverlay}
+      />
     </>
   );
 };

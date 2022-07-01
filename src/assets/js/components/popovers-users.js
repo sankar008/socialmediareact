@@ -39,48 +39,48 @@ function getUserPopovers() {
                         }, 1000);
 
                         var html = `
-                                <div class="profile-popover-block">
+                                <div className="profile-popover-block">
 
-                                    <div class="loader-overlay is-active">
-                                        <div class="loader is-loading"></div>
+                                    <div className="loader-overlay is-active">
+                                        <div className="loader is-loading"></div>
                                     </div>
 
-                                    <div class="profile-popover-wrapper">
-                                        <div class="popover-cover">
+                                    <div className="profile-popover-wrapper">
+                                        <div className="popover-cover">
                                             <img src="${data[userRef].cover_image}">
-                                            <div class="popover-avatar">
-                                                <img class="avatar" src="${data[userRef].profile_picture}">
+                                            <div className="popover-avatar">
+                                                <img className="avatar" src="${data[userRef].profile_picture}">
                                             </div>
                                         </div>
 
-                                        <div class="popover-meta">
-                                            <span class="user-meta">
-                                                <span class="username">${data[userRef].first_name} ${data[userRef].last_name}</span>
+                                        <div className="popover-meta">
+                                            <span className="user-meta">
+                                                <span className="username">${data[userRef].first_name} ${data[userRef].last_name}</span>
                                             </span>
-                                            <!--span class="job-title">${data[userRef].title}</span-->
-                                            <div class="common-friends">
+                                            <!--span className="job-title">${data[userRef].title}</span-->
+                                            <div className="common-friends">
                                                 ${usersIcon}
-                                                <div class="text">
+                                                <div className="text">
                                                     ${data[userRef].common_friends} mutual friend(s)
                                                 </div>
                                             </div>
-                                            <div class="user-location">
+                                            <div className="user-location">
                                                 ${pinIcon}
-                                                <div class="text">
+                                                <div className="text">
                                                     From <a href="#">${data[userRef].location}</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="popover-actions">
+                                    <div className="popover-actions">
 
-                                        <a href="#" class="popover-icon">
+                                        <a href="#" className="popover-icon">
                                             ${profileIcon}
                                         </a>
-                                        <a href="#" class="popover-icon">
+                                        <a href="#" className="popover-icon">
                                             ${bookmarkIcon}
                                         </a>
-                                        <a href="#" class="popover-icon">
+                                        <a href="#" className="popover-icon">
                                             ${messageIcon}
                                         </a>
                                     </div>

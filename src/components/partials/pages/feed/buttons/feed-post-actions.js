@@ -13,16 +13,16 @@ export default function FeedPostActions(props) {
   
   return (
     <>
-      <div class="like-wrapper">
-        <a href="javascript:void(0);" class="like-button">
+      <div className="like-wrapper">
+        <a href="javascript:void(0);" className="like-button">
           <Heart />
         </a>
       </div>
 
-      <div class="fab-wrapper is-share">
+      <div className="fab-wrapper is-share">
         <a
           href="javascript:void(0);"
-          class="small-fab share-fab modal-trigger"
+          className="small-fab share-fab modal-trigger"
           data-modal="share-modal"
           onClick={toggleShare}
         >
@@ -30,8 +30,8 @@ export default function FeedPostActions(props) {
         </a>
       </div>
 
-      <div class="fab-wrapper is-comment">
-        <a href="javascript:void(0);" class="small-fab" onClick={toggleComment}>
+      <div className="fab-wrapper is-comment">
+        <a href="javascript:void(0);" className="small-fab" onClick={toggleComment}>
           <MessageCircle />
         </a>
       </div>

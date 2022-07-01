@@ -1,18 +1,37 @@
+import { Code, FileText, Monitor, Plus, Server } from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
+import { useState } from "react";
+
 export default function ComposeAddDropdown() {
+  const [activeDropDown, setActiveDropDown] = useState(false);
+
   return (
-    <div class="dropdown compose-dropdown is-spaced is-accent is-up dropdown-trigger">
+    <div
+      class={`dropdown compose-dropdown is-spaced is-accent is-up dropdown-trigger ${
+        activeDropDown ? "is-active" : ""
+      }`}
+    >
       <div>
         <div class="add-button">
-          <div class="button-inner">
-            <i data-feather="plus"></i>
-          </div>
+          <OutsideClickHandler
+            onOutsideClick={() => {
+              setActiveDropDown(false);
+            }}
+          >
+            <div
+              class="button-inner"
+              onClick={() => setActiveDropDown(!activeDropDown)}
+            >
+              <Plus />
+            </div>
+          </OutsideClickHandler>
         </div>
       </div>
       <div class="dropdown-menu" role="menu">
         <div class="dropdown-content">
           <a href="#" class="dropdown-item">
             <div class="media">
-              <i data-feather="code"></i>
+              <Code />
               <div class="media-content">
                 <h3>Code snippet</h3>
                 <small>Add and paste a code snippet.</small>
@@ -21,7 +40,7 @@ export default function ComposeAddDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="file-text"></i>
+              <FileText />
               <div class="media-content">
                 <h3>Note</h3>
                 <small>Add and paste a note.</small>
@@ -31,7 +50,7 @@ export default function ComposeAddDropdown() {
           <hr class="dropdown-divider" />
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="server"></i>
+              <Server />
               <div class="media-content">
                 <h3>Remote file</h3>
                 <small>Add a file from a remote drive.</small>
@@ -40,7 +59,7 @@ export default function ComposeAddDropdown() {
           </a>
           <a class="dropdown-item">
             <div class="media">
-              <i data-feather="monitor"></i>
+              <Monitor />
               <div class="media-content">
                 <h3>Local file</h3>
                 <small>Add a file from your computer.</small>

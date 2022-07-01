@@ -7,7 +7,7 @@ export default function FeedPostDropdown() {
 
   return (
     <div
-      class={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
+      className={`dropdown is-spaced is-right is-neutral dropdown-trigger ${
         activeDropDown ? "is-active" : ""
       }`}
     >
@@ -18,38 +18,38 @@ export default function FeedPostDropdown() {
           }}
         >
           <div
-            class="button"
+            className="button"
             onClick={() => setActiveDropDown(!activeDropDown)}
           >
             <MoreVertical />
           </div>
         </OutsideClickHandler>
       </div>
-      <div class="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-          <a href="#" class="dropdown-item">
-            <div class="media">
+      <div className="dropdown-menu" role="menu">
+        <div className="dropdown-content">
+          <a href="#" className="dropdown-item">
+            <div className="media">
               <Bookmark />
-              <div class="media-content">
+              <div className="media-content">
                 <h3>Bookmark</h3>
                 <small>Add this post to your bookmarks.</small>
               </div>
             </div>
           </a>
-          <a class="dropdown-item">
-            <div class="media">
+          <a className="dropdown-item">
+            <div className="media">
               <Bell />
-              <div class="media-content">
+              <div className="media-content">
                 <h3>Notify me</h3>
                 <small>Send me the updates.</small>
               </div>
             </div>
           </a>
-          <hr class="dropdown-divider" />
-          <a href="#" class="dropdown-item">
-            <div class="media">
+          <hr className="dropdown-divider" />
+          <a href="#" className="dropdown-item">
+            <div className="media">
               <Flag />
-              <div class="media-content">
+              <div className="media-content">
                 <h3>Flag</h3>
                 <small>In case of inappropriate content.</small>
               </div>

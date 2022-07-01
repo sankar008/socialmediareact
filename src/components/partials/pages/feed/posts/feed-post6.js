@@ -8,14 +8,14 @@ export default function FeedPost6(props) {
   const [showComment, setShowComment] = useState(false);
 
   return (
-    <div class="card is-post is-simple">
+    <div className="card is-post is-simple">
       {/* Main wrap */}
       <div className={`content-wrap ${!showComment ? "" : "is-hidden"}`}>
         {/* Header */}
-        <div class="card-heading">
+        <div className="card-heading">
           {/* User image */}
-          <div class="user-block">
-            <div class="image">
+          <div className="user-block">
+            <div className="image">
               <img
                 src="https://img.icons8.com/color/344/person-male.png"
                 data-demo-src="assets/img/avatars/bobby.jpg"
@@ -23,9 +23,9 @@ export default function FeedPost6(props) {
                 alt=""
               />
             </div>
-            <div class="user-info">
+            <div className="user-info">
               <a href="#">Bobby Brown</a>
-              <span class="time">July 26 2018, 11:14am</span>
+              <span className="time">July 26 2018, 11:14am</span>
             </div>
           </div>
           {/* /partials/pages/feed/dropdowns/feed-post-dropdown.html */}
@@ -34,9 +34,9 @@ export default function FeedPost6(props) {
         {/* /Header */}
 
         {/* Post body */}
-        <div class="card-body">
+        <div className="card-body">
           {/* Post body text */}
-          <div class="post-text">
+          <div className="post-text">
             <p>
               Today, when i was walking back home from my job, i figured that i
               should build the best social media template in ThemeForest. As
@@ -47,7 +47,7 @@ export default function FeedPost6(props) {
             </p>
           </div>
           {/* Post actions */}
-          <div class="post-actions">
+          <div className="post-actions">
             {/* /partials/pages/feed/buttons/feed-post-actions.html */}
             <FeedPostActions
               showComment={showComment}
@@ -61,9 +61,9 @@ export default function FeedPost6(props) {
         {/* /Post body */}
 
         {/* Post footer */}
-        <div class="card-footer">
+        <div className="card-footer">
           {/* Followers */}
-          <div class="likers-group">
+          <div className="likers-group">
             <img
               src="https://img.icons8.com/color/344/person-male.png"
               data-demo-src="assets/img/avatars/daniel.jpg"
@@ -77,7 +77,7 @@ export default function FeedPost6(props) {
               alt=""
             />
           </div>
-          <div class="likers-text">
+          <div className="likers-text">
             <p>
               <a href="#">Daniel</a> and
               <a href="#">Elise</a>
@@ -85,16 +85,16 @@ export default function FeedPost6(props) {
             <p>liked this</p>
           </div>
           {/* Post statistics */}
-          <div class="social-count">
-            <div class="likes-count">
+          <div className="social-count">
+            <div className="likes-count">
               <heart />
               <span>2</span>
             </div>
-            <div class="shares-count">
+            <div className="shares-count">
               <Link2 />
               <span>0</span>
             </div>
-            <div class="comments-count">
+            <div className="comments-count">
               <MessageCircle />
               <span>0</span>
             </div>
@@ -107,7 +107,7 @@ export default function FeedPost6(props) {
       {/* Post #6 comments */}
       <div className={`comments-wrap ${showComment ? "" : "is-hidden"}`}>
         {/* Header */}
-        <div class="comments-heading">
+        <div className="comments-heading">
           <h4>
             Comments
             <small>(0)</small>
@@ -122,8 +122,8 @@ export default function FeedPost6(props) {
         {/* /Header */}
 
         {/* Comments body */}
-        <div class="comments-body has-slimscroll">
-          <div class="comments-placeholder">
+        <div className="comments-body has-slimscroll">
+          <div className="comments-placeholder">
             <img src="assets/img/icons/feed/bubble.svg" alt="" />
             <h3>Nothing in here yet</h3>
             <p>Be the first to post a comment.</p>
@@ -132,42 +132,42 @@ export default function FeedPost6(props) {
         {/* /Comments body */}
 
         {/* Comments footer */}
-        <div class="card-footer">
-          <div class="media post-comment has-emojis">
+        <div className="card-footer">
+          <div className="media post-comment has-emojis">
             {/* Textarea */}
-            <div class="media-content">
-              <div class="field">
-                <p class="control">
+            <div className="media-content">
+              <div className="field">
+                <p className="control">
                   <textarea
-                    class="textarea comment-textarea"
+                    className="textarea comment-textarea"
                     rows="5"
                     placeholder="Write a comment..."
                   ></textarea>
                 </p>
               </div>
               {/* Additional actions */}
-              <div class="actions">
-                <div class="image is-32x32">
+              <div className="actions">
+                <div className="image is-32x32">
                   <img
-                    class="is-rounded"
+                    className="is-rounded"
                     src="https://img.icons8.com/color/344/person-male.png"
                     data-demo-src="assets/img/avatars/jenna.png"
                     data-user-popover="0"
                     alt=""
                   />
                 </div>
-                <div class="toolbar">
-                  <div class="action is-auto">
+                <div className="toolbar">
+                  <div className="action is-auto">
                     <AtSign />
                   </div>
-                  <div class="action is-emoji">
+                  <div className="action is-emoji">
                     <Smile />
                   </div>
-                  <div class="action is-upload">
+                  <div className="action is-upload">
                     <Camera />
                     <input type="file" />
                   </div>
-                  <a class="button is-solid primary-button raised">
+                  <a className="button is-solid primary-button raised">
                     Post Comment
                   </a>
                 </div>
