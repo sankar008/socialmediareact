@@ -20,6 +20,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 
 export default function VideosModal(props) {
   const [activeDropDown, setActiveDropDown] = useState(false);
+  const [profileToggle, setProfileToggle] = useState(false);
 
   const { videoOverlay } = props;
 
@@ -212,9 +213,20 @@ export default function VideosModal(props) {
                       <Link2 />
                       <span>Share</span>
                     </div>
-                    <div className="dropdown is-spaced is-right dropdown-trigger">
-                      <div>
-                        <div className="avatar-button">
+                    <div
+                      className={`dropdown is-spaced is-right dropdown-trigger ${
+                        profileToggle ? "is-active" : ""
+                      }`}
+                    >
+                      <OutsideClickHandler
+                        onOutsideClick={() => {
+                          setProfileToggle(false);
+                        }}
+                      >
+                        <div
+                          className="avatar-button"
+                          onClick={() => setProfileToggle(!profileToggle)}
+                        >
                           <img
                             src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
                             data-demo-src="assets/img/avatars/jenna.png"
@@ -222,13 +234,13 @@ export default function VideosModal(props) {
                           />
                           <Triangle />
                         </div>
-                      </div>
+                      </OutsideClickHandler>
                       <div className="dropdown-menu has-margin" role="menu">
                         <div className="dropdown-content">
                           <a href="#" className="dropdown-item is-selected">
                             <div className="media">
                               <img
-                                src="https://via.placeholder.com/300x300"
+                                src="https://friendkit.cssninja.io/assets/img/avatars/jenna.png"
                                 data-demo-src="assets/img/avatars/jenna.png"
                                 alt=""
                               />

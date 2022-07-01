@@ -37,7 +37,7 @@ const BasicNavbar = (props) => (
 
           <MessagesDropdown />
           <div class="navbar-item is-icon open-chat">
-            <a class="icon-link is-primary" href="javascript:void(0);">
+            <a class="icon-link is-primary">
               <MessageSquare />
               <span class="indicator"></span>
             </a>

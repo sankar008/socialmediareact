@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MainNavbar } from "../components/Navbar/MainNavbar";
+import ChatWrapper from "../components/partials/chat/chat-wrapper";
 import BirthdayWidget from "../components/partials/misc/widgets/birthday-widget";
 import FakeAddWidget from "../components/partials/misc/widgets/fake-add-widget";
 import LatestActivityWidget from "../components/partials/misc/widgets/latest-activity-widget";
@@ -114,6 +115,7 @@ export default function Feeds() {
 
         <NoStreamModal />
       </div>
+      <ChatWrapper />
     </>
   );
 }

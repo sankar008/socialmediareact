@@ -1,4 +1,8 @@
-<div id="nelly-details" class="panel-body is-user-details is-hidden">
+import UserDetailsDropdown from "../../chat-dropdowns/user-details-dropdown";
+
+export default function DanielDetails() {
+  return (
+<div id="daniel-details" class="panel-body is-user-details is-hidden">
     <div class="panel-body-inner">
 
         <div class="subheader">
@@ -11,40 +15,40 @@
             <div class="action-icon">
                 <i class="mdi mdi-microphone"></i>
             </div>
-            {{> user-details-dropdown}}
+            <UserDetailsDropdown />
         </div>
 
         <div class="details-avatar">
-            <img src="https://via.placeholder.com/300x300" data-demo-src="assets/img/avatars/nelly.png" alt="">
+            <img src="https://via.placeholder.com/300x300" data-demo-src="assets/img/avatars/daniel.jpg" alt="" />
             <div class="call-me">
                 <i class="mdi mdi-phone"></i>
             </div>
         </div>
 
         <div class="user-meta has-text-centered">
-            <h3>Nelly Schwartz</h3>
-            <h4>HR Manager</h4>
+            <h3>Daniel Wellington</h3>
+            <h4>Senior Executive</h4>
         </div>
 
         <div class="user-badges">
-            <div class="hexagon is-red">
-                <div>
-                    <i class="mdi mdi-heart"></i>
-                </div>
-            </div>
-            <div class="hexagon is-green">
-                <div>
-                    <i class="mdi mdi-dog"></i>
-                </div>
-            </div>
             <div class="hexagon is-accent">
                 <div>
-                    <i class="mdi mdi-flash"></i>
+                    <i class="mdi mdi-google-cardboard"></i>
                 </div>
             </div>
             <div class="hexagon is-blue">
                 <div>
-                    <i class="mdi mdi-briefcase"></i>
+                    <i class="mdi mdi-pizza"></i>
+                </div>
+            </div>
+            <div class="hexagon is-accent">
+                <div>
+                    <i class="mdi mdi-linux"></i>
+                </div>
+            </div>
+            <div class="hexagon is-red">
+                <div>
+                    <i class="mdi mdi-puzzle"></i>
                 </div>
             </div>
         </div>
@@ -55,17 +59,18 @@
                 <i class="mdi mdi-domain"></i>
                 <div class="about-text">
                     <span>Works at</span>
-                    <span><a class="is-inverted" href="#">Carrefour</a></span>
+                    <span><a class="is-inverted" href="#">Peelman & Sons</a></span>
                 </div>
             </div>
             <div class="about-block">
                 <i class="mdi mdi-map-marker"></i>
                 <div class="about-text">
                     <span>From</span>
-                    <span><a class="is-inverted" href="#">Melbourne</a></span>
+                    <span><a class="is-inverted" href="#">Los Angeles</a></span>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+)}

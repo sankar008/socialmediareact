@@ -1,10 +1,18 @@
-import { Calendar, Camera, ChevronDown, Globe, Lock, MapPin, Plus, Search, Smile, User, Users, X, XCircle } from "react-feather";
+import { useState } from "react";
+import { Calendar, Camera, ChevronDown, Globe, Lock, MapPin, Plus, Search, Smile, User, Users, X } from "react-feather";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function AlbumsModal(props) {
   const { albumOverlay } = props;
+  const [toggleShareOption, setToggleShareOption] = useState(false);
+  const [toggleDate, setToggleDate] = useState(false);
+  const [toggleTagFriendsOption, setToggleTagFriendsOption] = useState(false);
 
   const closeModal = () => {
     props.setAlbumOverlay(false);
+    setToggleDate(false);
+    setToggleShareOption(false);
+    setToggleTagFriendsOption(false);
   };
 
   return (
@@ -67,19 +75,20 @@ export default function AlbumsModal(props) {
                   <h4>Change the date</h4>
                   <button
                     type="button"
-                    className="button is-solid dark-grey-button icon-button"
+                    className={`button is-solid dark-grey-button icon-button ${!toggleDate ? '' : 'is-hidden'}`}
+                    onClick={() => setToggleDate (!toggleDate)}
                   >
                     <Plus />
                   </button>
                 </div>
 
-                <p>
+                <p className={`${!toggleDate ? '' : 'is-hidden'}`}>
                   Set a date for your album. You can always change it later.
                 </p>
-                <div className="control is-hidden">
+                <div className={`control ${toggleDate ? '' : 'is-hidden'}`}>
                   <input
                     id="album-datepicker"
-                    type="text"
+                    type="date"
                     className="input is-sm is-fade"
                     placeholder="Select a date"
                   />
@@ -94,17 +103,18 @@ export default function AlbumsModal(props) {
                   <h4>Tag friends in this album</h4>
                   <button
                     type="button"
-                    className="button is-solid dark-grey-button icon-button"
+                    className={`button is-solid dark-grey-button icon-button ${!toggleTagFriendsOption ? '' : 'is-hidden'}`}
+                    onClick={() => setToggleTagFriendsOption (!toggleTagFriendsOption)}
                   >
                     <Plus />
                   </button>
                 </div>
 
-                <p>
+                <p className={`${!toggleTagFriendsOption ? '' : 'is-hidden'}`}>
                   Tag friends in this album. Tagged friends can see photos they
                   are tagged in.
                 </p>
-                <div className="field is-autocomplete is-hidden">
+                <div className={`field is-autocomplete ${toggleTagFriendsOption ? '' : 'is-hidden'}`}>
                   <div className="control">
                     <input
                       id="create-album-friends-autocpl"
@@ -257,14 +267,18 @@ export default function AlbumsModal(props) {
             </div>
           </div>
           <div className="card-footer">
-            <div className="dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger">
-              <div>
-                <button className="button" aria-haspopup="true">
+            <div className={`dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger ${toggleShareOption ? 'is-active' : ''}`}>
+            <OutsideClickHandler
+                      onOutsideClick={() => {
+                        setToggleShareOption(false);
+                      }}
+                    >
+                <button className="button" aria-haspopup="true" onClick={() => setToggleShareOption(!toggleShareOption)}>
                   <Smile className="main-icon" />
                   <span>Friends</span>
                   <ChevronDown className="caret"/>
                 </button>
-              </div>
+              </OutsideClickHandler>
               <div className="dropdown-menu" role="menu">
                 <div className="dropdown-content">
                   <a href="#" className="dropdown-item">
