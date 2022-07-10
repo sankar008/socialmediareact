@@ -15,6 +15,7 @@ import { MessagesDropdown } from "../dropdowns/messages-dropdown";
 import { SearchWidget } from "../widget/SearchWidget";
 import { CartDropdown } from "../dropdowns/cart-dropdown";
 import { AccountDropdown } from "../dropdowns/account-dropdown";
+import { Link } from "react-router-dom";
 
 const BasicNavbar = (props) => {
   const {
@@ -22,9 +23,8 @@ const BasicNavbar = (props) => {
     setExploreOverlay,
     messageOverlay,
     setMessageOverlay,
+    setIsLogin,
   } = props;
-
-  const menu = ["Feed", "Friends", "Groups", "Store"];
 
   return (
     <div
@@ -61,19 +61,33 @@ const BasicNavbar = (props) => {
                 <Grid />
               </a>
             </div>
-            {menu.map((item) => (
-              <div class="navbar-item">
-                <a href="">
-                  <span>{item}</span>
-                </a>
-              </div>
-            ))}
+
+            <div class="navbar-item">
+              <Link to="/">
+                <span>Feed</span>
+              </Link>
+            </div>
+            <div class="navbar-item">
+              <Link to="/">
+                <span>Friends</span>
+              </Link>
+            </div>
+            <div class="navbar-item">
+              <Link to="/groups">
+                <span>Groups</span>
+              </Link>
+            </div>
+            <div class="navbar-item">
+              <Link to="/">
+                <span>Store</span>
+              </Link>
+            </div>
           </div>
 
           <div class="navbar-end">
             <SearchWidget />
             <CartDropdown />
-            <AccountDropdown />
+            <AccountDropdown setIsLogin={setIsLogin} />
 
             <div class="navbar-item is-plus-menu is-hidden">
               <a
@@ -121,6 +135,7 @@ export const MainNavbar = (props) => {
     setExploreOverlay,
     messageOverlay,
     setMessageOverlay,
+    setIsLogin,
   } = props;
 
   const [navScroll, setNavScroll] = useState();
@@ -151,6 +166,7 @@ export const MainNavbar = (props) => {
         setMessageOverlay={setMessageOverlay}
         exploreOverlay={exploreOverlay}
         setExploreOverlay={setExploreOverlay}
+        setIsLogin={setIsLogin}
       />
     </>
   );

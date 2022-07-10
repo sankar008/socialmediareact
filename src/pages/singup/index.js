@@ -73,12 +73,21 @@ const ProcessBar = (props) => {
 
 export default function SignUp() {
   const [stage, setStage] = useState(0);
+  const [company, setCompany] = useState(0);
+  const [userEmail, setUserEmail] = useState("");
 
   return (
     <div className="signup-wrapper">
       <FakeNav />
       <ProcessBar stage={stage} />
-      <ProcessPanel stage={stage} setStage={setStage} />
+      <ProcessPanel
+        setUserEmail={setUserEmail}
+        userEmail={userEmail}
+        company={company}
+        setCompany={setCompany}
+        stage={stage}
+        setStage={setStage}
+      />
     </div>
   );
 }

@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import { Check, LifeBuoy, Power, Settings } from "react-feather";
 import { Link } from "react-router-dom";
-
-export const AccountDropdown = () => {
+import { useNavigate } from "react-router";
+export const AccountDropdown = ({ setIsLogin }) => {
   let [isActive, setisActive] = useState(false);
+  const navigate = useNavigate();
 
+  const logoutbtn = () => {
+    localStorage.removeItem("isLoginCheck");
+    localStorage.removeItem("__tokenCode");
+    localStorage.removeItem("__userId");
+    setIsLogin(localStorage.removeItem("isLoginCheck"));
+    if (localStorage.removeItem("isLoginCheck") === undefined) {
+      navigate("/");
+    }
+  };
   return (
     <div
       id="account-dropdown"
@@ -147,10 +157,10 @@ export const AccountDropdown = () => {
                   <Power />
                 </div>
                 <div className="media-content">
-                  <Link to="/login">
+                  <span onClick={logoutbtn}>
                     <h3>Log out</h3>
                     <small>Log out from your account.</small>
-                  </Link>
+                  </span>
                 </div>
               </div>
             </a>

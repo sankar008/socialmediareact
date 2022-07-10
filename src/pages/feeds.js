@@ -35,95 +35,83 @@ export default function Feeds() {
   return (
     <>
       <div className={`app-overlay ${appOverlay ? "is-active" : ""}`}></div>
-      <MainNavbar
-        messageOverlay={messageOverlay}
-        setMessageOverlay={setMessageOverlay}
-        exploreOverlay={exploreOverlay}
-        setExploreOverlay={setExploreOverlay}
-      />
-      <div className="view-wrapper">
-        <div id="main-feed" className="container">
-          {/* Content placeholders at page load */}
-          {/* {{> feed-shadow-dom ---------------------}} */}
+      <div id="activity-feed" className="view-wrap true-dom is-hidden1">
+        <div className="columns">
+          <div className="column is-3 is-hidden-mobile">
+            <WeatherWidget />
+            <RecommendedPagesWidget />
+            <FakeAddWidget />
+            <LatestActivityWidget />
+          </div>
 
-          <div id="activity-feed" className="view-wrap true-dom is-hidden1">
-            <div className="columns">
-              <div className="column is-3 is-hidden-mobile">
-                <WeatherWidget />
-                <RecommendedPagesWidget />
-                <FakeAddWidget />
-                <LatestActivityWidget />
-              </div>
+          <div className="column is-6">
+            <ComposeCard
+              setAppOverlay={setAppOverlay}
+              setAlbumOverlay={setAlbumOverlay}
+              setVideoOverlay={setVideoOverlay}
+            />
 
-              <div className="column is-6">
-                <ComposeCard
-                  setAppOverlay={setAppOverlay}
-                  setAlbumOverlay={setAlbumOverlay}
-                  setVideoOverlay={setVideoOverlay}
-                />
+            <FeedPost1
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
+            <FeedPost2
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
+            <FeedPost3
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
+            <FeedPost4
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
+            <FeedPost5
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
+            <FeedPost6
+              shareOverlay={shareOverlay}
+              setShareOverlay={setShareOverlay}
+            />
 
-                <FeedPost1
-                  shareOverlay={shareOverlay}
-                  setShareOverlay={setShareOverlay}
-                />
-                <FeedPost2
-                  shareOverlay={shareOverlay}
-                  setShareOverlay={setShareOverlay}
-                />
-                <FeedPost3
-                  shareOverlay={shareOverlay}
-                  setShareOverlay={setShareOverlay}
-                />
-                <FeedPost4
-                  shareOverlay={shareOverlay}
-                  setShareOverlay={setShareOverlay}
-                />
-                <FeedPost5
-                  shareOverlay={shareOverlay}
-                  setShareOverlay={setShareOverlay}
-                />
-                <FeedPost6
-                  shareOverlay={shareOverlay}
-                  setShareOverlay={setShareOverlay}
-                />
-
-                {/* Load more posts */}
-                <div className=" load-more-wrap narrow-top has-text-centered">
-                  <a href="#" className="load-more-button">
-                    Load More
-                  </a>
-                </div>
-                {/* /Load more posts */}
-              </div>
-              <div className="column is-3">
-                <StoriesWidget />
-                <BirthdayWidget />
-                <SuggestedFriendsWidget />
-                <NewJobWidget />
-              </div>
+            {/* Load more posts */}
+            <div className=" load-more-wrap narrow-top has-text-centered">
+              <a href="#" className="load-more-button">
+                Load More
+              </a>
             </div>
+            {/* /Load more posts */}
+          </div>
+          <div className="column is-3">
+            <StoriesWidget />
+            <BirthdayWidget />
+            <SuggestedFriendsWidget />
+            <NewJobWidget />
           </div>
         </div>
-
-        <CreateGroupModal />
-
-        <AlbumsModal
-          albumOverlay={albumOverlay}
-          setAlbumOverlay={setAlbumOverlay}
-        />
-
-        <VideosModal
-          videoOverlay={videoOverlay}
-          setVideoOverlay={setVideoOverlay}
-        />
-
-        <ShareModal
-          shareOverlay={shareOverlay}
-          setShareOverlay={setShareOverlay}
-        />
-
-        <NoStreamModal />
       </div>
+
+      <CreateGroupModal />
+
+      <AlbumsModal
+        albumOverlay={albumOverlay}
+        setAlbumOverlay={setAlbumOverlay}
+      />
+
+      <VideosModal
+        videoOverlay={videoOverlay}
+        setVideoOverlay={setVideoOverlay}
+      />
+
+      <ShareModal
+        shareOverlay={shareOverlay}
+        setShareOverlay={setShareOverlay}
+      />
+
+      <NoStreamModal />
+
       <ChatWrapper
         messageOverlay={messageOverlay}
         setMessageOverlay={setMessageOverlay}
