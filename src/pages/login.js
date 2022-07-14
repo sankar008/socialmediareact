@@ -54,13 +54,16 @@ const Login = ({ setIsLogin, isLogin }) => {
       console.log("response", response);
       if (response.data.success === 1) {
         setIsLogin(!isLogin);
-        navigate("/feeds");
+        localStorage.setItem("isLoginCheck", true);
+        localStorage.setItem("__userImg", response.data.data.image);
+        localStorage.setItem("__fulName", response.data.data.full_name);
         localStorage.setItem("__userId", response.data.data._id);
         const headerObj = {
           Authorization: `Bearer ${response.data.token_code}`,
         };
         localStorage.setItem("__tokenCode", JSON.stringify(headerObj));
-        localStorage.setItem("isLoginCheck", true);
+
+        navigate("/feeds");
       } else {
         toast(response.data.message, {
           position: "top-right",

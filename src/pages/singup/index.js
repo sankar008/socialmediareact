@@ -71,7 +71,7 @@ const ProcessBar = (props) => {
   );
 };
 
-export default function SignUp() {
+export default function SignUp({ isLogin, setIsLogin }) {
   const [stage, setStage] = useState(0);
   const [company, setCompany] = useState(0);
   const [userEmail, setUserEmail] = useState("");
@@ -87,6 +87,8 @@ export default function SignUp() {
         setCompany={setCompany}
         stage={stage}
         setStage={setStage}
+        setIsLogin={setIsLogin}
+        isLogin={isLogin}
       />
     </div>
   );

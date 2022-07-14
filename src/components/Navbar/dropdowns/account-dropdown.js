@@ -10,11 +10,14 @@ export const AccountDropdown = ({ setIsLogin }) => {
     localStorage.removeItem("isLoginCheck");
     localStorage.removeItem("__tokenCode");
     localStorage.removeItem("__userId");
+    localStorage.removeItem("__fulName");
+    localStorage.removeItem("__userImg");
     setIsLogin(localStorage.removeItem("isLoginCheck"));
     if (localStorage.removeItem("isLoginCheck") === undefined) {
       navigate("/");
     }
   };
+
   return (
     <div
       id="account-dropdown"
@@ -24,11 +27,7 @@ export const AccountDropdown = ({ setIsLogin }) => {
       }`}
     >
       <div className="user-image" onClick={() => setisActive(!isActive)}>
-        <img
-          src="https://via.placeholder.com/400x400"
-          data-demo-src="assets/img/avatars/jenna.png"
-          alt=""
-        />
+        <img src={localStorage.getItem("__userImg")} alt="" />
         <span className="indicator"></span>
       </div>
 
@@ -39,7 +38,7 @@ export const AccountDropdown = ({ setIsLogin }) => {
       >
         <div className="inner">
           <div className="nav-drop-header">
-            <span className="username">Jenna Davis</span>
+            {/* <span className="username">Jenna Davis</span> */}
             <a href="profile-main.html">Profile</a>
           </div>
           <div className="nav-drop-body account-items">
@@ -51,15 +50,13 @@ export const AccountDropdown = ({ setIsLogin }) => {
               <div className="media">
                 <div className="media-left">
                   <div className="image">
-                    <img
-                      src="https://via.placeholder.com/400x400"
-                      data-demo-src="assets/img/avatars/jenna.png"
-                      alt=""
-                    />
+                    <img src={localStorage.getItem("__userImg")} alt="" />
                   </div>
                 </div>
                 <div className="media-content">
-                  <h3>Jenna Davis</h3>
+                  <h3 className="userName">
+                    {localStorage.getItem("__fulName")}
+                  </h3>
                   <small>Main account</small>
                 </div>
                 <div className="media-right">
@@ -68,89 +65,19 @@ export const AccountDropdown = ({ setIsLogin }) => {
               </div>
             </a>
             <hr className="account-divider" />
-            <a href="/pages-main.html" className="account-item">
-              <div className="media">
-                <div className="media-left">
-                  <div className="image">
-                    <img
-                      src="https://xsgames.co/randomusers/avatar.php?g=male"
-                      data-demo-src="assets/img/avatars/hanzo.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="media-content">
-                  <h3>Css Ninja</h3>
-                  <small>Company page</small>
-                </div>
-                <div className="media-right is-hidden">
-                  <Check />
-                </div>
-              </div>
-            </a>
-            <a href="/pages-main.html" className="account-item">
-              <div className="media">
-                <div className="media-left">
-                  <div className="image">
-                    <img
-                      src="https://xsgames.co/randomusers/avatar.php?g=male"
-                      data-demo-src="assets/img/icons/logos/fastpizza.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="media-content">
-                  <h3>Fast Pizza</h3>
-                  <small>Company page</small>
-                </div>
-                <div className="media-right is-hidden">
-                  <Check />
-                </div>
-              </div>
-            </a>
-            <a href="/pages-main.html" className="account-item">
-              <div className="media">
-                <div className="media-left">
-                  <div className="image">
-                    <img
-                      src="https://xsgames.co/randomusers/avatar.php?g=male"
-                      data-demo-src="assets/img/icons/logos/slicer.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="media-content">
-                  <h3>Slicer</h3>
-                  <small>Company page</small>
-                </div>
-                <div className="media-right is-hidden">
-                  <Check />
-                </div>
-              </div>
-            </a>
-            <hr className="account-divider" />
+
             <a href="/options-settings.html" className="account-item">
               <div className="media">
                 <div className="icon-wrap">
                   <Settings />
                 </div>
                 <div className="media-content">
-                  <h3>Settings</h3>
-                  <small>Access widget settings.</small>
+                  <h3>Edit Profile</h3>
+                  {/* <small>Access widget settings.</small> */}
                 </div>
               </div>
             </a>
-            <a className="account-item">
-              <div className="media">
-                <div className="icon-wrap">
-                  <LifeBuoy />
-                </div>
-                <div className="media-content">
-                  <h3>Help</h3>
-                  <small>Contact our support.</small>
-                </div>
-              </div>
-            </a>
+
             <a className="account-item">
               <div className="media">
                 <div className="icon-wrap">

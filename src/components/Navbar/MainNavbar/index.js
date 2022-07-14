@@ -86,7 +86,7 @@ const BasicNavbar = (props) => {
 
           <div class="navbar-end">
             <SearchWidget />
-            <CartDropdown />
+            {/* <CartDropdown /> */}
             <AccountDropdown setIsLogin={setIsLogin} />
 
             <div class="navbar-item is-plus-menu is-hidden">

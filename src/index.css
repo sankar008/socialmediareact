@@ -177,3 +177,6 @@
   width: 100%;
   object-fit: cover;
 }
+.userName {
+  text-transform: capitalize;
+}
