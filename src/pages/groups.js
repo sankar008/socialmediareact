@@ -46,6 +46,8 @@ const Groups = () => {
       if (response.data.success === 1) {
         setIsActive(false);
         groupsListing();
+        setFormData("");
+        setImageData("");
       }
     } catch (error) {}
   };

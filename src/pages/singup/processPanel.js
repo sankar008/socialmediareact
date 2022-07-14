@@ -585,7 +585,7 @@ const ThirdPanel = (props) => {
         </button>
         <button
           onClick={imageUploadingSubmit}
-          disabled={!gendarVelid}
+          //disabled={!gendarVelid}
           className="button is-rounded process-button is-next"
         >
           Next
@@ -802,7 +802,7 @@ const FifthPanel = (props) => {
   isInactive = "process-panel-wrap is-narrow";
   isActive = "process-panel-wrap is-active is-narrow";
 
-  const { userEmail } = props;
+  const { userEmail, isLogin, setIsLogin } = props;
   const [OTP, setOTP] = useState("");
   let navigate = useNavigate();
 
@@ -816,6 +816,8 @@ const FifthPanel = (props) => {
       const response = await API.user_emailVerified(reqObj);
       console.log("response", response);
       if (response.data.success === 1) {
+        localStorage.setItem("isLoginCheck", true);
+        setIsLogin(!isLogin);
         navigate("/feeds");
         toast(response.data.message, {
           position: "top-right",
@@ -938,6 +940,8 @@ export const ProcessPanel = (props) => (
         userEmail={props.userEmail}
         company={props.company}
         stage={props.stage}
+        setIsLogin={props.setIsLogin}
+        isLogin={props.isLogin}
       />
     </div>
   </div>

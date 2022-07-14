@@ -44,7 +44,10 @@ const BasicRoutes = () => {
               path="/"
               element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />}
             />
-            <Route path="signup" element={<SignUp />} />
+            <Route
+              path="signup"
+              element={<SignUp isLogin={isLogin} setIsLogin={setIsLogin} />}
+            />
             <Route path="forgot" element={<ForgotPassword />} />
           </Routes>
         </>
