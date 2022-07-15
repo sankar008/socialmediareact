@@ -90,6 +90,19 @@ export const groups_create = async (data, header) => {
   }
 };
 
+// ? GROUPS UPDATE API
+export const groups_Update = async (data, header) => {
+  try {
+    const url = c.GROUPS;
+    const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 // ? show groups
 export const groups_showing = async (header) => {
   try {
@@ -125,6 +138,21 @@ export const groups_showByid = async (data, header) => {
     console.log("url", url);
     const res = await axios.get(url, {
       headers: JSON.parse(data),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? show groups by id edit
+export const groups_showByid_edit = async (data, header) => {
+  console.log("header", header);
+  try {
+    const url = c.GROUPS + "/edit/" + data;
+    console.log("url", url);
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
     });
     return res;
   } catch (e) {

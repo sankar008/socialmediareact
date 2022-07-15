@@ -35,26 +35,47 @@ const Groups = () => {
   };
 
   // ? Craete Groups
-  const groupsCreate = async () => {
+  const groupsCreate = async (editGroups) => {
+    console.log("editGroups", editGroups);
     const header = localStorage.getItem("__tokenCode");
-    try {
-      const reqObj = {
-        userId: localStorage.getItem("__userId"),
-        image: imageData,
-        groupName: formData.groupName,
-        groupDetails: formData.groupDetails,
-        catCode: formData.catCode,
-      };
-      console.log("reqObj", reqObj);
-      const response = await API.groups_create(reqObj, header);
-      console.log("response", response);
-      if (response.data.success === 1) {
-        setIsActive(false);
-        groupsListing();
-        setFormData("");
-        setImageData("");
-      }
-    } catch (error) {}
+    if (editGroups === 2) {
+      try {
+        const reqObj = {
+          userId: localStorage.getItem("__userId"),
+          image: imageData,
+          groupName: formData.groupName,
+          groupDetails: formData.groupDetails,
+        };
+        console.log("reqObj", reqObj);
+        const response = await API.groups_Update(reqObj, header);
+        console.log("responseUpdate", response);
+        if (response.data.success === 1) {
+          setIsActive(false);
+          groupsListing();
+          setFormData("");
+          setImageData("");
+        }
+      } catch (error) {}
+    } else {
+      try {
+        const reqObj = {
+          userId: localStorage.getItem("__userId"),
+          image: imageData,
+          groupName: formData.groupName,
+          groupDetails: formData.groupDetails,
+          catCode: formData.catCode,
+        };
+        console.log("reqObj", reqObj);
+        const response = await API.groups_create(reqObj, header);
+        console.log("response", response);
+        if (response.data.success === 1) {
+          setIsActive(false);
+          groupsListing();
+          setFormData("");
+          setImageData("");
+        }
+      } catch (error) {}
+    }
   };
 
   // ? Groups Listing
@@ -64,7 +85,7 @@ const Groups = () => {
       const response = await API.groups_showing(header);
       console.log("responseList", response);
       setGroupsList(response.data.data);
-      setFormData(response.data.data);
+
       if (response.data.success === 1) {
         setLoader(false);
       }
@@ -91,7 +112,7 @@ const Groups = () => {
       );
       console.log("responseListById", response);
       setGroupsList(response.data.data);
-      setFormData(response.data.data[0]);
+      setFormData(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
       }
@@ -99,10 +120,19 @@ const Groups = () => {
   };
 
   // ? new groups
-  const modalOpen = (edit) => {
+  const modalOpen = async (edit, groupCode) => {
+    const header = localStorage.getItem("__tokenCode");
     setIsActive(true);
+    if (edit === 2) {
+      try {
+        const response = await API.groups_showByid_edit(groupCode, header);
+        setFormData(response.data.data);
+        console.log("response", response);
+      } catch (error) {}
+    }
     setIsActive(edit);
   };
+
   // ? modal close
   const closeModal = () => {
     setIsActive(false);
@@ -175,7 +205,9 @@ const Groups = () => {
                           <div className="editOverlay">
                             {localStorage.getItem("__userId") ===
                             item.userId ? (
-                              <span onClick={() => modalOpen(2)}>
+                              <span
+                                onClick={() => modalOpen(2, item.groupCode)}
+                              >
                                 <Edit />
                               </span>
                             ) : (
@@ -313,7 +345,9 @@ const Groups = () => {
                   <button
                     type="button"
                     class="button is-solid accent-button next-modal raised"
-                    onClick={groupsCreate}
+                    onClick={
+                      isActive === 2 ? () => groupsCreate(2) : groupsCreate
+                    }
                     disabled={btnDesabel}
                   >
                     Create
