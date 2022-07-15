@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Camera, Plus, User, Users, X } from "react-feather";
+import { Camera, Edit, Plus, User, Users, X } from "react-feather";
 import { Link } from "react-router-dom";
 import * as API from "../api/index";
 import groupsImg from "../assets/img/group.png";
+import ContentLoader, { Instagram } from "react-content-loader";
 const initialData = {
   groupName: "",
   groupDetails: "",
+  catCode: "",
 };
 
 const Groups = () => {
@@ -13,6 +15,8 @@ const Groups = () => {
   const [formData, setFormData] = useState(initialData);
   const [imageData, setImageData] = useState("");
   const [groupsList, setGroupsList] = useState([]);
+  const [categorys, setCategorys] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   // ? image uploading
   const imageUploading = (e) => {
@@ -35,10 +39,11 @@ const Groups = () => {
     const header = localStorage.getItem("__tokenCode");
     try {
       const reqObj = {
-        id: localStorage.getItem("__userId"),
+        userId: localStorage.getItem("__userId"),
         image: imageData,
         groupName: formData.groupName,
         groupDetails: formData.groupDetails,
+        catCode: formData.catCode,
       };
       console.log("reqObj", reqObj);
       const response = await API.groups_create(reqObj, header);
@@ -57,14 +62,46 @@ const Groups = () => {
     const header = localStorage.getItem("__tokenCode");
     try {
       const response = await API.groups_showing(header);
-      console.log("response", response);
+      console.log("responseList", response);
       setGroupsList(response.data.data);
+      setFormData(response.data.data);
+      if (response.data.success === 1) {
+        setLoader(false);
+      }
+    } catch (error) {}
+  };
+
+  // ? Groups cetagorys
+  const groupsCetagory = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.groups_categorys(header);
+      console.log("response", response);
+      setCategorys(response.data.data);
+    } catch (error) {}
+  };
+
+  // ? Groups Listing by id
+  const groupsListingbyId = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.groups_showByid(
+        header,
+        localStorage.getItem("__userId")
+      );
+      console.log("responseListById", response);
+      setGroupsList(response.data.data);
+      setFormData(response.data.data[0]);
+      if (response.data.success === 1) {
+        setLoader(false);
+      }
     } catch (error) {}
   };
 
   // ? new groups
-  const modalOpen = () => {
+  const modalOpen = (edit) => {
     setIsActive(true);
+    setIsActive(edit);
   };
   // ? modal close
   const closeModal = () => {
@@ -73,10 +110,15 @@ const Groups = () => {
 
   useEffect(() => {
     groupsListing();
+    groupsCetagory();
+    groupsListingbyId();
   }, []);
 
   const btnDesabel =
-    !formData.groupName || !formData.groupDetails || !imageData;
+    !formData.groupName ||
+    !formData.groupDetails ||
+    !imageData ||
+    !formData.catCode;
 
   return (
     <>
@@ -97,45 +139,83 @@ const Groups = () => {
               </div>
             </div>
           </div>
+
           <div class="columns is-multiline">
-            {groupsList.map((item, index) => (
-              <div class="column is-3" key={index}>
-                <Link to="#">
-                  <article class="group-box">
-                    <div class="has-background-image groupImg">
-                      <img src={item.image} alt="" />
-                    </div>
-                    <div class="box-info">
-                      <span class="box-category">Gaming</span>
-                      <h3 class="box-title">{item.groupName}</h3>
-                      <span class="box-members">
-                        <a href="#">5.7k members</a>
-                        <div class="members-preview">
-                          <img
-                            src="https://via.placeholder.com/150x150"
-                            data-demo-src="assets/img/avatars/milly.jpg"
-                            data-user-popover="7"
-                            alt=""
-                          />
-                          <img
-                            src="https://via.placeholder.com/150x150"
-                            data-demo-src="assets/img/avatars/stella.jpg"
-                            data-user-popover="2"
-                            alt=""
-                          />
-                          <img
-                            src="https://via.placeholder.com/150x150"
-                            data-demo-src="assets/img/avatars/azzouz.jpg"
-                            data-user-popover="20"
-                            alt=""
-                          />
-                        </div>
-                      </span>
-                    </div>
-                  </article>
-                </Link>
+            {loader ? (
+              <div class="column is-3">
+                <ContentLoader
+                  speed={2}
+                  width={476}
+                  height={500}
+                  viewBox="0 0 476 500"
+                  backgroundColor="#f3f3f3"
+                  foregroundColor="#ecebeb"
+                  // {...props}
+                >
+                  <rect
+                    x="128"
+                    y="274"
+                    rx="3"
+                    ry="3"
+                    width="381"
+                    height="169"
+                  />
+                  <rect x="127" y="227" rx="3" ry="3" width="345" height="25" />
+                  <circle cx="281" cy="102" r="99" />
+                </ContentLoader>
               </div>
-            ))}
+            ) : (
+              <>
+                {groupsList.map((item, index) => (
+                  <div class="column is-3" key={index}>
+                    <Link to="#">
+                      <article class="group-box">
+                        <div class="has-background-image groupImg">
+                          <img src={item.image} alt="" />
+                          <div className="editOverlay">
+                            {localStorage.getItem("__userId") ===
+                            item.userId ? (
+                              <span onClick={() => modalOpen(2)}>
+                                <Edit />
+                              </span>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                        </div>
+                        <div class="box-info">
+                          <span class="box-category">Gaming</span>
+                          <h3 class="box-title">{item.groupName}</h3>
+                          <span class="box-members">
+                            <a href="#">5.7k members</a>
+                            <div class="members-preview">
+                              <img
+                                src="https://via.placeholder.com/150x150"
+                                data-demo-src="assets/img/avatars/milly.jpg"
+                                data-user-popover="7"
+                                alt=""
+                              />
+                              <img
+                                src="https://via.placeholder.com/150x150"
+                                data-demo-src="assets/img/avatars/stella.jpg"
+                                data-user-popover="2"
+                                alt=""
+                              />
+                              <img
+                                src="https://via.placeholder.com/150x150"
+                                data-demo-src="assets/img/avatars/azzouz.jpg"
+                                data-user-popover="20"
+                                alt=""
+                              />
+                            </div>
+                          </span>
+                        </div>
+                      </article>
+                    </Link>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -153,7 +233,7 @@ const Groups = () => {
         <div class="modal-content">
           <div class="card groupsModal">
             <div class="card-heading">
-              <h3>Create group</h3>
+              <h3>{isActive === 2 ? "Edit group" : "Create group"}</h3>
               <div class="close-wrap">
                 <span class="close-modal" onClick={closeModal}>
                   <X />
@@ -201,6 +281,22 @@ const Groups = () => {
                       value={formData.groupName}
                       onChange={inputHandaler}
                     />
+                  </div>
+                  <div class="control mb-5">
+                    <select
+                      class="input is-sm no-radius is-fade"
+                      placeholder="Groups name"
+                      name="catCode"
+                      value={formData.catCode}
+                      onChange={inputHandaler}
+                    >
+                      <option> --- Select Category --- </option>
+                      {categorys.map((item, index) => (
+                        <option key={index} value={item.catCode}>
+                          {item.catName}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div class="control mb-5">
                     <textarea

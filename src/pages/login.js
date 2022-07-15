@@ -57,7 +57,7 @@ const Login = ({ setIsLogin, isLogin }) => {
         localStorage.setItem("isLoginCheck", true);
         localStorage.setItem("__userImg", response.data.data.image);
         localStorage.setItem("__fulName", response.data.data.full_name);
-        localStorage.setItem("__userId", response.data.data._id);
+        localStorage.setItem("__userId", response.data.data.userCode);
         const headerObj = {
           Authorization: `Bearer ${response.data.token_code}`,
         };

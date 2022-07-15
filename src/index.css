@@ -170,13 +170,36 @@
 }
 
 .groupsModal {
-  height: 450px !important;
+  height: 530px !important;
 }
 .groupImg img {
   height: 250px;
   width: 100%;
   object-fit: cover;
+  position: relative;
+  transition: all 0.3s;
 }
 .userName {
   text-transform: capitalize;
+}
+
+.editOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: rgba(90, 92, 105, 0.7);
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.editOverlay svg {
+  font-size: 25px;
+}
+
+.groups-grid .group-box:hover .editOverlay {
+  opacity: 1;
 }

@@ -102,3 +102,32 @@ export const groups_showing = async (header) => {
     return e.response;
   }
 };
+
+// ? show CATEGORYS
+export const groups_categorys = async (header) => {
+  try {
+    const url = c.CATEGORYS;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? show groups by id
+export const groups_showByid = async (data, header) => {
+  console.log("header", header);
+  try {
+    const url = c.GROUPS + "/" + header;
+
+    console.log("url", url);
+    const res = await axios.get(url, {
+      headers: JSON.parse(data),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
