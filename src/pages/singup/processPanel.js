@@ -183,7 +183,7 @@ const SecondPanel = (props) => {
       if (response.data.success === 1) {
         props.setStage(props.stage + 1);
         setUserEmail(response.data.data.email);
-        localStorage.setItem("__userId", response.data.data._id);
+        localStorage.setItem("__userId", response.data.data.userCode);
       } else {
         toast(response.data.msg, {
           position: "top-right",
@@ -498,11 +498,11 @@ const ThirdPanel = (props) => {
       };
       const response = await API.user_updated(reqObj);
       if (response.status === 200) {
-        if (gender === "Male") {
+        if (gender === "male") {
           setSelectUser(1);
           setSelectFemale(0);
           setSelectOther(0);
-        } else if (gender === "Female") {
+        } else if (gender === "female") {
           setSelectFemale(1);
           setSelectUser(0);
           setSelectOther(0);
@@ -556,19 +556,19 @@ const ThirdPanel = (props) => {
           <div className="userGender">
             <div
               className={selectUser === 1 ? "activeGender" : "icon"}
-              onClick={() => genderChoose("Male")}
+              onClick={() => genderChoose("male")}
             >
               <img src="https://www.pngkey.com/png/full/72-729716_user-avatar-png-graphic-free-download-icon.png" />
             </div>
             <div
               className={selectFemale === 1 ? "activeGender" : "icon"}
-              onClick={() => genderChoose("Female")}
+              onClick={() => genderChoose("female")}
             >
               <img src="https://www.kindpng.com/picc/m/163-1636340_user-avatar-icon-avatar-transparent-user-icon-png.png" />
             </div>
             <div
               className={selectOther === 1 ? "activeGender" : "icon"}
-              onClick={() => genderChoose("Others")}
+              onClick={() => genderChoose("others")}
             >
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Transgender_symbol_pink_and_blue.svg/878px-Transgender_symbol_pink_and_blue.svg.png" />
             </div>

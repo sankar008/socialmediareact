@@ -23,6 +23,21 @@ export const user_updated = async (data) => {
   }
 };
 
+// ? USER API
+export const user_details = async (data, header) => {
+  try {
+    const url = c.USER + "/" + header;
+
+    console.log("url", url);
+    const res = await axios.get(url, {
+      headers: JSON.parse(data),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
 // ? USER email verified
 export const user_emailVerified = async (data) => {
   try {
@@ -92,9 +107,24 @@ export const groups_create = async (data, header) => {
 
 // ? GROUPS UPDATE API
 export const groups_Update = async (data, header) => {
+  console.log("header", header);
   try {
     const url = c.GROUPS;
     const res = await axios.patch(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? GROUPS JOIN
+export const groups_join = async (data, header) => {
+  console.log("header", header);
+  try {
+    const url = c.GROUPSJOIN;
+    const res = await axios.post(url, data, {
       headers: JSON.parse(header),
     });
     return res;
@@ -131,11 +161,8 @@ export const groups_categorys = async (header) => {
 
 // ? show groups by id
 export const groups_showByid = async (data, header) => {
-  console.log("header", header);
   try {
     const url = c.GROUPS + "/" + header;
-
-    console.log("url", url);
     const res = await axios.get(url, {
       headers: JSON.parse(data),
     });

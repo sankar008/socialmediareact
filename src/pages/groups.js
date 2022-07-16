@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import * as API from "../api/index";
 import groupsImg from "../assets/img/group.png";
 import ContentLoader, { Instagram } from "react-content-loader";
+import { toast, ToastContainer } from "react-toastify";
 const initialData = {
   groupName: "",
   groupDetails: "",
@@ -17,6 +18,9 @@ const Groups = () => {
   const [groupsList, setGroupsList] = useState([]);
   const [categorys, setCategorys] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [groupsCode, setGroupsCode] = useState("");
+  const [userDetails, setUserDetails] = useState([]);
+  console.log("userDetails", userDetails);
 
   // ? image uploading
   const imageUploading = (e) => {
@@ -41,7 +45,7 @@ const Groups = () => {
     if (editGroups === 2) {
       try {
         const reqObj = {
-          userId: localStorage.getItem("__userId"),
+          groupCode: groupsCode,
           image: imageData,
           groupName: formData.groupName,
           groupDetails: formData.groupDetails,
@@ -111,8 +115,23 @@ const Groups = () => {
         localStorage.getItem("__userId")
       );
       console.log("responseListById", response);
-      setGroupsList(response.data.data);
       setFormData(response.data.data);
+      if (response.data.success === 1) {
+        setLoader(false);
+      }
+    } catch (error) {}
+  };
+
+  // ? USER DETAILS BY ID
+  const userDetailsByid = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.user_details(
+        header,
+        localStorage.getItem("__userId")
+      );
+      console.log("userDetails", response);
+      setUserDetails(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
       }
@@ -121,6 +140,7 @@ const Groups = () => {
 
   // ? new groups
   const modalOpen = async (edit, groupCode) => {
+    setGroupsCode(groupCode);
     const header = localStorage.getItem("__tokenCode");
     setIsActive(true);
     if (edit === 2) {
@@ -133,6 +153,33 @@ const Groups = () => {
     setIsActive(edit);
   };
 
+  // ? GROUPS JOIN
+  const groupsJoing = async (groupCode) => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const reQObj = {
+        groupCode: groupCode,
+        userCode: localStorage.getItem("__userId"),
+      };
+      console.log("reQObj", reQObj);
+      const response = await API.groups_join(reQObj, header);
+      console.log("response", response);
+      if (response.data.success === 1) {
+        userDetailsByid();
+        toast(response.data.msg, {
+          position: "top-right",
+          autoClose: 5000,
+          type: "success",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {}
+  };
+
   // ? modal close
   const closeModal = () => {
     setIsActive(false);
@@ -142,6 +189,7 @@ const Groups = () => {
     groupsListing();
     groupsCetagory();
     groupsListingbyId();
+    userDetailsByid();
   }, []);
 
   const btnDesabel =
@@ -197,7 +245,7 @@ const Groups = () => {
             ) : (
               <>
                 {groupsList.map((item, index) => (
-                  <div class="column is-3" key={index}>
+                  <div class="column is-4" key={index}>
                     <Link to="#">
                       <article class="group-box">
                         <div class="has-background-image groupImg">
@@ -216,7 +264,40 @@ const Groups = () => {
                           </div>
                         </div>
                         <div class="box-info">
-                          <span class="box-category">Gaming</span>
+                          <div className="box_up">
+                            <span className="box-category">
+                              {item.catName} cetName
+                            </span>
+                            {userDetails.groups ? (
+                              userDetails.groups.includes(item.groupCode) ? (
+                                <span class="JoinBtn">Joined</span>
+                              ) : (
+                                <span
+                                  class="JoinBtn"
+                                  onClick={() => groupsJoing(item.groupCode)}
+                                >
+                                  Join
+                                </span>
+                              )
+                            ) : (
+                              <span
+                                class="JoinBtn"
+                                onClick={() => groupsJoing(item.groupCode)}
+                              >
+                                Join
+                              </span>
+                            )}
+                            {/* <span
+                              class="JoinBtn"
+                              onClick={() => groupsJoing(item.groupCode)}
+                            >
+                              {userDetails.groups
+                                ? userDetails.groups.includes(item.groupCode)
+                                  ? "Joined"
+                                  : "Join"
+                                : "Join"}
+                            </span> */}
+                          </div>
                           <h3 class="box-title">{item.groupName}</h3>
                           <span class="box-members">
                             <a href="#">5.7k members</a>
@@ -358,6 +439,7 @@ const Groups = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

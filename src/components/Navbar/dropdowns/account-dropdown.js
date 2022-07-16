@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Check, LifeBuoy, Power, Settings } from "react-feather";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-export const AccountDropdown = ({ setIsLogin }) => {
+export const AccountDropdown = ({ setIsLogin, userDetails }) => {
   let [isActive, setisActive] = useState(false);
   const navigate = useNavigate();
 
@@ -18,6 +18,8 @@ export const AccountDropdown = ({ setIsLogin }) => {
     }
   };
 
+  console.log("navBar", userDetails);
+
   return (
     <div
       id="account-dropdown"
@@ -27,7 +29,14 @@ export const AccountDropdown = ({ setIsLogin }) => {
       }`}
     >
       <div className="user-image" onClick={() => setisActive(!isActive)}>
-        <img src={localStorage.getItem("__userImg")} alt="" />
+        <img
+          src={
+            userDetails.image === ""
+              ? "https://www.svpnpa.gov.in/images/npa/alumni-gallery/1975New/A.%20Wahab.png"
+              : userDetails.image
+          }
+          alt=""
+        />
         <span className="indicator"></span>
       </div>
 
@@ -50,7 +59,14 @@ export const AccountDropdown = ({ setIsLogin }) => {
               <div className="media">
                 <div className="media-left">
                   <div className="image">
-                    <img src={localStorage.getItem("__userImg")} alt="" />
+                    <img
+                      src={
+                        userDetails.image === ""
+                          ? "https://www.svpnpa.gov.in/images/npa/alumni-gallery/1975New/A.%20Wahab.png"
+                          : userDetails.image
+                      }
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="media-content">

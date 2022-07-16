@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { MobileNavbar } from "./MobileNavbar";
 import logoBold from "../../../assets/img/logo/friendkit-bold.svg";
 import {
@@ -16,6 +16,7 @@ import { SearchWidget } from "../widget/SearchWidget";
 import { CartDropdown } from "../dropdowns/cart-dropdown";
 import { AccountDropdown } from "../dropdowns/account-dropdown";
 import { Link } from "react-router-dom";
+import * as API from "../../../api/index";
 
 const BasicNavbar = (props) => {
   const {
@@ -25,6 +26,25 @@ const BasicNavbar = (props) => {
     setMessageOverlay,
     setIsLogin,
   } = props;
+
+  const [userDetails, setUserDetails] = useState([]);
+
+  // ? USER DETAILS BY ID
+  const userDetailsByid = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.user_details(
+        header,
+        localStorage.getItem("__userId")
+      );
+      console.log("userDetails", response);
+      setUserDetails(response.data.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    userDetailsByid();
+  }, []);
 
   return (
     <div
@@ -87,7 +107,10 @@ const BasicNavbar = (props) => {
           <div class="navbar-end">
             <SearchWidget />
             {/* <CartDropdown /> */}
-            <AccountDropdown setIsLogin={setIsLogin} />
+            <AccountDropdown
+              setIsLogin={setIsLogin}
+              userDetails={userDetails}
+            />
 
             <div class="navbar-item is-plus-menu is-hidden">
               <a

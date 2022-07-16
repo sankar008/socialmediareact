@@ -203,3 +203,20 @@
 .groups-grid .group-box:hover .editOverlay {
   opacity: 1;
 }
+
+.box_up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.JoinBtn {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: #6ba4e9;
+  padding: 0px 10px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
