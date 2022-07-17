@@ -11,7 +11,6 @@ export const AccountDropdown = ({ setIsLogin, userDetails }) => {
     localStorage.removeItem("__tokenCode");
     localStorage.removeItem("__userId");
     localStorage.removeItem("__fulName");
-    localStorage.removeItem("__userImg");
     setIsLogin(localStorage.removeItem("isLoginCheck"));
     if (localStorage.removeItem("isLoginCheck") === undefined) {
       navigate("/");

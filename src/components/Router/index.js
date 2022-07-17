@@ -32,7 +32,10 @@ const BasicRoutes = () => {
               <Routes>
                 <Route path="/" element={<Feeds />} />
                 <Route path="feeds" element={<Feeds />} />
-                <Route path="groups" element={<Groups />} />
+                <Route
+                  path="groups"
+                  element={<Groups isLogin={isLogin} setIsLogin={setIsLogin} />}
+                />
               </Routes>
             </div>
           </div>
@@ -40,6 +43,10 @@ const BasicRoutes = () => {
       ) : (
         <>
           <Routes>
+            <Route
+              path="/login"
+              element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />}
+            />
             <Route
               path="/"
               element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />}

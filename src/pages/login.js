@@ -6,7 +6,7 @@ import friendkit from "../assets/img/logo/friendkit-white.svg";
 import * as API from "../api/index";
 import * as appUtils from "../helpers/appUtils";
 import { toast, ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const initialvalue = {
   email: "",
   password: "",
@@ -14,12 +14,21 @@ const initialvalue = {
 
 const Login = ({ setIsLogin, isLogin }) => {
   let navigate = useNavigate();
+  let params = useParams();
+  console.log("params", params);
   const [formData, setFormData] = useState(initialvalue);
   const [loading, setLoading] = useState(false);
-  //ERROR-MSGS
+  //?ERROR-MSGS
   const [errorMsg, setErrorMsg] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
+
+  // ? seson expiry
+
+  localStorage.removeItem("isLoginCheck");
+  localStorage.removeItem("__tokenCode");
+  localStorage.removeItem("__userId");
+  localStorage.removeItem("__fulName");
 
   // ? handerl onchanges
   const handalerChanges = (e) => {
@@ -55,14 +64,12 @@ const Login = ({ setIsLogin, isLogin }) => {
       if (response.data.success === 1) {
         setIsLogin(!isLogin);
         localStorage.setItem("isLoginCheck", true);
-        localStorage.setItem("__userImg", response.data.data.image);
         localStorage.setItem("__fulName", response.data.data.full_name);
         localStorage.setItem("__userId", response.data.data.userCode);
         const headerObj = {
           Authorization: `Bearer ${response.data.token_code}`,
         };
         localStorage.setItem("__tokenCode", JSON.stringify(headerObj));
-
         navigate("/feeds");
       } else {
         toast(response.data.message, {

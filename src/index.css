@@ -220,3 +220,16 @@
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
 }
+.exitBtn {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: #08c408;
+  padding: 0px 10px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+.groupsBox {
+  justify-content: left !important;
+}
