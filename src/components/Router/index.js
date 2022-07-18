@@ -30,8 +30,11 @@ const BasicRoutes = () => {
           <div className="view-wrapper">
             <div id="main-feed" className="container">
               <Routes>
-                <Route path="/" element={<Feeds />} />
-                <Route path="feeds" element={<Feeds />} />
+                <Route path="/" element={<Feeds setIsLogin={setIsLogin} />} />
+                <Route
+                  path="feeds"
+                  element={<Feeds setIsLogin={setIsLogin} />}
+                />
                 <Route
                   path="groups"
                   element={<Groups isLogin={isLogin} setIsLogin={setIsLogin} />}

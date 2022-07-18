@@ -22,7 +22,7 @@ import FeedPost4 from "../components/partials/pages/feed/posts/feed-post4";
 import FeedPost5 from "../components/partials/pages/feed/posts/feed-post5";
 import FeedPost6 from "../components/partials/pages/feed/posts/feed-post6";
 
-export default function Feeds() {
+export default function Feeds({ setIsLogin }) {
   const [appOverlay, setAppOverlay] = useState(false);
   const [albumOverlay, setAlbumOverlay] = useState(false);
   const [videoOverlay, setVideoOverlay] = useState(false);
@@ -86,7 +86,7 @@ export default function Feeds() {
           <div className="column is-3">
             <StoriesWidget />
             <BirthdayWidget />
-            <SuggestedFriendsWidget />
+            <SuggestedFriendsWidget setIsLogin={setIsLogin} />
             <NewJobWidget />
           </div>
         </div>

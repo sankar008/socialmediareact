@@ -8,3 +8,5 @@ export const USER = `${URL}/user`;
 export const GROUPS = `${URL}/group`;
 export const CATEGORYS = `${URL}/category`;
 export const GROUPSJOIN = `${URL}/user/join`;
+export const SUGGESTFRIEND = `${URL}/friend/suggest-frind`;
+export const FREINDS = `${URL}/friend`;

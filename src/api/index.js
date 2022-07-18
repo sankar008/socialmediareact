@@ -174,11 +174,37 @@ export const groups_showByid = async (data, header) => {
 
 // ? show groups by id edit
 export const groups_showByid_edit = async (data, header) => {
-  console.log("header", header);
   try {
     const url = c.GROUPS + "/edit/" + data;
-    console.log("url", url);
+
     const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? suggest frind list
+export const suggestFriend = async (data, header) => {
+  try {
+    const url = c.SUGGESTFRIEND + "/" + data;
+
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? FREIND REQUEST
+export const freind_request = async (data, header) => {
+  try {
+    const url = c.FREINDS;
+    const res = await axios.post(url, data, {
       headers: JSON.parse(header),
     });
     return res;

@@ -233,3 +233,14 @@
 .groupsBox {
   justify-content: left !important;
 }
+.suggestFrindName {
+  text-transform: capitalize;
+}
+.suggestlist {
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.suggestlist::-webkit-scrollbar {
+  width: 5px;
+}

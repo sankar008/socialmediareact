@@ -1,9 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ContentLoader from "react-content-loader";
 import { MoreVertical, Settings, Trash2, UserPlus, Users } from "react-feather";
 import OutsideClickHandler from "react-outside-click-handler";
-
-export default function SuggestedFriendsWidget() {
+import { useNavigate } from "react-router";
+import * as API from "../../../../api/index";
+export default function SuggestedFriendsWidget({ setIsLogin }) {
   const [activeDropDown, setActiveDropDown] = useState(false);
+  const [suggestFrindList, setSuggestFrindList] = useState([]);
+  let navigate = useNavigate();
+  // ? suggest frind list
+  const suggestFriendList = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.suggestFriend(
+        localStorage.getItem("__userId"),
+        header
+      );
+      console.log("response", response);
+      setSuggestFrindList(response.data.data);
+      if (response.data.success === 2) {
+        localStorage.removeItem("isLoginCheck");
+        setIsLogin(localStorage.removeItem("isLoginCheck"));
+        navigate("/");
+      }
+    } catch (error) {}
+  };
+  // ? FREIND REQUEST API
+  const freindRequest = async (userCode) => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const reqObj = {
+        requester: localStorage.getItem("__userId"),
+        recipient: userCode,
+      };
+      console.log("reqObj", reqObj);
+      const response = await API.freind_request(reqObj, header);
+      console.log("response", response);
+      if (response.data.success === 1) {
+        suggestFriendList();
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    suggestFriendList();
+  }, []);
 
   return (
     <div className="card">
@@ -60,82 +101,66 @@ export default function SuggestedFriendsWidget() {
           </div>
         </div>
       </div>
-      <div className="card-body no-padding">
-        <div className="add-friend-block transition-block">
-          <img
-            src="https://friendkit.cssninja.io/assets/img/avatars/nelly.png"
-            data-demo-src="assets/img/avatars/nelly.png"
-            data-user-popover="9"
-            alt=""
-          />
-          <div className="page-meta">
-            <span>Nelly Schwartz</span>
-            <span>Melbourne</span>
+      <div className="card-body no-padding suggestlist">
+        <ContentLoader
+          speed={2}
+          width="100%"
+          height={150}
+          viewBox="0 0 400 150"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+        >
+          <circle cx="10" cy="20" r="8" />
+          <rect x="25" y="15" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="50" r="8" />
+          <rect x="25" y="45" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="80" r="8" />
+          <rect x="25" y="75" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="110" r="8" />
+          <rect x="25" y="105" rx="5" ry="5" width="220" height="10" />
+        </ContentLoader>
+
+        <ContentLoader
+          speed={2}
+          width="100%"
+          height={150}
+          viewBox="0 0 400 150"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+        >
+          <circle cx="10" cy="20" r="8" />
+          <rect x="25" y="15" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="50" r="8" />
+          <rect x="25" y="45" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="80" r="8" />
+          <rect x="25" y="75" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="110" r="8" />
+          <rect x="25" y="105" rx="5" ry="5" width="220" height="10" />
+        </ContentLoader>
+
+        {suggestFrindList.map((item, index) => (
+          <div className="add-friend-block transition-block" key={index}>
+            <img
+              src={
+                item.image === ""
+                  ? "https://www.svpnpa.gov.in/images/npa/alumni-gallery/1975New/A.%20Wahab.png"
+                  : item.image
+              }
+              alt=""
+            />
+            <div className="page-meta">
+              <span className="suggestFrindName">
+                {item.firstName} {item.lastName}
+              </span>
+            </div>
+            <div
+              className="add-friend add-transition"
+              onClick={() => freindRequest(item.userCode)}
+            >
+              <UserPlus />
+            </div>
           </div>
-          <div className="add-friend add-transition">
-            <UserPlus />
-          </div>
-        </div>
-        <div className="add-friend-block transition-block">
-          <img
-            src="https://friendkit.cssninja.io/assets/img/avatars/lana.jpeg"
-            data-demo-src="assets/img/avatars/lana.jpeg"
-            data-user-popover="10"
-            alt=""
-          />
-          <div className="page-meta">
-            <span>Lana Henrikssen</span>
-            <span>Helsinki</span>
-          </div>
-          <div className="add-friend add-transition">
-            <UserPlus />
-          </div>
-        </div>
-        <div className="add-friend-block transition-block">
-          <img
-            src="https://friendkit.cssninja.io/assets/img/avatars/gaelle.jpeg"
-            data-demo-src="assets/img/avatars/gaelle.jpeg"
-            data-user-popover="11"
-            alt=""
-          />
-          <div className="page-meta">
-            <span>Gaelle Morris</span>
-            <span>Lyon</span>
-          </div>
-          <div className="add-friend add-transition">
-            <UserPlus />
-          </div>
-        </div>
-        <div className="add-friend-block transition-block">
-          <img
-            src="https://friendkit.cssninja.io/assets/img/avatars/mike.jpg"
-            data-demo-src="assets/img/avatars/mike.jpg"
-            data-user-popover="12"
-            alt=""
-          />
-          <div className="page-meta">
-            <span>Mike Lasalle</span>
-            <span>Toronto</span>
-          </div>
-          <div className="add-friend add-transition">
-            <UserPlus />
-          </div>
-        </div>
-        <div className="add-friend-block transition-block">
-          <img
-            src="https://friendkit.cssninja.io/assets/img/avatars/rolf.jpg"
-            data-demo-src="assets/img/avatars/rolf.jpg"
-            data-user-popover="13"
-            alt=""
-          />
-          <div className="page-meta">
-            <span>Rolf Krupp</span>
-            <span>Berlin</span>
-          </div>
-          <div className="add-friend add-transition">
-            <UserPlus />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
