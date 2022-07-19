@@ -1,18 +1,29 @@
 import { useEffect, useState } from "react";
 import ContentLoader from "react-content-loader";
-import { MoreVertical, Settings, Trash2, UserPlus, Users } from "react-feather";
+import {
+  CheckCircle,
+  Delete,
+  MoreVertical,
+  Settings,
+  Trash,
+  Trash2,
+  UserPlus,
+  Users,
+} from "react-feather";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useNavigate } from "react-router";
+import { toast, ToastContainer } from "react-toastify";
 import * as API from "../../../../api/index";
-export default function SuggestedFriendsWidget({ setIsLogin }) {
+export default function ViewFriend({ setIsLogin }) {
   const [activeDropDown, setActiveDropDown] = useState(false);
   const [suggestFrindList, setSuggestFrindList] = useState([]);
   let navigate = useNavigate();
+
   // ? suggest frind list
   const suggestFriendList = async () => {
     const header = localStorage.getItem("__tokenCode");
     try {
-      const response = await API.suggestFriend(
+      const response = await API.freind_listing(
         localStorage.getItem("__userId"),
         header
       );
@@ -25,6 +36,31 @@ export default function SuggestedFriendsWidget({ setIsLogin }) {
       }
     } catch (error) {}
   };
+  // ? REQUEST ACCEPTS
+  const friendAccepts = async (friendCode) => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const reqObj = {
+        friendCode: friendCode,
+      };
+      const response = await API.freind_request_accepts(reqObj, header);
+      console.log("response", response);
+      if (response.data.success === 1) {
+        suggestFriendList();
+        toast(response.data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          type: "success",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {}
+  };
+
   // ? FREIND REQUEST API
   const freindRequest = async (userCode) => {
     const header = localStorage.getItem("__tokenCode");
@@ -49,7 +85,7 @@ export default function SuggestedFriendsWidget({ setIsLogin }) {
   return (
     <div className="card">
       <div className="card-heading is-bordered">
-        <h4>Suggested Friends</h4>
+        <h4>Friends list</h4>
         <div
           className={`dropdown is-spaced is-right dropdown-trigger ${
             activeDropDown ? "is-active" : ""
@@ -103,7 +139,10 @@ export default function SuggestedFriendsWidget({ setIsLogin }) {
       </div>
       <div className="card-body no-padding suggestlist">
         {suggestFrindList.map((item, index) => (
-          <div className="add-friend-block transition-block" key={index}>
+          <div
+            className="add-friend-block transition-block userList"
+            key={index}
+          >
             <img
               src={
                 item.image === ""
@@ -115,17 +154,27 @@ export default function SuggestedFriendsWidget({ setIsLogin }) {
             <div className="page-meta">
               <span className="suggestFrindName">
                 {item.firstName} {item.lastName}
+                Sankar Bera
               </span>
             </div>
-            <div
-              className="add-friend add-transition"
-              onClick={() => freindRequest(item.userCode)}
-            >
-              <UserPlus />
+            <div className="add-transition">
+              <span
+                className="mr-2 acceptsIcon"
+                onClick={() => friendAccepts(item.friendCode)}
+              >
+                <CheckCircle />
+              </span>
+              <span
+                className="deleteIcon"
+                // onClick={() => freindRequest(item.userCode)}
+              >
+                <Trash />
+              </span>
             </div>
           </div>
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 }

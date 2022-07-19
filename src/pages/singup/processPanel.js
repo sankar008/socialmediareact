@@ -478,12 +478,12 @@ const ThirdPanel = (props) => {
   const imageUploadingSubmit = async () => {
     try {
       const reqObj = {
-        _id: localStorage.getItem("__userId"),
+        userCode: localStorage.getItem("__userId"),
         image: imageData,
       };
       const response = await API.user_updated(reqObj);
       console.log("response", response);
-      if (response.status === 200) {
+      if (response.data.success === 1) {
         props.setStage(props.stage + 1);
       }
     } catch (error) {}

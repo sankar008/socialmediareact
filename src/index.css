@@ -244,3 +244,15 @@
 .suggestlist::-webkit-scrollbar {
   width: 5px;
 }
+.acceptsIcon {
+  color: #2db90a;
+}
+.deleteIcon {
+  color: #e74c3c;
+}
+.userList {
+  justify-content: space-between !important;
+}
+.add-transition span {
+  cursor: pointer;
+}

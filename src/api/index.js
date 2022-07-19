@@ -212,3 +212,30 @@ export const freind_request = async (data, header) => {
     return e.response;
   }
 };
+
+// ? FREIND LISTING
+export const freind_listing = async (data, header) => {
+  try {
+    const url = c.FREINDS + "/get-request/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? FREIND REQUEST ACCEPTS
+
+export const freind_request_accepts = async (data, header) => {
+  try {
+    const url = c.FREINDS + "/accept";
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

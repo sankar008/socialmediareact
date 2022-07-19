@@ -7,6 +7,7 @@ import NewJobWidget from "../components/partials/misc/widgets/new-job-widget";
 import RecommendedPagesWidget from "../components/partials/misc/widgets/recommended-pages-widget";
 import StoriesWidget from "../components/partials/misc/widgets/stories-widget";
 import SuggestedFriendsWidget from "../components/partials/misc/widgets/suggested-friends-widget";
+import ViewFriend from "../components/partials/misc/widgets/viewFriend";
 import WeatherWidget from "../components/partials/misc/widgets/weather-widget";
 import ExplorerMenu from "../components/partials/navigation/explorer-menu/explorer-menu";
 import ComposeCard from "../components/partials/pages/feed/compose-card";
@@ -38,6 +39,7 @@ export default function Feeds({ setIsLogin }) {
         <div className="columns">
           <div className="column is-3 is-hidden-mobile">
             <WeatherWidget />
+            <ViewFriend />
             <RecommendedPagesWidget />
             <FakeAddWidget />
             <LatestActivityWidget />
