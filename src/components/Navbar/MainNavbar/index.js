@@ -88,7 +88,7 @@ const BasicNavbar = (props) => {
               </Link>
             </div>
             <div class="navbar-item">
-              <Link to="/">
+              <Link to="/friend">
                 <span>Friends</span>
               </Link>
             </div>

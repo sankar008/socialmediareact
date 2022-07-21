@@ -14,9 +14,11 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
 import * as API from "../../../../api/index";
-export default function ViewFriend({ setIsLogin }) {
+export default function ViewFriend(props) {
+  const { suggestFrindList, setSuggestFrindList, setIsLogin } = props;
+
   const [activeDropDown, setActiveDropDown] = useState(false);
-  const [suggestFrindList, setSuggestFrindList] = useState([]);
+
   let navigate = useNavigate();
 
   // ? suggest frind list
@@ -85,7 +87,7 @@ export default function ViewFriend({ setIsLogin }) {
   return (
     <div className="card">
       <div className="card-heading is-bordered">
-        <h4>Friends list</h4>
+        <h4>Friends Request</h4>
         <div
           className={`dropdown is-spaced is-right dropdown-trigger ${
             activeDropDown ? "is-active" : ""

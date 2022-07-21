@@ -6,6 +6,7 @@ import SignUp from "../../pages/singup";
 import ForgotPassword from "../../pages/forgotPassword";
 import Groups from "../../pages/groups";
 import { MainNavbar } from "../Navbar/MainNavbar";
+import FriendList from "../../pages/friend/friendList";
 
 const BasicRoutes = () => {
   const [isLogin, setIsLogin] = useState(
@@ -38,6 +39,12 @@ const BasicRoutes = () => {
                 <Route
                   path="groups"
                   element={<Groups isLogin={isLogin} setIsLogin={setIsLogin} />}
+                />
+                <Route
+                  path="friend"
+                  element={
+                    <FriendList isLogin={isLogin} setIsLogin={setIsLogin} />
+                  }
                 />
               </Routes>
             </div>

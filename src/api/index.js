@@ -239,3 +239,16 @@ export const freind_request_accepts = async (data, header) => {
     return e.response;
   }
 };
+
+// ? ALL FREIND REQUEST
+export const freind_listing_all = async (data, header) => {
+  try {
+    const url = c.FREINDS + "/" + data;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

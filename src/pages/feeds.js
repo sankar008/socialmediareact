@@ -31,7 +31,8 @@ export default function Feeds({ setIsLogin }) {
 
   const [messageOverlay, setMessageOverlay] = useState(false);
   const [exploreOverlay, setExploreOverlay] = useState(false);
-
+  const [suggestFrindList, setSuggestFrindList] = useState([]);
+  console.log("suggestFrindList", suggestFrindList);
   return (
     <>
       <div className={`app-overlay ${appOverlay ? "is-active" : ""}`}></div>
@@ -39,7 +40,11 @@ export default function Feeds({ setIsLogin }) {
         <div className="columns">
           <div className="column is-3 is-hidden-mobile">
             <WeatherWidget />
-            <ViewFriend />
+            <ViewFriend
+              setSuggestFrindList={setSuggestFrindList}
+              suggestFrindList={suggestFrindList}
+            />
+
             <RecommendedPagesWidget />
             <FakeAddWidget />
             <LatestActivityWidget />

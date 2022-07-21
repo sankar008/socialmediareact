@@ -24,7 +24,7 @@ const Groups = ({ setIsLogin }) => {
   const [userDetails, setUserDetails] = useState([]);
   const [myGroups, setmyGroups] = useState([]);
   const [isGroups, setIsGroups] = useState(0);
-
+  console.log("formData", formData);
   let navigate = useNavigate();
   // ? image uploading
   const imageUploading = (e) => {
@@ -61,6 +61,7 @@ const Groups = ({ setIsLogin }) => {
           groupsListing();
           setFormData("");
           setImageData("");
+          groupsListingbyId();
         } else if (response.data.success === 2) {
           localStorage.removeItem("isLoginCheck");
           setIsLogin(localStorage.removeItem("isLoginCheck"));
@@ -82,6 +83,7 @@ const Groups = ({ setIsLogin }) => {
         const response = await API.groups_create(reqObj, header);
         console.log("response", response);
         if (response.data.success === 1) {
+          groupsListingbyId();
           setIsActive(false);
           groupsListing();
           setFormData("");
@@ -100,7 +102,6 @@ const Groups = ({ setIsLogin }) => {
     const header = localStorage.getItem("__tokenCode");
     try {
       const response = await API.groups_showing(header);
-      console.log("responseList", response);
       setGroupsList(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
@@ -130,8 +131,6 @@ const Groups = ({ setIsLogin }) => {
         header,
         localStorage.getItem("__userId")
       );
-      console.log("responseListById", response);
-      setFormData(response.data.data);
       setmyGroups(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
@@ -467,7 +466,7 @@ const Groups = ({ setIsLogin }) => {
                     onClick={
                       isActive === 2 ? () => groupsCreate(2) : groupsCreate
                     }
-                    disabled={btnDesabel}
+                    //disabled={btnDesabel}
                   >
                     Create
                   </button>
