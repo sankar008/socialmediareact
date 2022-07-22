@@ -252,3 +252,29 @@ export const freind_listing_all = async (data, header) => {
     return e.response;
   }
 };
+
+// ? FEED POST PUBLISH
+export const feed_post_publish = async (data, header) => {
+  try {
+    const url = c.POST;
+    const res = await axios.post(url, data, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};
+
+// ? ALL FEED POST SHOWING
+export const all_feedPostShow = async (header) => {
+  try {
+    const url = c.POST;
+    const res = await axios.get(url, {
+      headers: JSON.parse(header),
+    });
+    return res;
+  } catch (e) {
+    return e.response;
+  }
+};

@@ -11,9 +11,10 @@ import {
   Link2,
 } from "react-feather";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function FeedPost1(props) {
-  const {shareOverlay, setShareOverlay} = props;
+  const { shareOverlay, setShareOverlay, feedPost } = props;
   const [showComment, setShowComment] = useState(false);
 
   return (
@@ -25,15 +26,16 @@ export default function FeedPost1(props) {
           {/* User meta */}
           <div className="user-block">
             <div className="image">
-              <img
-                src="https://img.icons8.com/color/344/person-male.png"
-                data-demo-src="assets/img/avatars/dan.jpg"
-                data-user-popover="1"
-                alt=""
-              />
+              <img src={feedPost.postBy.image} alt="" />
             </div>
-            <div className="user-info">
-              <a href="#">Dan Walker</a>
+            <div class="media-content ml-2">
+              <h3 class="userName">
+                <Link to="#">
+                  {feedPost.postBy.firstName}
+                  {""}
+                  <span className="ml-2">{feedPost.postBy.lastName}</span>
+                </Link>
+              </h3>
               <span className="time">July 26 2018, 01:03pm</span>
             </div>
           </div>
@@ -48,6 +50,7 @@ export default function FeedPost1(props) {
           {/* Post body text */}
           <div className="post-text">
             <p>
+              {feedPost.details}
               Yesterday with
               <a href="#">@Karen Miller</a> and
               <a href="#">@Marvin Stemperd</a> at the
@@ -57,25 +60,14 @@ export default function FeedPost1(props) {
           </div>
           {/* Featured image */}
           <div className="post-image">
-            <a
-              data-fancybox="post1"
-              data-lightbox-type="comments"
-              data-thumb="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
-              href="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
-              data-demo-href="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
-            >
-              <img
-                src="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
-                data-demo-src="https://friendkit.cssninja.io/assets/img/demo/unsplash/1.jpg"
-                alt=""
-              />
-            </a>
+            <Link to="#">
+              <img src={feedPost.image} alt="" />
+            </Link>
             {/* Action buttons */}
             {/* /partials/pages/feed/buttons/feed-post-actions.html */}
             <FeedPostActions
               showComment={showComment}
               setShowComment={setShowComment}
-
               shareOverlay={shareOverlay}
               setShareOverlay={setShareOverlay}
             />

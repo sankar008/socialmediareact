@@ -1,5 +1,18 @@
 import { useState } from "react";
-import { Calendar, Camera, ChevronDown, Globe, Lock, MapPin, Plus, Search, Smile, User, Users, X } from "react-feather";
+import {
+  Calendar,
+  Camera,
+  ChevronDown,
+  Globe,
+  Lock,
+  MapPin,
+  Plus,
+  Search,
+  Smile,
+  User,
+  Users,
+  X,
+} from "react-feather";
 import OutsideClickHandler from "react-outside-click-handler";
 
 export default function AlbumsModal(props) {
@@ -75,17 +88,19 @@ export default function AlbumsModal(props) {
                   <h4>Change the date</h4>
                   <button
                     type="button"
-                    className={`button is-solid dark-grey-button icon-button ${!toggleDate ? '' : 'is-hidden'}`}
-                    onClick={() => setToggleDate (!toggleDate)}
+                    className={`button is-solid dark-grey-button icon-button ${
+                      !toggleDate ? "" : "is-hidden"
+                    }`}
+                    onClick={() => setToggleDate(!toggleDate)}
                   >
                     <Plus />
                   </button>
                 </div>
 
-                <p className={`${!toggleDate ? '' : 'is-hidden'}`}>
+                <p className={`${!toggleDate ? "" : "is-hidden"}`}>
                   Set a date for your album. You can always change it later.
                 </p>
-                <div className={`control ${toggleDate ? '' : 'is-hidden'}`}>
+                <div className={`control ${toggleDate ? "" : "is-hidden"}`}>
                   <input
                     id="album-datepicker"
                     type="date"
@@ -103,18 +118,26 @@ export default function AlbumsModal(props) {
                   <h4>Tag friends in this album</h4>
                   <button
                     type="button"
-                    className={`button is-solid dark-grey-button icon-button ${!toggleTagFriendsOption ? '' : 'is-hidden'}`}
-                    onClick={() => setToggleTagFriendsOption (!toggleTagFriendsOption)}
+                    className={`button is-solid dark-grey-button icon-button ${
+                      !toggleTagFriendsOption ? "" : "is-hidden"
+                    }`}
+                    onClick={() =>
+                      setToggleTagFriendsOption(!toggleTagFriendsOption)
+                    }
                   >
                     <Plus />
                   </button>
                 </div>
 
-                <p className={`${!toggleTagFriendsOption ? '' : 'is-hidden'}`}>
+                <p className={`${!toggleTagFriendsOption ? "" : "is-hidden"}`}>
                   Tag friends in this album. Tagged friends can see photos they
                   are tagged in.
                 </p>
-                <div className={`field is-autocomplete ${toggleTagFriendsOption ? '' : 'is-hidden'}`}>
+                <div
+                  className={`field is-autocomplete ${
+                    toggleTagFriendsOption ? "" : "is-hidden"
+                  }`}
+                >
                   <div className="control">
                     <input
                       id="create-album-friends-autocpl"
@@ -195,7 +218,6 @@ export default function AlbumsModal(props) {
                 <div className="columns is-multiline" id="previews">
                   <div id="template" className="column is-4 is-template">
                     <div className="preview-box">
-                      
                       <div className="remove-button" data-dz-remove>
                         <X />
                       </div>
@@ -267,16 +289,24 @@ export default function AlbumsModal(props) {
             </div>
           </div>
           <div className="card-footer">
-            <div className={`dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger ${toggleShareOption ? 'is-active' : ''}`}>
-            <OutsideClickHandler
-                      onOutsideClick={() => {
-                        setToggleShareOption(false);
-                      }}
-                    >
-                <button className="button" aria-haspopup="true" onClick={() => setToggleShareOption(!toggleShareOption)}>
+            <div
+              className={`dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger ${
+                toggleShareOption ? "is-active" : ""
+              }`}
+            >
+              <OutsideClickHandler
+                onOutsideClick={() => {
+                  setToggleShareOption(false);
+                }}
+              >
+                <button
+                  className="button"
+                  aria-haspopup="true"
+                  onClick={() => setToggleShareOption(!toggleShareOption)}
+                >
                   <Smile className="main-icon" />
                   <span>Friends</span>
-                  <ChevronDown className="caret"/>
+                  <ChevronDown className="caret" />
                 </button>
               </OutsideClickHandler>
               <div className="dropdown-menu" role="menu">

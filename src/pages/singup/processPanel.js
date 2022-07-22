@@ -466,7 +466,6 @@ const ThirdPanel = (props) => {
   // ? image uploading
   const imageUploading = (e) => {
     let images = e.target.files[0];
-    console.log(images);
     var reader = new FileReader();
     reader.onloadend = function () {
       setImageData(reader.result);
@@ -635,7 +634,7 @@ const FourthPanel = (props) => {
 
     try {
       const reqObj = {
-        _id: localStorage.getItem("__userId"),
+        userCode: localStorage.getItem("__userId"),
         mobileno: formData.mobileno,
         password: formData.password,
       };

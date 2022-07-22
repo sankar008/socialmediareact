@@ -256,6 +256,17 @@
 .add-transition span {
   cursor: pointer;
 }
-.dnsdjk{
-  
+.imagesPrivew img {
+  width: 100% !important;
+  border-radius: 0 !important;
+  height: 200px !important;
+  object-fit: contain;
+}
+.imagesPrivew {
+  text-align: end;
+  border: 1px solid #ebebeb;
+  padding: 15px;
+}
+.dripicons {
+  cursor: pointer;
 }

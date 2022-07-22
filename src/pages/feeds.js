@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatWrapper from "../components/partials/chat/chat-wrapper";
 import BirthdayWidget from "../components/partials/misc/widgets/birthday-widget";
 import FakeAddWidget from "../components/partials/misc/widgets/fake-add-widget";
@@ -22,7 +22,7 @@ import FeedPost3 from "../components/partials/pages/feed/posts/feed-post3";
 import FeedPost4 from "../components/partials/pages/feed/posts/feed-post4";
 import FeedPost5 from "../components/partials/pages/feed/posts/feed-post5";
 import FeedPost6 from "../components/partials/pages/feed/posts/feed-post6";
-
+import * as API from "../api/index";
 export default function Feeds({ setIsLogin }) {
   const [appOverlay, setAppOverlay] = useState(false);
   const [albumOverlay, setAlbumOverlay] = useState(false);
@@ -32,7 +32,24 @@ export default function Feeds({ setIsLogin }) {
   const [messageOverlay, setMessageOverlay] = useState(false);
   const [exploreOverlay, setExploreOverlay] = useState(false);
   const [suggestFrindList, setSuggestFrindList] = useState([]);
+
+  const [feedPostView, setFeedPostView] = useState([]);
   console.log("suggestFrindList", suggestFrindList);
+
+  // ?>>>>>>>>> FEED POST SHOWING
+
+  const feedAllPostShowing = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.all_feedPostShow(header);
+      console.log("response", response);
+      setFeedPostView(response.data.data);
+    } catch (error) {}
+  };
+  useEffect(() => {
+    feedAllPostShowing();
+  }, []);
+
   return (
     <>
       <div className={`app-overlay ${appOverlay ? "is-active" : ""}`}></div>
@@ -56,11 +73,15 @@ export default function Feeds({ setIsLogin }) {
               setAlbumOverlay={setAlbumOverlay}
               setVideoOverlay={setVideoOverlay}
             />
+            {feedPostView.map((item, index) => (
+              <FeedPost1
+                key={index}
+                shareOverlay={shareOverlay}
+                setShareOverlay={setShareOverlay}
+                feedPost={item}
+              />
+            ))}
 
-            <FeedPost1
-              shareOverlay={shareOverlay}
-              setShareOverlay={setShareOverlay}
-            />
             <FeedPost2
               shareOverlay={shareOverlay}
               setShareOverlay={setShareOverlay}

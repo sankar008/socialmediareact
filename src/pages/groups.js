@@ -102,6 +102,7 @@ const Groups = ({ setIsLogin }) => {
     const header = localStorage.getItem("__tokenCode");
     try {
       const response = await API.groups_showing(header);
+      console.log("response", response);
       setGroupsList(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
@@ -156,6 +157,7 @@ const Groups = ({ setIsLogin }) => {
 
   // ? new groups
   const modalOpen = async (edit, groupCode) => {
+    setFormData("");
     setGroupsCode(groupCode);
     const header = localStorage.getItem("__tokenCode");
     setIsActive(true);

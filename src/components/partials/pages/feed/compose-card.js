@@ -20,14 +20,19 @@ import {
   X,
 } from "react-feather";
 import OutsideClickHandler from "react-outside-click-handler";
-
+import * as API from "../../../../api/index";
+const initialData = {
+  details: "",
+  image: "",
+};
 export default function ComposeCard(props) {
   const [isActive, setIsActive] = useState(false);
   const [extended, setExtended] = useState(false);
   const [autoComp, setAutoComp] = useState(0);
-
+  const [formData, setFormData] = useState(initialData);
   const [activeDropDown1, setActiveDropDown1] = useState(false);
   const [activeDropDown2, setActiveDropDown2] = useState(false);
+  const [imageData, setImageData] = useState("");
 
   const openModal = () => {
     setIsActive(true);
@@ -48,6 +53,41 @@ export default function ComposeCard(props) {
     props.setVideoOverlay(true);
   };
 
+  // ? inputHendaler
+  const inputHendaler = (e) => {
+    const { name, value } = e.target;
+    if (e.target.name === "image") {
+      let images = e.target.files[0];
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        setImageData(reader.result);
+      };
+      reader.readAsDataURL(images);
+    }
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // ? CREATE POST
+  const createFeedPost = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const reqObj = {
+        details: formData.details,
+        image: imageData,
+        userCode: localStorage.getItem("__userId"),
+      };
+      console.log("reqObj", reqObj);
+      const response = await API.feed_post_publish(reqObj, header);
+      console.log("response", response);
+      if (response.data.success === 1) {
+        closeModal();
+      }
+    } catch (error) {}
+  };
+
+  const imageHide = () => {
+    setImageData(false);
+  };
   return (
     <div
       id="compose-card"
@@ -63,7 +103,7 @@ export default function ComposeCard(props) {
                 <span className="icon is-small">
                   <Edit3 />
                 </span>
-                <span>Publish</span>
+                <span>Publish </span>
               </a>
             </li>
             <li onClick={openAlbumModal}>
@@ -108,9 +148,25 @@ export default function ComposeCard(props) {
                   rows="3"
                   placeholder="Write something about you..."
                   onFocus={openModal}
+                  name="details"
+                  value={formData.details}
+                  onChange={inputHendaler}
                 ></textarea>
               </div>
             </div>
+            {imageData ? (
+              <div className="imagesPrivew">
+                <span
+                  onClick={imageHide}
+                  className="icon dripicons dripicons-cross"
+                >
+                  <X />
+                </span>
+                <img src={imageData} alt="" />
+              </div>
+            ) : (
+              ""
+            )}
 
             <div id="feed-upload" className="feed-upload"></div>
 
@@ -464,12 +520,13 @@ export default function ComposeCard(props) {
                 <div className="compose-option is-centered">
                   <Camera />
                   <span>Photo/Video</span>
-                  <input
-                    id="feed-upload-input-1"
-                    type="file"
-                    accept=".png, .jpg, .jpeg"
-                    onChange="readURL(this)"
-                  />
+                  <form encType="multipart/form-data">
+                    <input
+                      id="feed-upload-input-1"
+                      type="file"
+                      aria-label="File browser example"
+                    />
+                  </form>
                 </div>
               </div>
               {/* Mood action */}
@@ -554,9 +611,11 @@ export default function ComposeCard(props) {
                 id="feed-upload-input-2"
                 type="file"
                 accept=".png, .jpg, .jpeg"
-                onChange="readURL(this)"
+                onChange={inputHendaler}
+                name="image"
               />
             </div>
+
             {/* Mood action */}
             <div
               id="show-activities"
@@ -855,6 +914,8 @@ export default function ComposeCard(props) {
               id="publish-button"
               type="button"
               className="button is-solid accent-button is-fullwidth"
+              onClick={createFeedPost}
+              disabled={!formData.details}
             >
               Publish
             </button>
