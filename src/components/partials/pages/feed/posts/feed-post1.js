@@ -9,6 +9,7 @@ import {
   X,
   MessageCircle,
   Link2,
+  Heart,
 } from "react-feather";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -16,6 +17,18 @@ import { Link } from "react-router-dom";
 export default function FeedPost1(props) {
   const { shareOverlay, setShareOverlay, feedPost } = props;
   const [showComment, setShowComment] = useState(false);
+  const [comment, setComment] = useState("");
+  console.log("comment", comment);
+  // ? COMMENT API POST
+  const comment_post = async () => {
+    try {
+      const reqObj = {
+        userCode: localStorage.getItem("__userId"),
+        postCode: "566",
+        comment: comment,
+      };
+    } catch (error) {}
+  };
 
   return (
     <div id="feed-post-1" className="card is-post">
@@ -107,7 +120,7 @@ export default function FeedPost1(props) {
           {/* Post statistics */}
           <div className="social-count">
             <div className="likes-count">
-              <heart />
+              <Heart />
               <span>27</span>
             </div>
             <div className="shares-count">
@@ -440,6 +453,7 @@ export default function FeedPost1(props) {
                     className="textarea comment-textarea"
                     rows="5"
                     placeholder="Write a comment..."
+                    onChange={(e) => setComment(e.target.value)}
                   ></textarea>
                 </p>
               </div>
