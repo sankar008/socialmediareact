@@ -32,12 +32,22 @@ export default function Feeds({ setIsLogin }) {
   const [messageOverlay, setMessageOverlay] = useState(false);
   const [exploreOverlay, setExploreOverlay] = useState(false);
   const [suggestFrindList, setSuggestFrindList] = useState([]);
-
+  const [userDetails, setUserDetails] = useState([]);
   const [feedPostView, setFeedPostView] = useState([]);
-  console.log("suggestFrindList", suggestFrindList);
+
+  // ? USER DETAILS BY ID
+  const userDetailsByid = async () => {
+    const header = localStorage.getItem("__tokenCode");
+    try {
+      const response = await API.user_details(
+        header,
+        localStorage.getItem("__userId")
+      );
+      setUserDetails(response.data.data);
+    } catch (error) {}
+  };
 
   // ?>>>>>>>>> FEED POST SHOWING
-
   const feedAllPostShowing = async () => {
     const header = localStorage.getItem("__tokenCode");
     try {
@@ -48,6 +58,7 @@ export default function Feeds({ setIsLogin }) {
   };
   useEffect(() => {
     feedAllPostShowing();
+    userDetailsByid();
   }, []);
 
   return (
@@ -57,10 +68,14 @@ export default function Feeds({ setIsLogin }) {
         <div className="columns">
           <div className="column is-3 is-hidden-mobile">
             <WeatherWidget />
-            <ViewFriend
-              setSuggestFrindList={setSuggestFrindList}
-              suggestFrindList={suggestFrindList}
-            />
+            {suggestFrindList.length === 0 ? (
+              ""
+            ) : (
+              <ViewFriend
+                setSuggestFrindList={setSuggestFrindList}
+                suggestFrindList={suggestFrindList}
+              />
+            )}
 
             <RecommendedPagesWidget />
             <FakeAddWidget />
@@ -72,6 +87,7 @@ export default function Feeds({ setIsLogin }) {
               setAppOverlay={setAppOverlay}
               setAlbumOverlay={setAlbumOverlay}
               setVideoOverlay={setVideoOverlay}
+              userDetails={userDetails}
             />
             {feedPostView.map((item, index) => (
               <FeedPost1

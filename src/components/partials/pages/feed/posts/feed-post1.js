@@ -49,14 +49,7 @@ export default function FeedPost1(props) {
         <div className="card-body">
           {/* Post body text */}
           <div className="post-text">
-            <p>
-              {feedPost.details}
-              Yesterday with
-              <a href="#">@Karen Miller</a> and
-              <a href="#">@Marvin Stemperd</a> at the
-              <a href="#">#Rock'n'Rolla</a> concert in LA. Was totally
-              fantastic! People were really excited about this one!
-            </p>
+            <p>{feedPost.details}</p>
           </div>
           {/* Featured image */}
           <div className="post-image">

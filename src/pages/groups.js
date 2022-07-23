@@ -53,13 +53,11 @@ const Groups = ({ setIsLogin }) => {
           groupName: formData.groupName,
           groupDetails: formData.groupDetails,
         };
-        console.log("reqObj", reqObj);
         const response = await API.groups_Update(reqObj, header);
-        console.log("responseUpdate", response);
         if (response.data.success === 1) {
           setIsActive(false);
           groupsListing();
-          setFormData("");
+          setFormData(initialData);
           setImageData("");
           groupsListingbyId();
         } else if (response.data.success === 2) {
@@ -79,14 +77,12 @@ const Groups = ({ setIsLogin }) => {
           groupDetails: formData.groupDetails,
           catCode: formData.catCode,
         };
-        console.log("reqObj", reqObj);
         const response = await API.groups_create(reqObj, header);
-        console.log("response", response);
         if (response.data.success === 1) {
           groupsListingbyId();
           setIsActive(false);
           groupsListing();
-          setFormData("");
+          setFormData(initialData);
           setImageData("");
         } else if (response.data.success === 2) {
           localStorage.removeItem("isLoginCheck");
@@ -102,7 +98,6 @@ const Groups = ({ setIsLogin }) => {
     const header = localStorage.getItem("__tokenCode");
     try {
       const response = await API.groups_showing(header);
-      console.log("response", response);
       setGroupsList(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
@@ -147,7 +142,6 @@ const Groups = ({ setIsLogin }) => {
         header,
         localStorage.getItem("__userId")
       );
-      console.log("userDetails", response);
       setUserDetails(response.data.data);
       if (response.data.success === 1) {
         setLoader(false);
@@ -165,7 +159,6 @@ const Groups = ({ setIsLogin }) => {
       try {
         const response = await API.groups_showByid_edit(groupCode, header);
         setFormData(response.data.data);
-        console.log("response", response);
       } catch (error) {}
     }
     setIsActive(edit);
@@ -179,9 +172,7 @@ const Groups = ({ setIsLogin }) => {
         groupCode: groupCode,
         userCode: localStorage.getItem("__userId"),
       };
-      console.log("reQObj", reQObj);
       const response = await API.groups_join(reQObj, header);
-      console.log("response", response);
       if (response.data.success === 1) {
         userDetailsByid();
         toast(response.data.msg, {
@@ -400,7 +391,13 @@ const Groups = ({ setIsLogin }) => {
                       <img
                         id="profilePic"
                         class="pic"
-                        src={imageData ? imageData : groupsImg}
+                        src={
+                          isActive === 2
+                            ? formData.image
+                            : imageData
+                            ? imageData
+                            : groupsImg
+                        }
                       />
                       <form encType="multipart/form-data">
                         <input
@@ -468,7 +465,7 @@ const Groups = ({ setIsLogin }) => {
                     onClick={
                       isActive === 2 ? () => groupsCreate(2) : groupsCreate
                     }
-                    //disabled={btnDesabel}
+                    disabled={btnDesabel}
                   >
                     Create
                   </button>

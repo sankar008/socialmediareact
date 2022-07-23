@@ -15,7 +15,7 @@ const BasicRoutes = () => {
   const [appOverlay, setAppOverlay] = useState(false);
   const [messageOverlay, setMessageOverlay] = useState(false);
   const [exploreOverlay, setExploreOverlay] = useState(false);
-  console.log("isLogin", isLogin);
+
   return (
     <Router>
       {isLogin ? (

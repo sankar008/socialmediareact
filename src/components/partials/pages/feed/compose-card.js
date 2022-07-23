@@ -26,6 +26,8 @@ const initialData = {
   image: "",
 };
 export default function ComposeCard(props) {
+  const { userDetails } = props;
+
   const [isActive, setIsActive] = useState(false);
   const [extended, setExtended] = useState(false);
   const [autoComp, setAutoComp] = useState(0);
@@ -33,6 +35,7 @@ export default function ComposeCard(props) {
   const [activeDropDown1, setActiveDropDown1] = useState(false);
   const [activeDropDown2, setActiveDropDown2] = useState(false);
   const [imageData, setImageData] = useState("");
+  console.log("formData", formData);
 
   const openModal = () => {
     setIsActive(true);
@@ -76,10 +79,11 @@ export default function ComposeCard(props) {
         image: imageData,
         userCode: localStorage.getItem("__userId"),
       };
-      console.log("reqObj", reqObj);
       const response = await API.feed_post_publish(reqObj, header);
       console.log("response", response);
       if (response.data.success === 1) {
+        setFormData(initialData);
+        setImageData(false);
         closeModal();
       }
     } catch (error) {}
@@ -137,8 +141,11 @@ export default function ComposeCard(props) {
           <div className="compose">
             <div className="compose-form">
               <img
-                src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
-                data-demo-src="assets/img/avatars/jenna.png"
+                src={
+                  userDetails.image === ""
+                    ? "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-128.png"
+                    : userDetails.image
+                }
                 alt=""
               />
               <div className="control">

@@ -17,8 +17,6 @@ export const AccountDropdown = ({ setIsLogin, userDetails }) => {
     }
   };
 
-  console.log("navBar", userDetails);
-
   return (
     <div
       id="account-dropdown"
